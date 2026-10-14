@@ -1,0 +1,20 @@
+{
+    "name": "Redux.Template.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Burst",
+        "ThunderKit.Core",
+        "ksp2community.ksp2unitytools.editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

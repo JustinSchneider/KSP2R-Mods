@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9065a46703c44e8fabd263388eaeb6e7, type: 3}
+  m_Name: swinfo
+  m_EditorClassIdentifier: ksp2community.ksp2unitytools.editor::Ksp2UnityTools.Editor.Modding.Mod
+  id: TransferWindowRedux
+  name: Transfer Window Redux
+  author: Schneider21 (original by ABritInSpace)
+  description: In-game interplanetary transfer calculator, ported from Transfer Window.
+  version: 0.1.0
+  versionCheck: 
+  minKsp2Version: '*'
+  maxKsp2Version: '*'
+  source: 
+  allGroup: {fileID: 11400000, guid: cab71eaf841a5fa4ea3aeebad9fb41e2, type: 2}
+  partsGroup: {fileID: 11400000, guid: 8603ab2c27fc27048a708f3dd0d17798, type: 2}
+  missionsGroup: {fileID: 11400000, guid: f7a44dda40878184bbda8e7a3668613e, type: 2}
+  celestialBodiesGroup: {fileID: 11400000, guid: c6f43173529a9084db93c6c2ab398158, type: 2}
+  scienceExperimentGroup: {fileID: 11400000, guid: a42aca8f8d4dac049a69ec5fe79a3fd2, type: 2}
+  techNodeDataGroup: {fileID: 11400000, guid: 2c0d48cee45944446a7263f0dcd4d087, type: 2}
+  addressablesProfileId: a5e9d02235cdfe0468c2092a3e3f26ec
+  dependencies:
+  - id: SpaceWarp2
+    min: 2.0.0
+    max: '*'
+  incompatibilities: []
