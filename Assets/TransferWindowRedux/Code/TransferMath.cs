@@ -332,17 +332,6 @@ namespace TransferWindowRedux
             return result;
         }
 
-        public static string Describe(TransferProblem problem) => problem switch
-        {
-            TransferProblem.NoVessel => "No active vessel",
-            TransferProblem.NoTarget => "Pick a destination above, or target a planet or moon",
-            TransferProblem.TargetNotBody => "Target must be a planet or moon",
-            TransferProblem.TargetIsStar => "Can't transfer to a star",
-            TransferProblem.AlreadyInTargetSoi => "Already inside the target's sphere of influence",
-            TransferProblem.TargetNotReachable => "Target doesn't orbit a body on your path",
-            _ => "",
-        };
-
         /// <summary>Radius of a low circular orbit just clear of the body's surface or atmosphere.</summary>
         public static double ParkingRadius(CelestialBodyComponent body, double margin) =>
             body.radius + (body.hasAtmosphere ? body.atmosphereDepth : 0) + margin;

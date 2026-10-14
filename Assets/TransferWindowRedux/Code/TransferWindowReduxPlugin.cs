@@ -22,7 +22,6 @@ namespace TransferWindowRedux
     /// </summary>
     public class TransferWindowReduxPlugin : KerbalMod
     {
-        public const string ModName = "Transfer Window";
         internal const string AppbarButtonId = "BTN-TransferWindowRedux";
 
         // Recalculating every frame is wasteful; a few times a second keeps the numbers live.
@@ -42,7 +41,7 @@ namespace TransferWindowRedux
         private ConfigValue<double> _orbitMarginKm;
         private ConfigValue<double> _returnPeriapsisKm;
         private ConfigValue<double> _warpLeadSeconds;
-        private ConfigValue<float> _windowX, _windowY;
+        private ConfigValue<float> _windowX, _windowY, _windowWidth, _windowHeight;
 
         public override void OnPreInitialized()
         {
@@ -53,15 +52,15 @@ namespace TransferWindowRedux
         {
             BindConfig();
 
-            _ui = new TransferWindowUI(_icon, new Vector2(_windowX.Value, _windowY.Value));
+            _ui = new TransferWindowUI(_icon, new Rect(_windowX.Value, _windowY.Value, _windowWidth.Value, _windowHeight.Value));
             _ui.CloseClicked += () => SetOpen(false);
             _ui.WarpClicked += OnWarpClicked;
             _ui.CreateNodeClicked += OnCreateNodeClicked;
             _ui.TargetSelected += OnTargetSelected;
-            _ui.Moved += OnWindowMoved;
+            _ui.LayoutChanged += OnWindowLayoutChanged;
             _ui.Visible = false;
 
-            Appbar.RegisterAppButton(ModName, AppbarButtonId, _icon, SetOpen);
+            Appbar.RegisterAppButton(Loc.T("Name"), AppbarButtonId, _icon, SetOpen);
         }
 
         private void BindConfig()
@@ -74,6 +73,8 @@ namespace TransferWindowRedux
                 "How long before the window or node 'Warp to window' stops. Long waits stop up to 1% earlier, capped at an hour", null));
             _windowX = new ConfigValue<float>(SWConfiguration.Bind("Window", "X", -1f, "Window position; -1 uses the default", null));
             _windowY = new ConfigValue<float>(SWConfiguration.Bind("Window", "Y", -1f, "Window position; -1 uses the default", null));
+            _windowWidth = new ConfigValue<float>(SWConfiguration.Bind("Window", "Width", -1f, "Window size; -1 uses the default", null));
+            _windowHeight = new ConfigValue<float>(SWConfiguration.Bind("Window", "Height", -1f, "Window size; -1 fits the content", null));
         }
 
         private void Update()
@@ -84,7 +85,7 @@ namespace TransferWindowRedux
             _ui.Visible = _open && inFlight;
             if (!_ui.Visible || Time.unscaledTime < _nextRefresh) return;
             _nextRefresh = Time.unscaledTime + RefreshInterval;
-            _ui.CheckMoved();
+            _ui.CheckLayout();
 
             try
             {
@@ -99,12 +100,12 @@ namespace TransferWindowRedux
                 if (_info.Problem == TransferProblem.None)
                     _ui.ShowTransfer(_info, ut, Game.ViewController.TimeWarp.IsWarping, NodeButtonText(vessel));
                 else
-                    _ui.ShowProblem(TransferMath.Describe(_info.Problem));
+                    _ui.ShowProblem(Loc.T("Problem/" + _info.Problem));
             }
             catch (Exception e)
             {
                 _info = null;
-                _ui.ShowProblem("Couldn't calculate a transfer (see redux.log)");
+                _ui.ShowProblem(Loc.T("Problem/CalculationFailed"));
                 SWLogger.LogError($"Transfer calculation failed: {e}");
                 // Don't flood the log at the refresh rate.
                 _nextRefresh = Time.unscaledTime + 5f;
@@ -130,10 +131,12 @@ namespace TransferWindowRedux
             _nextRefresh = 0;
         }
 
-        private void OnWindowMoved(Vector2 position)
+        private void OnWindowLayoutChanged(Rect layout)
         {
-            _windowX.Value = position.x;
-            _windowY.Value = position.y;
+            _windowX.Value = layout.x;
+            _windowY.Value = layout.y;
+            _windowWidth.Value = layout.width;
+            _windowHeight.Value = layout.height;
             SWConfiguration.Save();
         }
 
@@ -170,8 +173,8 @@ namespace TransferWindowRedux
         private string NodeButtonText(VesselComponent vessel)
         {
             if (Time.unscaledTime < _nodeStatusUntil) return _nodeStatus;
-            if (Time.unscaledTime < _confirmReplaceUntil) return "Replace nodes?";
-            return ExistingNodes(vessel).Count > 0 ? "Replace node" : "Create node";
+            if (Time.unscaledTime < _confirmReplaceUntil) return Loc.T("Button/ConfirmReplace");
+            return Loc.T(ExistingNodes(vessel).Count > 0 ? "Button/ReplaceNode" : "Button/CreateNode");
         }
 
         private void ShowNodeStatus(string text)
@@ -219,7 +222,7 @@ namespace TransferWindowRedux
             if (patch == null)
             {
                 SWLogger.LogWarning($"No trajectory patch contains the burn time {burnUT:F0}; not creating a node");
-                ShowNodeStatus("Burn is past your path");
+                ShowNodeStatus(Loc.T("Status/BurnPastPath"));
                 yield break;
             }
 
@@ -237,7 +240,7 @@ namespace TransferWindowRedux
             catch (Exception e)
             {
                 SWLogger.LogError($"Couldn't create the maneuver node: {e}");
-                ShowNodeStatus("Node failed (see log)");
+                ShowNodeStatus(Loc.T("Status/NodeFailed"));
                 // AddNode stores the node before finishing it; don't leave a half-built one behind.
                 try { maneuvers.RemoveNodesFromVessel(vessel.GlobalId, new List<ManeuverNodeData> { node }); }
                 catch (Exception) { /* it was never added */ }

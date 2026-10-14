@@ -16,11 +16,11 @@ MonoBehaviour:
   name: Transfer Window Redux
   author: Schneider21 (original by ABritInSpace)
   description: In-game interplanetary transfer calculator, ported from Transfer Window.
-  version: 0.1.0
-  versionCheck: 
+  version: 1.0.0
+  versionCheck: https://raw.githubusercontent.com/JustinSchneider/KSP2R-Mods/main/Assets/TransferWindowRedux/swinfo.json
   minKsp2Version: '*'
   maxKsp2Version: '*'
-  source: 
+  source: https://github.com/JustinSchneider/KSP2R-Mods/tree/main/Assets/TransferWindowRedux
   allGroup: {fileID: 11400000, guid: cab71eaf841a5fa4ea3aeebad9fb41e2, type: 2}
   partsGroup: {fileID: 11400000, guid: 8603ab2c27fc27048a708f3dd0d17798, type: 2}
   missionsGroup: {fileID: 11400000, guid: f7a44dda40878184bbda8e7a3668613e, type: 2}

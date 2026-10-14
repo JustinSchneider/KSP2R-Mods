@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: ksp2community.ksp2unitytools.editor::Ksp2UnityTools.Editor.Modding.Mod
   id: AgencyHeritage
   name: Agency Heritage
-  author: Schneider21
-  description: Rebrand your agency as a recorded event, and look back over its brand eras and the blueprints saved in each.
+  author: Schneider
+  description: Rebrand your agency as a recorded event, and look back over its brand
+    eras and the blueprints saved in each.
   version: 0.1.0
   versionCheck: 
   minKsp2Version: '*'
   maxKsp2Version: '*'
-  source: 
+  source: https://github.com/JustinSchneider/KSP2R-Mods
   allGroup: {fileID: 11400000, guid: a4b00b5880d8a574a944a141c62f611c, type: 2}
   partsGroup: {fileID: 11400000, guid: 6aca5c9b91324be4988c97af68161609, type: 2}
   missionsGroup: {fileID: 11400000, guid: 041bbb63781b5a24090c898999c47269, type: 2}

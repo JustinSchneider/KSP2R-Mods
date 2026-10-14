@@ -1,0 +1,25 @@
+{
+  "spec": "2.0",
+  "mod_id": "TransferWindowRedux",
+  "name": "Transfer Window Redux",
+  "author": "Schneider21 (original by ABritInSpace)",
+  "description": "In-game interplanetary transfer calculator, ported from Transfer Window.",
+  "source": "https://github.com/JustinSchneider/KSP2R-Mods/tree/main/Assets/TransferWindowRedux",
+  "version": "1.0.0",
+  "version_check": "https://raw.githubusercontent.com/JustinSchneider/KSP2R-Mods/main/Assets/TransferWindowRedux/swinfo.json",
+  "ksp2_version": {
+    "min": "*",
+    "max": "*"
+  },
+  "dependencies": [
+    {
+      "id": "SpaceWarp2",
+      "version": {
+        "min": "2.0.0",
+        "max": "*"
+      }
+    }
+  ],
+  "conflicts": [],
+  "main_assembly": "TransferWindowRedux.dll"
+}

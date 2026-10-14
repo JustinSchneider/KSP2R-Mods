@@ -3,5 +3,6 @@
 *.asset text eol=lf
 *.meta text eol=lf
 *.asmdef text eol=lf
+*.csv text eol=lf
 *.png binary
 *.jpg binary

@@ -1,6 +1,9 @@
 {
   "name": "TransferWindowRedux",
   "rootNamespace": "TransferWindowRedux",
+  "references": [
+    "uitkforksp2.controls.Runtime"
+  ],
   "allowUnsafeCode": true,
   "overrideReferences": true,
   "precompiledReferences": [
