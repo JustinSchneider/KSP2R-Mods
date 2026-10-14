@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 (unreleased)
+## 1.0.0 (2026-10-14)
 
 First release: a port of ABritInSpace's [Transfer Window](https://github.com/ABritInSpace/TransferCalculator-KSP2) to KSP2 Redux.
 
