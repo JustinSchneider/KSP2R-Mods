@@ -15,4 +15,6 @@ A KSP2 Redux SDK Unity project holding all my mods. Each mod is in its own folde
 
 `Assets/Editor/TestingAssemblyStaging.cs` works around a Test-in-Editor hang. See the Transfer Window Redux README for details.
 
+`Assets/Editor/DeployZipFolder.cs` makes **Deploy To Zip File** put each mod in its own folder inside the zip (`<ModId>/swinfo.json`, …), so players can unzip straight into `mods\`. It rewrites the deploy staging paths from `Deploy/<ModId>` to `Deploy/<ModId>/<ModId>`, and reapplies whenever KSP2 Unity Tools regenerates the pipelines (also under **Tools → Put Deploy Zip Contents in a Mod Folder**). Don't keep `.gitkeep` files under a mod's `Copied/` folder: they end up in the zip, and Windows' built-in extractor fails on them.
+
 Each mod has its own license; see its folder.

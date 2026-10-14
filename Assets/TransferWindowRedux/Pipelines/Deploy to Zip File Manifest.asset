@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: ksp2community.ksp2unitytools.editor::Ksp2UnityTools.Editor.Modding.Thunderkit.CopyFolderDatum
   StagingPaths: []
   sourcePath: Assets\TransferWindowRedux/Copied
-  destinationPath: Deploy/TransferWindowRedux
+  destinationPath: Deploy/TransferWindowRedux/TransferWindowRedux
 --- !u!114 &-1849969631800498879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25,7 +25,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f22bb7fd1d3b56a48bc52f8e407901d6, type: 3}
-  m_Name: TransferWindowRedux - Deploy
+  m_Name: ManifestIdentity
   m_EditorClassIdentifier: ThunderKit.Core::ThunderKit.Core.Manifests.Datum.ManifestIdentity
   StagingPaths: []
   Author: Schneider21 (original by ABritInSpace)
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: AssemblyDefinitions
   m_EditorClassIdentifier: ThunderKit.Core::ThunderKit.Core.Manifests.Datums.AssemblyDefinitions
   StagingPaths:
-  - Deploy/TransferWindowRedux
+  - Deploy/TransferWindowRedux/TransferWindowRedux
   definitions:
   - {fileID: 5897886265953266890, guid: 24414e542c5d4c54fb7ec09b23f7b05e, type: 3}
 --- !u!114 &1427604607770605289
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Name: TextAssets
   m_EditorClassIdentifier: ksp2community.ksp2unitytools.editor::Ksp2UnityTools.Editor.Modding.Thunderkit.TextAssets
   StagingPaths:
-  - Deploy/TransferWindowRedux
+  - Deploy/TransferWindowRedux/TransferWindowRedux
   possibleFolders:
   - Assets\TransferWindowRedux
 --- !u!114 &6179233840712324022
@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Name: AddressablesGroupDatum
   m_EditorClassIdentifier: ksp2community.ksp2unitytools.editor::Ksp2UnityTools.Editor.Modding.Thunderkit.AddressablesGroupDatum
   StagingPaths:
-  - Deploy/TransferWindowRedux/addressables
+  - Deploy/TransferWindowRedux/TransferWindowRedux/addressables
   mod: {fileID: 11400000, guid: af9307ba9bb6641438f746b621a71242, type: 2}
-  targetFolder: Deploy/TransferWindowRedux/addressables
+  targetFolder: Deploy/TransferWindowRedux/TransferWindowRedux/addressables
