@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -191,26 +193,400 @@ namespace AgencyHeritage
             Ring(p, c, 26 * s, 3 * s, new Color(1, 1, 1, 0.18f), 200, 340);
         }
 
-        /// <summary>A round mission patch in the era's colors: planet, rocket, and a dot per crew member.</summary>
-        public static void Patch(Painter2D p, Rect r, Color colorBase, Color colorAccent, int crew)
+        /// <summary>What a mission patch shows, worked out from the flight.</summary>
+        public class PatchArt
+        {
+            public Color Base, Accent;
+            public FlightReach Reach;
+            public FlightFate Fate;
+            public string Destination, HomeWorld;
+            public bool Crewed, Docked;
+            /// <summary>Part count at launch; 0 if unknown.</summary>
+            public int Parts;
+            public int Crew, CrewLost, Firsts;
+            /// <summary>Every world away from home it went to, in order; two or more make a tour patch.</summary>
+            public List<(string Body, FlightReach Reach)> Stops = new List<(string Body, FlightReach Reach)>();
+        }
+
+        private static readonly Color PatchField = new Color(0.05f, 0.07f, 0.12f);
+        private static readonly Color Flame = new Color(1f, 0.7f, 0.28f);
+        private static readonly Color Gold = new Color(1f, 0.8f, 0.25f);
+        private static readonly Color Mourning = new Color(0.08f, 0.08f, 0.09f);
+        private static readonly Color MourningEdge = new Color(0.86f, 0.42f, 0.4f);
+
+        /// <summary>
+        /// A round mission patch in the era's colors. The scene inside shows how far the flight got and where (a hop
+        /// over the horizon, an orbit, a flyby, or a lander on another world), the craft is a probe or a crewed rocket
+        /// sized by its part count, and the border carries the crew, the firsts the flight earned, and its fate.
+        /// </summary>
+        public static void Patch(Painter2D p, Rect r, PatchArt art)
         {
             var c = r.center;
             float s = Mathf.Min(r.width, r.height) / 116f;
-            Circle(p, c, 56 * s, colorAccent);
-            Circle(p, c, 49 * s, new Color(0.05f, 0.07f, 0.12f));
-            for (int i = 0; i < 36; i += 2) Ring(p, c, 49 * s, 3 * s, colorBase, i * 10, i * 10 + 10);
-            Circle(p, c + new Vector2(0, 14 * s), 26 * s, new Color(0.18f, 0.42f, 0.7f));
-            Ellipse(p, c + new Vector2(-8 * s, 10 * s), 12 * s, 5 * s, new Color(0.37f, 0.68f, 0.35f));
-            Ellipse(p, c + new Vector2(12 * s, 20 * s), 8 * s, 4 * s, new Color(0.37f, 0.68f, 0.35f));
-            Polygon(p, colorBase, c + new Vector2(0, -36 * s), c + new Vector2(6 * s, -22 * s), c + new Vector2(6 * s, -4 * s),
-                c + new Vector2(-6 * s, -4 * s), c + new Vector2(-6 * s, -22 * s));
-            Polygon(p, new Color(1f, 0.7f, 0.28f), c + new Vector2(-4 * s, -4 * s), c + new Vector2(4 * s, -4 * s), c + new Vector2(0, 6 * s));
-            for (int i = 0; i < crew && i < 7; i++)
+            Vector2 P(float x, float y) => c + new Vector2(x * s, y * s);
+            bool mourning = art.Fate == FlightFate.CrewLost;
+
+            // A flight that lost its crew gets a black border, in mourning.
+            Circle(p, c, 56 * s, mourning ? Mourning : art.Accent);
+            Circle(p, c, 49 * s, PatchField);
+            for (int i = 0; i < 36; i += 2) Ring(p, c, 49 * s, 3 * s, art.Base, i * 10, i * 10 + 10);
+
+            var destination = BodyColor(art.Destination ?? art.HomeWorld);
+            var home = BodyColor(art.HomeWorld);
+            bool away = art.Destination != null && art.Destination != art.HomeWorld;
+            int stages = art.Parts <= 0 ? 2 : art.Parts < 12 ? 1 : art.Parts < 35 ? 2 : art.Parts < 80 ? 3 : 4;
+            bool lost = art.Fate == FlightFate.Destroyed;
+
+            // A small home world in the corner and a dashed course from it, for a flight that went somewhere else.
+            void FromHome(Vector2 to)
             {
-                var dot = c + new Vector2((i - (Mathf.Min(crew, 7) - 1) / 2f) * 12 * s, -44 * s);
-                Circle(p, dot, 5 * s, Color.white);
-                Circle(p, dot, 4 * s, new Color(0.61f, 0.83f, 0.42f));
+                var from = P(-27, -22);
+                Circle(p, from, 7 * s, home);
+                DashedCurve(p, from + new Vector2(6 * s, 3 * s), Vector2.Lerp(from, to, 0.5f) + new Vector2(6 * s, -14 * s), to, Ink, 1.4f * s);
             }
+
+            if (art.Stops.Count > 1) Tour(p, c, s, art, home, stages, lost);
+            else switch (art.Reach)
+            {
+                case FlightReach.Suborbital:
+                {
+                    Horizon(p, c, s, 22, home);
+                    DashedCurve(p, P(-26, 20), P(0, -46), P(26, 20), Ink, 1.6f * s);
+                    var apex = P(0, -10);
+                    if (lost) Burst(p, apex, 10 * s); else Craft(p, apex, 0.42f * s, art.Crewed, stages, art.Base, art.Accent, false);
+                    break;
+                }
+                case FlightReach.Orbit:
+                {
+                    var center = away ? P(6, 10) : P(0, 8);
+                    if (away) FromHome(center + new Vector2(-14 * s, -10 * s));
+                    Circle(p, center, 19 * s, destination);
+                    OrbitEllipse(p, center, 33 * s, 11 * s, new Color(1, 1, 1, 0.75f), 1.6f * s);
+                    var at = center + new Vector2(30 * s, -5 * s);
+                    if (lost) Burst(p, at, 8 * s); else Craft(p, at, 0.3f * s, art.Crewed, stages, art.Base, art.Accent, false);
+                    break;
+                }
+                case FlightReach.Flyby:
+                {
+                    var center = P(10, 10);
+                    Circle(p, center, 17 * s, destination);
+                    var from = P(-27, -22);
+                    Circle(p, from, 7 * s, home);
+                    // In past the far side of the body and back out: a hyperbola's swing.
+                    DashedCurve(p, from + new Vector2(6 * s, 4 * s), P(70, 6), P(-8, 34), Ink, 1.4f * s);
+                    var at = P(-8, 34);
+                    if (lost) Burst(p, at, 8 * s); else Craft(p, at, 0.26f * s, art.Crewed, stages, art.Base, art.Accent, false);
+                    break;
+                }
+                case FlightReach.Landed:
+                {
+                    Horizon(p, c, s, 16, destination);
+                    FromHome(P(-4, -2));
+                    if (lost) Burst(p, P(4, 10), 11 * s);
+                    else
+                    {
+                        Lander(p, P(6, 10.5f), 0.9f * s, art.Base, art.Accent);
+                        // The agency's flag, planted beside it.
+                        Line(p, P(-14, 11), P(-14, -2), Ink, 1.4f * s);
+                        Polygon(p, art.Base, P(-14, -2), P(-3, -2), P(-3, 5), P(-14, 5));
+                        Polygon(p, art.Accent, P(-14, 1), P(-3, 1), P(-3, 3), P(-14, 3));
+                    }
+                    break;
+                }
+                default:
+                    // A launch the mod didn't follow: the agency's rocket lifting off its home world.
+                    Circle(p, P(0, 14), 26 * s, new Color(0.18f, 0.42f, 0.7f));
+                    Ellipse(p, P(-8, 10), 12 * s, 5 * s, new Color(0.37f, 0.68f, 0.35f));
+                    Ellipse(p, P(12, 20), 8 * s, 4 * s, new Color(0.37f, 0.68f, 0.35f));
+                    Craft(p, P(0, -18), 0.55f * s, art.Crewed || art.Crew > 0, stages, art.Base, art.Accent, true);
+                    break;
+            }
+
+            if (art.Docked) DockingMark(p, P(26, -26), s);
+
+            // Crew along the top: one dot each, dark and red-ringed for those who didn't come home.
+            int shown = Mathf.Min(art.Crew, 7);
+            for (int i = 0; i < shown; i++)
+            {
+                var dot = P((i - (shown - 1) / 2f) * 12, -44);
+                bool gone = i >= shown - art.CrewLost;
+                Circle(p, dot, 5 * s, gone ? MourningEdge : Color.white);
+                Circle(p, dot, 4 * s, gone ? Mourning : new Color(0.61f, 0.83f, 0.42f));
+            }
+
+            // Firsts along the bottom: a gold star each.
+            int stars = Mathf.Min(art.Firsts, 5);
+            for (int i = 0; i < stars; i++)
+            {
+                float angle = (90 + (i - (stars - 1) / 2f) * 13) * Mathf.Deg2Rad;
+                Star(p, c + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * 52.5f * s, 6 * s, Gold, PatchField);
+            }
+        }
+
+        /// <summary>Where a tour's worlds sit on the patch, and how big, for two, three or four of them.</summary>
+        private static readonly (Vector2 At, float Radius)[][] TourSlots =
+        {
+            new[] { (new Vector2(-8, 4), 14f), (new Vector2(22, 22), 13f) },
+            new[] { (new Vector2(-14, 6), 12f), (new Vector2(10, 26), 11f), (new Vector2(26, -2), 11f) },
+            new[] { (new Vector2(-20, 6), 10f), (new Vector2(-2, 28), 9f), (new Vector2(22, 22), 9f), (new Vector2(24, -8), 9f) },
+        };
+
+        /// <summary>
+        /// A flight that went to several worlds: a dashed course from home through each in turn, with an orbit ring
+        /// round those it orbited and the agency's flag on those it landed on. The craft waits at the last.
+        /// </summary>
+        private static void Tour(Painter2D p, Vector2 c, float s, PatchArt art, Color home, int stages, bool lost)
+        {
+            var stops = art.Stops.Take(4).ToList();
+            var slots = TourSlots[stops.Count - 2];
+            var from = c + new Vector2(-27, -22) * s;
+            Circle(p, from, 7 * s, home);
+            float fromRadius = 7;
+            for (int i = 0; i < stops.Count; i++)
+            {
+                var at = c + slots[i].At * s;
+                var direction = (at - from).normalized;
+                var a = from + direction * (fromRadius + 2) * s;
+                var b = at - direction * (slots[i].Radius + 3) * s;
+                var bend = new Vector2(direction.y, -direction.x) * 6 * s;
+                DashedCurve(p, a, Vector2.Lerp(a, b, 0.5f) + bend, b, Ink, 1.3f * s, 3.5f);
+                from = at;
+                fromRadius = slots[i].Radius;
+            }
+            for (int i = 0; i < stops.Count; i++)
+            {
+                var at = c + slots[i].At * s;
+                float radius = slots[i].Radius * s;
+                Circle(p, at, radius, BodyColor(stops[i].Body));
+                if (stops[i].Reach == FlightReach.Orbit)
+                    OrbitEllipse(p, at, radius + 6 * s, radius * 0.38f + 2 * s, new Color(1, 1, 1, 0.75f), 1.3f * s);
+                else if (stops[i].Reach == FlightReach.Landed)
+                {
+                    var foot = at + new Vector2(0, -radius + 1 * s);
+                    Line(p, foot, foot + new Vector2(0, -9 * s), Ink, 1.2f * s);
+                    Polygon(p, art.Base, foot + new Vector2(0, -9 * s), foot + new Vector2(7 * s, -9 * s), foot + new Vector2(7 * s, -4.5f * s), foot + new Vector2(0, -4.5f * s));
+                }
+            }
+            var last = c + slots[stops.Count - 1].At * s + new Vector2(slots[stops.Count - 1].Radius + 5, -slots[stops.Count - 1].Radius) * s;
+            if (lost) Burst(p, last, 7 * s);
+            else Craft(p, last, 0.2f * s, art.Crewed, stages, art.Base, art.Accent, false);
+        }
+
+        /// <summary>The ground of a world filling the patch below a gently curved horizon at height y.</summary>
+        private static void Horizon(Painter2D p, Vector2 c, float s, float y, Color fill)
+        {
+            const float disc = 47, bulge = 6;
+            // Where the horizon meets the patch's edge, then the edge round the bottom and back.
+            float half = Mathf.Sqrt(disc * disc - y * y);
+            float edgeAngle = Mathf.Atan2(y, half) * Mathf.Rad2Deg;
+            p.fillColor = fill;
+            p.BeginPath();
+            p.MoveTo(c + new Vector2(-half * s, y * s));
+            p.QuadraticCurveTo(c + new Vector2(0, (y - 2 * bulge) * s), c + new Vector2(half * s, y * s));
+            p.Arc(c, disc * s, edgeAngle, 180 - edgeAngle);
+            p.ClosePath();
+            p.Fill();
+            // A lighter rim along the horizon.
+            p.strokeColor = Color.Lerp(fill, Color.white, 0.35f);
+            p.lineWidth = 1.5f * s;
+            p.BeginPath();
+            p.MoveTo(c + new Vector2(-half * s, y * s));
+            p.QuadraticCurveTo(c + new Vector2(0, (y - 2 * bulge) * s), c + new Vector2(half * s, y * s));
+            p.Stroke();
+        }
+
+        /// <summary>A quadratic curve drawn as dashes.</summary>
+        public static void DashedCurve(Painter2D p, Vector2 a, Vector2 control, Vector2 b, Color color, float width, float dash = 4f)
+        {
+            Vector2 At(float t) => (1 - t) * (1 - t) * a + 2 * (1 - t) * t * control + t * t * b;
+            float length = 0;
+            var last = a;
+            for (int i = 1; i <= 16; i++) { var next = At(i / 16f); length += Vector2.Distance(last, next); last = next; }
+            int segments = Mathf.Max(2, Mathf.RoundToInt(length / (dash * 1.8f)));
+            for (int i = 0; i < segments; i++)
+            {
+                float t0 = i / (float)segments;
+                Line(p, At(t0), At(t0 + 0.55f / segments), color, width);
+            }
+        }
+
+        private static void OrbitEllipse(Painter2D p, Vector2 c, float rx, float ry, Color color, float width)
+        {
+            const float k = 0.5523f;
+            p.strokeColor = color;
+            p.lineWidth = width;
+            p.BeginPath();
+            p.MoveTo(new Vector2(c.x + rx, c.y));
+            p.BezierCurveTo(new Vector2(c.x + rx, c.y + ry * k), new Vector2(c.x + rx * k, c.y + ry), new Vector2(c.x, c.y + ry));
+            p.BezierCurveTo(new Vector2(c.x - rx * k, c.y + ry), new Vector2(c.x - rx, c.y + ry * k), new Vector2(c.x - rx, c.y));
+            p.BezierCurveTo(new Vector2(c.x - rx, c.y - ry * k), new Vector2(c.x - rx * k, c.y - ry), new Vector2(c.x, c.y - ry));
+            p.BezierCurveTo(new Vector2(c.x + rx * k, c.y - ry), new Vector2(c.x + rx, c.y - ry * k), new Vector2(c.x + rx, c.y));
+            p.Stroke();
+        }
+
+        /// <summary>
+        /// The flight's craft, centered at c, in a box about 60×110 units: a crewed rocket with a capsule and one to four
+        /// stages, or a probe core with antenna and solar panels.
+        /// </summary>
+        private static void Craft(Painter2D p, Vector2 c, float u, bool crewed, int stages, Color colorBase, Color colorAccent, bool flame)
+        {
+            Vector2 P(float x, float y) => c + new Vector2(x * u, y * u);
+            var dark = new Color(0.13f, 0.13f, 0.14f);
+            if (!crewed && stages <= 1)
+            {
+                // A bare probe: a ball with a dish and panels.
+                Rect(p, new Rect(P(-30, -4).x, P(-30, -4).y, 18 * u, 8 * u), colorAccent);
+                Rect(p, new Rect(P(12, -4).x, P(12, -4).y, 18 * u, 8 * u), colorAccent);
+                Circle(p, c, 12 * u, colorBase);
+                Line(p, P(0, -12), P(0, -26), Ink, 2 * u);
+                Circle(p, P(0, -27), 3.5f * u, Ink);
+                return;
+            }
+
+            float height = 20f * stages;
+            float top = -height / 2 - 12;
+            if (crewed) Polygon(p, colorAccent, P(0, top - 6), P(10, top + 12), P(-10, top + 12));   // capsule
+            else
+            {
+                Circle(p, P(0, top + 4), 9 * u, colorAccent);                                            // probe core
+                Line(p, P(0, top - 5), P(0, top - 16), Ink, 2 * u);
+            }
+            float y = top + 12;
+            for (int i = 0; i < stages; i++)
+            {
+                float half = 9 + i * 2;
+                Polygon(p, i % 2 == 0 ? colorBase : colorAccent, P(-half, y), P(half, y), P(half, y + 17), P(-half, y + 17));
+                Polygon(p, dark, P(-half, y + 17), P(half, y + 17), P(half, y + 20), P(-half, y + 20));
+                y += 20;
+            }
+            float w = 9 + (stages - 1) * 2;
+            Polygon(p, colorAccent, P(-w, y - 18), P(-w - 9, y + 2), P(-w, y));
+            Polygon(p, colorAccent, P(w, y - 18), P(w + 9, y + 2), P(w, y));
+            if (stages >= 4)
+            {
+                // Heavy lift: a pair of boosters.
+                Polygon(p, colorBase, P(-w - 14, y - 34), P(-w - 6, y - 40), P(-w - 6, y), P(-w - 14, y));
+                Polygon(p, colorBase, P(w + 6, y - 40), P(w + 14, y - 34), P(w + 14, y), P(w + 6, y));
+            }
+            if (flame) Polygon(p, Flame, P(-6, y), P(6, y), P(0, y + 16));
+        }
+
+        /// <summary>A little lander on its legs, standing on the ground at its feet.</summary>
+        private static void Lander(Painter2D p, Vector2 feet, float u, Color colorBase, Color colorAccent)
+        {
+            Vector2 P(float x, float y) => feet + new Vector2(x * u, y * u);
+            Line(p, P(-6, -10), P(-13, 0), Ink, 1.6f * u);
+            Line(p, P(6, -10), P(13, 0), Ink, 1.6f * u);
+            Line(p, P(-16, 0), P(-10, 0), Ink, 1.6f * u);
+            Line(p, P(10, 0), P(16, 0), Ink, 1.6f * u);
+            Polygon(p, colorBase, P(-9, -18), P(9, -18), P(9, -8), P(-9, -8));
+            Polygon(p, colorAccent, P(-6, -18), P(6, -18), P(3, -27), P(-3, -27));
+        }
+
+        /// <summary>The flight came apart: a burst of fire where the craft would be.</summary>
+        private static void Burst(Painter2D p, Vector2 c, float radius)
+        {
+            Polygon(p, new Color(0.95f, 0.38f, 0.32f), StarPoints(c, radius, radius * 0.5f, 8, 11));
+            Polygon(p, Flame, StarPoints(c, radius * 0.62f, radius * 0.3f, 8, -11));
+            Circle(p, c, radius * 0.22f, new Color(1f, 0.95f, 0.7f));
+        }
+
+        /// <summary>Two craft meeting nose to nose: the flight docked.</summary>
+        private static void DockingMark(Painter2D p, Vector2 c, float s)
+        {
+            Circle(p, c, 9 * s, PatchField);
+            Rect(p, new Rect(c.x - 7 * s, c.y - 2.5f * s, 5 * s, 5 * s), Ink);
+            Rect(p, new Rect(c.x + 2 * s, c.y - 2.5f * s, 5 * s, 5 * s), Ink);
+            Line(p, c + new Vector2(-2 * s, 0), c + new Vector2(2 * s, 0), Ink, 1.2f * s);
+        }
+
+        private static void Star(Painter2D p, Vector2 c, float radius, Color fill, Color outline)
+        {
+            Polygon(p, outline, StarPoints(c, radius + 1.5f, (radius + 1.5f) * 0.45f, 5, -90));
+            Polygon(p, fill, StarPoints(c, radius, radius * 0.45f, 5, -90));
+        }
+
+        private static Vector2[] StarPoints(Vector2 c, float outer, float inner, int points, float startDegrees)
+        {
+            var result = new Vector2[points * 2];
+            for (int i = 0; i < result.Length; i++)
+            {
+                float angle = (startDegrees + i * 180f / points) * Mathf.Deg2Rad;
+                float radius = i % 2 == 0 ? outer : inner;
+                result[i] = c + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * radius;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// A backdrop for a craft in flight: space fading to a glow of atmosphere over the curve of the home world,
+        /// with a scatter of stars placed by the seed so each exhibit's sky is its own.
+        /// </summary>
+        public static void Sky(Painter2D p, Rect r, Color world, uint seed)
+        {
+            var space = new Color(0.02f, 0.03f, 0.07f);
+            var glow = Color.Lerp(world, Color.white, 0.25f);
+            const int bands = 40;
+            float band = r.height / bands;
+            for (int i = 0; i < bands; i++)
+            {
+                float t = i / (bands - 1f);
+                var color = Color.Lerp(space, Color.Lerp(space, glow, 0.55f), t * t * t);
+                Rect(p, new Rect(r.x, r.y + i * band - 0.5f, r.width, band + 1f), color);
+            }
+            for (int i = 0; i < 26; i++)
+            {
+                seed = seed * 1664525 + 1013904223;
+                float x = r.x + (seed >> 8) % 1000 / 1000f * r.width;
+                seed = seed * 1664525 + 1013904223;
+                float y = r.y + (seed >> 8) % 1000 / 1000f * r.height * 0.6f;
+                Circle(p, new Vector2(x, y), (seed >> 4) % 3 == 0 ? 1.1f : 0.7f, new Color(1, 1, 1, 0.35f + (seed >> 12) % 50 / 100f));
+            }
+            float radius = r.width * 1.8f;
+            var center = new Vector2(r.center.x - r.width * 0.2f, r.yMax + radius - 34);
+            Ring(p, center, radius + 4, 10, new Color(glow.r, glow.g, glow.b, 0.18f));
+            Circle(p, center, radius, Color.Lerp(world, Color.black, 0.35f));
+            Ring(p, center, radius - 1, 2, new Color(glow.r, glow.g, glow.b, 0.7f));
+        }
+
+        /// <summary>
+        /// Light and shade over a flag picture so it reads as cloth: soft vertical folds that grow toward the fly end,
+        /// a little shadow along the hoist where it's tied to the pole, and a lift of light along the top.
+        /// </summary>
+        public static void ClothFolds(Painter2D p, Rect r)
+        {
+            const int strips = 48;
+            float w = r.width / strips;
+            for (int i = 0; i < strips; i++)
+            {
+                float t = i / (strips - 1f);
+                float wave = Mathf.Sin(t * Mathf.PI * 3.2f + 0.6f) * (0.35f + 0.65f * t);
+                var tint = wave > 0 ? new Color(1, 1, 1, 0.16f * wave) : new Color(0, 0, 0, -0.28f * wave);
+                Rect(p, new Rect(r.x + i * w - 0.3f, r.y, w + 0.6f, r.height), tint);
+            }
+            Rect(p, new Rect(r.x, r.y, 6, r.height), new Color(0, 0, 0, 0.25f));
+            Rect(p, new Rect(r.x, r.y, r.width, 3), new Color(1, 1, 1, 0.12f));
+            Rect(p, new Rect(r.x, r.yMax - 4, r.width, 4), new Color(0, 0, 0, 0.18f));
+        }
+
+        /// <summary>A rocket's exhaust, hanging down from the top centre of its box: a white core in yellow and orange.</summary>
+        public static void Plume(Painter2D p, Rect r)
+        {
+            void Flame(float widthShare, float lengthShare, Color color)
+            {
+                float half = r.width * widthShare / 2, length = r.height * lengthShare;
+                var top = new Vector2(r.center.x, r.y);
+                p.fillColor = color;
+                p.BeginPath();
+                p.MoveTo(top + new Vector2(-half, 0));
+                p.BezierCurveTo(top + new Vector2(-half * 1.3f, length * 0.35f), top + new Vector2(-half * 0.35f, length * 0.8f), top + new Vector2(0, length));
+                p.BezierCurveTo(top + new Vector2(half * 0.35f, length * 0.8f), top + new Vector2(half * 1.3f, length * 0.35f), top + new Vector2(half, 0));
+                p.ClosePath();
+                p.Fill();
+            }
+            Flame(1f, 1f, new Color(1f, 0.45f, 0.15f, 0.45f));
+            Flame(0.75f, 0.75f, new Color(1f, 0.7f, 0.28f, 0.8f));
+            Flame(0.45f, 0.45f, new Color(1f, 0.93f, 0.7f, 0.95f));
         }
 
         public enum Glyph { Rocket, Helmet, Person, Star, Blueprint, Ribbon, Wreath }

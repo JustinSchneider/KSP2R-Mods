@@ -5,7 +5,7 @@ A KSP2 Redux SDK Unity project holding all my mods. Each mod is in its own folde
 | Mod                   | Folder                                                     | Status                |
 | --------------------- | ---------------------------------------------------------- | --------------------- |
 | Transfer Window Redux | [`Assets/TransferWindowRedux`](Assets/TransferWindowRedux) | 1.0.0                 |
-| Agency Heritage       | [`Assets/AgencyHeritage`](Assets/AgencyHeritage)           | 0.1.0, in development |
+| Agency Heritage       | [`Assets/AgencyHeritage`](Assets/AgencyHeritage)           | 1.0.0                 |
 
 ## Setup
 

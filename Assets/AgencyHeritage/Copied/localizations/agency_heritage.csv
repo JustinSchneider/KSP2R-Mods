@@ -1,0 +1,166 @@
+Key,Type,Desc,English,German,French,Spanish,Portuguese-Brazil [pt-BR],Russian,Japanese,Chinese-Simplified [zh-CN]
+AgencyHeritage/Name,Text,App bar button and window title,Agency Heritage,Erbe der Organisation,Héritage de l'agence,Legado de la agencia,Legado da agência,Наследие агентства,機関の歩み,航天局传承
+AgencyHeritage/Tab/History,Text,"Header tab for the agency's history; upper case, keep short (about 10 characters)",HISTORY,GESCHICHTE,HISTOIRE,HISTORIA,HISTÓRIA,ИСТОРИЯ,歴史,历史
+AgencyHeritage/Tab/Rebrand,Text,"Header tab that opens the rebrand page; upper case, keep short",REBRAND,NEUES IMAGE,NOUVELLE IMAGE,NUEVA IMAGEN,NOVA IMAGEM,РЕБРЕНДИНГ,リブランド,品牌重塑
+AgencyHeritage/Section/Timeline,Text,"Museum section tab, upper case; a count may follow",TIMELINE,ZEITLEISTE,CHRONOLOGIE,CRONOLOGÍA,LINHA DO TEMPO,ХРОНОЛОГИЯ,年表,时间线
+AgencyHeritage/Section/Missions,Text,"Museum section tab, upper case; a count follows",MISSIONS,MISSIONEN,MISSIONS,MISIONES,MISSÕES,МИССИИ,ミッション,任务
+AgencyHeritage/Section/Crew,Text,"Museum section tab, upper case; a count follows",CREW,CREW,ÉQUIPAGE,TRIPULACIÓN,TRIPULAÇÃO,ЭКИПАЖ,乗組員,乘员
+AgencyHeritage/Section/Collection,Text,"Museum section tab for the blueprint gallery, upper case; a count follows",COLLECTION,SAMMLUNG,COLLECTION,COLECCIÓN,COLEÇÃO,КОЛЛЕКЦИЯ,コレクション,藏品
+AgencyHeritage/Stat/Launches,Text,"Stat tile label under a number; upper case, tiny (about 10 characters)",LAUNCHES,STARTS,LANCEMENTS,LANZAMIENTOS,LANÇAMENTOS,ЗАПУСКИ,打ち上げ,发射
+AgencyHeritage/Stat/Recruits,Text,Stat tile: kerbals hired during the era,RECRUITS,REKRUTEN,RECRUES,RECLUTAS,RECRUTAS,НОВОБРАНЦЫ,新人,新成员
+AgencyHeritage/Stat/Firsts,Text,Stat tile: firsts such as a first landing,FIRSTS,PREMIEREN,PREMIÈRES,HITOS,MARCOS,ДОСТИЖЕНИЯ,初達成,首次成就
+AgencyHeritage/Stat/Ribbons,Text,Stat tile: Wayfarer's Wings ribbons earned,RIBBONS,BÄNDER,RUBANS,CINTAS,FITAS,ЛЕНТЫ,リボン,绶带
+AgencyHeritage/Stat/Craft,Text,Stat tile: blueprints saved during the era,CRAFT,BAUPLÄNE,PLANS,PLANOS,PROJETOS,ЧЕРТЕЖИ,設計図,蓝图
+AgencyHeritage/Stat/Lost,Text,Stat tile: kerbals who died during the era,LOST,VERLOREN,PERDUS,PERDIDOS,PERDIDOS,ПОГИБЛИ,殉職,牺牲
+AgencyHeritage/Hero/Era,Text,"Era banner, upper case; {0} = era number in Roman numerals",ERA {0},ÄRA {0},ÈRE {0},ERA {0},ERA {0},ЭПОХА {0},第{0}期,第{0}时代
+AgencyHeritage/Hero/Current,Text,"Era banner, after the era number; upper case",CURRENT,AKTUELL,ACTUELLE,ACTUAL,ATUAL,ТЕКУЩАЯ,現在,当前
+AgencyHeritage/Hero/Past,Text,"Era banner, after the era number; upper case",PAST,VERGANGEN,PASSÉE,PASADA,PASSADA,ПРОШЛАЯ,過去,过去
+AgencyHeritage/Hero/Span,Text,"Era banner; {0} = date range, {1} = how long the era lasted",{0} · {1},{0} · {1},{0} · {1},{0} · {1},{0} · {1},{0} · {1},{0} · {1},{0} · {1}
+AgencyHeritage/Hero/Rebranded,Text,Era banner; {0} = real-world date of the rebrand,Rebranded {0},Neues Image seit {0},Nouvelle image le {0},Nueva imagen el {0},Nova imagem em {0},Ребрендинг {0},{0}にリブランド,{0}品牌重塑
+AgencyHeritage/Format/Range,Text,"Date range; {0} = start, {1} = end",{0} – {1},{0} – {1},{0} – {1},{0} – {1},{0} – {1},{0} – {1},{0} – {1},{0} – {1}
+AgencyHeritage/Format/Quote,Text,The era's motto in quotation marks; {0} = motto,“{0}”,„{0}“,« {0} »,«{0}»,“{0}”,«{0}»,「{0}」,“{0}”
+AgencyHeritage/Format/ListSeparator,Text,"Between names in a list, e.g. ""Orbited Mun, Minmus"" (keep the space where your language uses one)",", ",", ",", ",", ",", ",", ",、,、
+AgencyHeritage/Value/Now,Text,"Badge on the current era, and the end of its timeline; upper case, very short (about 6 characters)",NOW,JETZT,ACTUEL,AHORA,AGORA,СЕЙЧАС,現在,现在
+AgencyHeritage/Value/Present,Text,End of the current era's date range,present,heute,aujourd'hui,presente,presente,сейчас,現在,至今
+AgencyHeritage/Rail/Rebrand,Text,Under the + at the end of the era rail; opens the rebrand page (about 14 characters),Rebrand…,Neues Image…,Nouvelle image…,Nueva imagen…,Nova imagem…,Ребрендинг…,リブランド…,品牌重塑…
+AgencyHeritage/Legend/Launch,Text,Timeline legend,launch,Start,lancement,lanzamiento,lançamento,запуск,打ち上げ,发射
+AgencyHeritage/Legend/First,Text,Timeline legend; the dots are colored by the body,first,Premiere,première,hito,marco,достижение,初達成,首次
+AgencyHeritage/Legend/Lost,Text,Timeline legend; a kerbal died,lost,verloren,perdu,perdido,perdido,гибель,殉職,牺牲
+AgencyHeritage/Legend/Landing,Text,Timeline legend; a downward triangle where a flight touched down,landing,Landung,atterrissage,aterrizaje,pouso,посадка,着陸,着陆
+AgencyHeritage/Legend/Wreck,Text,Timeline legend; a grey cross where a craft was destroyed,craft lost,Fahrzeug verloren,engin perdu,nave perdida,nave perdida,потеря аппарата,機体喪失,飞行器损毁
+AgencyHeritage/Timeline/Launch,Text,"Timeline label under a vessel name, before its date",Launch,Start,Lancement,Lanzamiento,Lançamento,Запуск,打ち上げ,发射
+AgencyHeritage/Timeline/Lost,Text,"Timeline label under a lost kerbal's name, before the date",Lost,Verloren,Disparu,Perdido,Perdido,Погиб,殉職,牺牲
+AgencyHeritage/Timeline/Now,Text,Last date on the current era's timeline; {0} = today's date,{0} (now),{0} (jetzt),{0} (maintenant),{0} (ahora),{0} (agora),{0} (сейчас),{0}（現在）,{0}（现在）
+AgencyHeritage/Timeline/Hidden.One,Text,Next to the zoom buttons when a label did not fit,1 label hidden — zoom in to see it,1 Beschriftung ausgeblendet – zum Anzeigen hineinzoomen,1 étiquette masquée — zoomez pour la voir,1 etiqueta oculta — acerca el zoom para verla,1 rótulo oculto — aproxime para vê-lo,1 подпись скрыта — увеличьте масштаб,1件のラベルを非表示 — 拡大すると表示,1个标签已隐藏 — 放大查看
+AgencyHeritage/Timeline/Hidden.Many,Text,Next to the zoom buttons; {0} = labels that did not fit,{0} labels hidden — zoom in to see them,{0} Beschriftungen ausgeblendet – zum Anzeigen hineinzoomen,{0} étiquettes masquées — zoomez pour les voir,{0} etiquetas ocultas — acerca el zoom para verlas,{0} rótulos ocultos — aproxime para vê-los,Скрыто подписей: {0} — увеличьте масштаб,{0}件のラベルを非表示 — 拡大すると表示,{0}个标签已隐藏 — 放大查看
+AgencyHeritage/Story/Entered,Text,A step in a flight's story: it entered a body's sphere of influence; {0} = planet or moon,Reached {0},{0} erreicht,Arrivée à {0},Llegó a {0},Chegou a {0},Прибытие: {0},{0}に到達,抵达{0}
+AgencyHeritage/Story/Lost,Text,A step in a flight's story: a kerbal died; {0} = kerbal's first name,{0} lost,{0} verloren,{0} disparu,{0} perdido,{0} perdido,{0} погиб,{0} 殉職,{0}牺牲
+AgencyHeritage/Milestone/Launch,Text,Timeline label (about 18 characters),First launch,Erster Start,Premier lancement,Primer lanzamiento,Primeiro lançamento,Первый запуск,初打ち上げ,首次发射
+AgencyHeritage/Milestone/Visit,Text,Timeline label: first time in a body's sphere of influence,First visit,Erster Besuch,Première visite,Primera visita,Primeira visita,Первый визит,初到達,首次抵达
+AgencyHeritage/Milestone/Landing,Text,Timeline label,First landing,Erste Landung,Premier atterrissage,Primer aterrizaje,Primeiro pouso,Первая посадка,初着陸,首次着陆
+AgencyHeritage/Milestone/Steps,Text,Timeline label: first kerbal to walk there,First steps,Erste Schritte,Premiers pas,Primeros pasos,Primeiros passos,Первые шаги,初歩行,首次行走
+AgencyHeritage/Milestone/Discovered,Text,Timeline label: a landmark reached,Discovered,Entdeckt,Découvert,Descubierto,Descoberto,Открытие,発見,发现
+AgencyHeritage/Milestone/From,Text,Under a first launch; {0} = planet or moon,from {0},von {0},depuis {0},desde {0},de {0},{0},{0}から,从{0}
+AgencyHeritage/Milestone/On,Text,Under a first landing or first steps; {0} = planet or moon,on {0},auf {0},sur {0},en {0},em {0},{0},{0},在{0}
+AgencyHeritage/Milestone/SiteOn,Text,"Under a discovery; {0} = landmark, {1} = planet or moon",{0} on {1},{0} auf {1},{0} sur {1},{0} en {1},{0} em {1},{0} ({1}),{1}の{0},{1}的{0}
+AgencyHeritage/Milestone/Unknown,Text,When the game didn't record where,somewhere new,unbekannter Ort,lieu inconnu,lugar desconocido,local desconhecido,неизвестное место,未知の場所,未知地点
+AgencyHeritage/Flight/Unidentified,Text,Mission patch title for a launch whose vessel is gone,Unidentified,Unbekannt,Inconnu,Desconocido,Desconhecido,Неизвестный,不明,不明
+AgencyHeritage/Flight/Uncrewed,Text,"Mission patch, instead of a crew list",Uncrewed,Unbemannt,Sans équipage,No tripulado,Não tripulado,Беспилотный,無人,无人
+AgencyHeritage/Flight/CrewUnknown,Text,"Mission patch, instead of a crew list, when the game didn't record the crew",Crew unknown,Crew unbekannt,Équipage inconnu,Tripulación desconocida,Tripulação desconhecida,Экипаж неизвестен,乗組員不明,乘员不明
+AgencyHeritage/Reach/Suborbital,Text,Under a mission patch: the flight went up and came down without reaching orbit,Suborbital,Suborbital,Suborbital,Suborbital,Suborbital,Суборбитальный,弾道飛行,亚轨道
+AgencyHeritage/Reach/Orbit,Text,Under a mission patch; {0} = planet or moon it orbited,Orbited {0},Orbit um {0},Orbite de {0},Órbita de {0},Órbita de {0},Орбита: {0},{0}周回,环绕{0}
+AgencyHeritage/Reach/Flyby,Text,Under a mission patch; {0} = planet or moon it passed without orbiting,Flyby of {0},Vorbeiflug an {0},Survol de {0},Sobrevuelo de {0},Sobrevoo de {0},Пролёт: {0},{0}フライバイ,飞掠{0}
+AgencyHeritage/Reach/Landed,Text,Under a mission patch; {0} = planet or moon it landed on,Landed on {0},Gelandet auf {0},Posé sur {0},Aterrizó en {0},Pousou em {0},Посадка: {0},{0}着陸,降落{0}
+AgencyHeritage/Reach/Splashed,Text,Under a mission patch; {0} = planet or moon whose sea it came down in,Splashdown on {0},Wasserung auf {0},Amerrissage sur {0},Amerizaje en {0},Amerissagem em {0},Приводнение: {0},{0}着水,溅落{0}
+AgencyHeritage/Reach/Docked,Text,Under a mission patch: the flight docked with another vessel,Docked,Angedockt,Amarré,Acoplado,Acoplado,Стыковка,ドッキング,对接
+AgencyHeritage/Fate/InFlight,Text,Under a mission patch: the flight is still out there,In flight,Im Flug,En vol,En vuelo,Em voo,В полёте,飛行中,飞行中
+AgencyHeritage/Fate/Recovered,Text,Under a mission patch: brought home and recovered,Recovered,Geborgen,Récupéré,Recuperado,Recuperado,Возвращён,回収,已回收
+AgencyHeritage/Fate/Ended,Text,"Under a mission patch: the vessel is gone, but the game did not say how",Ended,Beendet,Terminé,Finalizado,Encerrado,Завершён,終了,已结束
+AgencyHeritage/Fate/Destroyed,Text,"Under a mission patch: the craft was destroyed, no crew lost",Craft lost,Fahrzeug verloren,Engin perdu,Nave perdida,Nave perdida,Аппарат потерян,機体喪失,飞行器损毁
+AgencyHeritage/Fate/CrewLost,Text,Under a mission patch: kerbals died on this flight,Crew lost,Crew verloren,Équipage perdu,Tripulación perdida,Tripulação perdida,Экипаж погиб,乗員殉職,乘员牺牲
+AgencyHeritage/Role/Flew,Text,"Crew card; upper case, tiny (about 10 characters)",FLEW,GEFLOGEN,A VOLÉ,VOLÓ,VOOU,ЛЕТАЛ,飛行,飞行
+AgencyHeritage/Role/Returned,Text,"Crew card: a veteran the game brought back after they were lost; upper case, tiny",RETURNED,ZURÜCK,REVENU,REGRESÓ,RETORNOU,ВЕРНУЛСЯ,復帰,回归
+AgencyHeritage/Role/Lost,Text,"Crew card, followed by the date; upper case, tiny",LOST,VERLOREN,PERDU,PERDIDO,PERDIDO,ПОГИБ,殉職,牺牲
+AgencyHeritage/Crew/LostOn,Text,Crew card tooltip; {0} = date,Lost {0},Verloren {0},Perdu {0},Perdido {0},Perdido {0},Погиб {0},{0} 殉職,{0} 牺牲
+AgencyHeritage/Crew/LostAboard,Text,"Crew card tooltip; {0} = vessel, {1} = date","Lost: {0}, {1}","Verloren: {0}, {1}","Perdu : {0}, {1}","Perdido: {0}, {1}","Perdido: {0}, {1}","Погиб: {0}, {1}",{1} {0}で殉職,{1} 于{0}牺牲
+AgencyHeritage/Ribbon/First,Text,"Badge on a first-ever ribbon; upper case, very short",FIRST,ERSTER,1ER,1.º,1º,ПЕРВЫЙ,初,首个
+AgencyHeritage/Placard/Parts.One,Text,Blueprint placard; {0} = 1,{0} part,{0} Teil,{0} pièce,{0} pieza,{0} peça,{0} деталь,{0}パーツ,{0}个部件
+AgencyHeritage/Placard/Parts.Many,Text,Blueprint placard; {0} = number of parts (not 1),{0} parts,{0} Teile,{0} pièces,{0} piezas,{0} peças,деталей: {0},{0}パーツ,{0}个部件
+AgencyHeritage/Spec/DeltaV,Text,"Blueprint spec sheet label, upper case, tiny (about 12 characters): total delta-v",ΔV,ΔV,ΔV,ΔV,ΔV,ΔV,ΔV,ΔV
+AgencyHeritage/Spec/DeltaVValue,Text,"Spec sheet: {0} = delta-v in vacuum, {1} = at sea level, both in m/s",{0} m/s vacuum · {1} m/s sea level,{0} m/s Vakuum · {1} m/s Meereshöhe,{0} m/s vide · {1} m/s niveau de la mer,{0} m/s vacío · {1} m/s nivel del mar,{0} m/s vácuo · {1} m/s nível do mar,{0} м/с вакуум · {1} м/с у поверхности,真空 {0} m/s · 海面 {1} m/s,真空 {0} m/s · 海平面 {1} m/s
+AgencyHeritage/Spec/Twr,Text,"Blueprint spec sheet label, upper case, tiny (about 12 characters): thrust-to-weight ratio of the first stage at sea level",LAUNCH TWR,START-TWR,TWR AU DÉPART,TWR DESPEGUE,TWR DECOLAGEM,TWR СТАРТА,打ち上げTWR,起飞推重比
+AgencyHeritage/Spec/BurnTime,Text,"Blueprint spec sheet label, upper case, tiny (about 12 characters): total engine burn time",BURN TIME,BRENNDAUER,DURÉE DE POUSSÉE,TIEMPO DE QUEMA,TEMPO DE QUEIMA,ВРЕМЯ РАБОТЫ,燃焼時間,燃烧时间
+AgencyHeritage/Spec/HoursMinutes,Text,"Burn time; {0} = hours, {1} = minutes",{0}h {1}m,{0} h {1} min,{0} h {1} min,{0} h {1} min,{0} h {1} min,{0} ч {1} мин,{0}時間{1}分,{0}小时{1}分
+AgencyHeritage/Spec/MinutesSeconds,Text,"Burn time; {0} = minutes, {1} = seconds",{0}m {1}s,{0} min {1} s,{0} min {1} s,{0} min {1} s,{0} min {1} s,{0} мин {1} с,{0}分{1}秒,{0}分{1}秒
+AgencyHeritage/Spec/Mass,Text,"Blueprint spec sheet label, upper case, tiny (about 12 characters)",MASS,MASSE,MASSE,MASA,MASSA,МАССА,質量,质量
+AgencyHeritage/Spec/Tonnes,Text,A mass; {0} = tonnes,{0} t,{0} t,{0} t,{0} t,{0} t,{0} т,{0} t,{0} 吨
+AgencyHeritage/Spec/Size,Text,"Blueprint spec sheet label, upper case, tiny (about 12 characters): width and height",SIZE,GRÖSSE,TAILLE,TAMAÑO,TAMANHO,РАЗМЕР,サイズ,尺寸
+AgencyHeritage/Spec/SizeValue,Text,"Craft size; {0} = width, {1} = height, in metres",{0} × {1} m,{0} × {1} m,{0} × {1} m,{0} × {1} m,{0} × {1} m,{0} × {1} м,{0} × {1} m,{0} × {1} 米
+AgencyHeritage/Spec/Build,Text,"Blueprint spec sheet label, upper case, tiny (about 12 characters): part and stage counts",BUILD,AUFBAU,CONSTRUCTION,ESTRUCTURA,ESTRUTURA,СБОРКА,構成,构造
+AgencyHeritage/Spec/Stages.One,Text,Spec sheet: exactly one stage,1 stage,1 Stufe,1 étage,1 etapa,1 estágio,1 ступень,1段,1级
+AgencyHeritage/Spec/Stages.Many,Text,Spec sheet; {0} = stages,{0} stages,{0} Stufen,{0} étages,{0} etapas,{0} estágios,Ступеней: {0},{0}段,{0}级
+AgencyHeritage/Spec/Crew,Text,"Blueprint spec sheet label, upper case, tiny (about 12 characters): seats for kerbals",CREW,CREW,ÉQUIPAGE,TRIPULACIÓN,TRIPULAÇÃO,ЭКИПАЖ,乗員,乘员
+AgencyHeritage/Spec/Seats.One,Text,Spec sheet: one seat,1 seat,1 Sitz,1 place,1 asiento,1 assento,1 место,1席,1个座位
+AgencyHeritage/Spec/Seats.Many,Text,Spec sheet; {0} = seats,{0} seats,{0} Sitze,{0} places,{0} asientos,{0} assentos,Мест: {0},{0}席,{0}个座位
+AgencyHeritage/Spec/Engines,Text,"Blueprint spec sheet label, upper case, tiny (about 12 characters)",ENGINES,TRIEBWERKE,MOTEURS,MOTORES,MOTORES,ДВИГАТЕЛИ,エンジン,引擎
+AgencyHeritage/Spec/Times,Text,"Several of one part; {0} = how many, {1} = part name",{0}× {1},{0}× {1},{0}× {1},{0}× {1},{0}× {1},{0}× {1},{1} ×{0},{1} ×{0}
+AgencyHeritage/Spec/Propellant,Text,"Blueprint spec sheet label, upper case, tiny (about 12 characters): fuel carried",PROPELLANT,TREIBSTOFF,ERGOLS,PROPULSOR,PROPELENTE,ТОПЛИВО,推進剤,推进剂
+AgencyHeritage/Spec/Power,Text,"Blueprint spec sheet label, upper case, tiny (about 12 characters): batteries and generators",POWER,ENERGIE,ÉNERGIE,ENERGÍA,ENERGIA,ЭНЕРГИЯ,電力,电力
+AgencyHeritage/Spec/Battery,Text,Spec sheet; {0} = electric charge capacity,{0} EC battery,{0} EC Batterie,Batterie {0} EC,Batería de {0} EC,Bateria de {0} EC,Аккумулятор {0} EC,バッテリー {0} EC,电池 {0} EC
+AgencyHeritage/Spec/Solar.One,Text,Spec sheet,1 solar panel,1 Solarpanel,1 panneau solaire,1 panel solar,1 painel solar,1 солнечная панель,ソーラーパネル1枚,1块太阳能板
+AgencyHeritage/Spec/Solar.Many,Text,Spec sheet; {0} = count,{0} solar panels,{0} Solarpanels,{0} panneaux solaires,{0} paneles solares,{0} painéis solares,Солнечных панелей: {0},ソーラーパネル{0}枚,{0}块太阳能板
+AgencyHeritage/Spec/Generators.One,Text,"Spec sheet: an RTG or similar, not on an engine",1 generator,1 Generator,1 générateur,1 generador,1 gerador,1 генератор,発電機1基,1台发电机
+AgencyHeritage/Spec/Generators.Many,Text,Spec sheet; {0} = count,{0} generators,{0} Generatoren,{0} générateurs,{0} generadores,{0} geradores,Генераторов: {0},発電機{0}基,{0}台发电机
+AgencyHeritage/Spec/Alternators.One,Text,Spec sheet: an engine's alternator,1 alternator,1 Lichtmaschine,1 alternateur,1 alternador,1 alternador,1 генератор двигателя,オルタネーター1基,1台交流发电机
+AgencyHeritage/Spec/Alternators.Many,Text,Spec sheet; {0} = count,{0} alternators,{0} Lichtmaschinen,{0} alternateurs,{0} alternadores,{0} alternadores,Генераторов двигателей: {0},オルタネーター{0}基,{0}台交流发电机
+AgencyHeritage/Spec/Systems,Text,"Blueprint spec sheet label, upper case, tiny (about 12 characters): other equipment",SYSTEMS,SYSTEME,SYSTÈMES,SISTEMAS,SISTEMAS,СИСТЕМЫ,システム,系统
+AgencyHeritage/Spec/Parachutes.One,Text,Spec sheet,1 parachute,1 Fallschirm,1 parachute,1 paracaídas,1 paraquedas,1 парашют,パラシュート1個,1个降落伞
+AgencyHeritage/Spec/Parachutes.Many,Text,Spec sheet; {0} = count,{0} parachutes,{0} Fallschirme,{0} parachutes,{0} paracaídas,{0} paraquedas,Парашютов: {0},パラシュート{0}個,{0}个降落伞
+AgencyHeritage/Spec/Experiments.One,Text,Spec sheet: science experiment,1 experiment,1 Experiment,1 expérience,1 experimento,1 experimento,1 эксперимент,実験装置1個,1个实验
+AgencyHeritage/Spec/Experiments.Many,Text,Spec sheet; {0} = count,{0} experiments,{0} Experimente,{0} expériences,{0} experimentos,{0} experimentos,Экспериментов: {0},実験装置{0}個,{0}个实验
+AgencyHeritage/Spec/Antennas.One,Text,Spec sheet,1 antenna,1 Antenne,1 antenne,1 antena,1 antena,1 антенна,アンテナ1基,1根天线
+AgencyHeritage/Spec/Antennas.Many,Text,Spec sheet; {0} = count,{0} antennas,{0} Antennen,{0} antennes,{0} antenas,{0} antenas,Антенн: {0},アンテナ{0}基,{0}根天线
+AgencyHeritage/Spec/Rcs.One,Text,Spec sheet: reaction control thruster,1 RCS thruster,1 RCS-Düse,1 propulseur RCS,1 propulsor RCS,1 propulsor RCS,1 двигатель RCS,RCSスラスター1基,1个RCS推进器
+AgencyHeritage/Spec/Rcs.Many,Text,Spec sheet; {0} = count,{0} RCS thrusters,{0} RCS-Düsen,{0} propulseurs RCS,{0} propulsores RCS,{0} propulsores RCS,Двигателей RCS: {0},RCSスラスター{0}基,{0}个RCS推进器
+AgencyHeritage/Spec/Flights,Text,"Blueprint spec sheet label, upper case, tiny: flights launched from this blueprint",FLIGHTS,FLÜGE,VOLS,VUELOS,VOOS,ПОЛЁТЫ,飛行記録,飞行记录
+AgencyHeritage/Button/CopyCraft,Text,Small button on a blueprint: copies the craft so it can be pasted into a VAB (about 12 characters),Copy craft,Fahrzeug kopieren,Copier l'engin,Copiar nave,Copiar nave,Копировать,機体をコピー,复制载具
+AgencyHeritage/Button/CopySpecs,Text,Small button on a blueprint: copies its spec sheet as JSON (about 12 characters),Copy specs,Daten kopieren,Copier fiche,Copiar datos,Copiar dados,Копировать ТТХ,仕様をコピー,复制参数
+AgencyHeritage/Button/Export,Text,Small button on a blueprint: saves its files and spec sheet to a folder,Export,Exportieren,Exporter,Exportar,Exportar,Экспорт,エクスポート,导出
+AgencyHeritage/Button/Copied,Text,Shown on the button for a moment after copying,Copied,Kopiert,Copié,Copiado,Copiado,Скопировано,コピー済み,已复制
+AgencyHeritage/Button/Exported,Text,Shown on the button for a moment after exporting,Exported,Exportiert,Exporté,Exportado,Exportado,Экспортировано,エクスポート済み,已导出
+AgencyHeritage/Button/CopyColors,Text,Small button in the era banner: copies the era's two colors as hex codes,Copy colors,Farben kopieren,Copier les couleurs,Copiar colores,Copiar cores,Копировать цвета,色をコピー,复制颜色
+AgencyHeritage/Crew/RecruitBadge,Text,One-letter badge on a crew card: the kerbal joined during this era (R for Recruit),R,R,R,R,R,Н,新,新
+AgencyHeritage/Tip/Recruited,Text,Hover tip on the R badge; {0} = date the kerbal joined,Recruited {0},Rekrutiert am {0},Recruté·e le {0},Reclutado el {0},Recrutado em {0},Нанят(а) {0},{0}に採用,{0}招募
+AgencyHeritage/Tip/RecruitedEra,Text,Hover tip on the R badge when the date is unknown,Recruited this era,In dieser Ära rekrutiert,Recruté·e durant cette ère,Reclutado en esta era,Recrutado nesta era,Нанят(а) в эту эпоху,この時代に採用,本时代招募
+AgencyHeritage/Tip/Elapsed,Text,Hover tip on a timeline landing: mission elapsed time since launch; {0} = e.g. 2d 3h,T+{0},T+{0},T+{0},T+{0},T+{0},T+{0},T+{0},T+{0}
+AgencyHeritage/Time/Date,Text,"Kerbin calendar date; {0} = year, {1} = day",Y{0} D{1},J{0} T{1},A{0} J{1},A{0} D{1},A{0} D{1},Г{0} Д{1},{0}年{1}日,第{0}年第{1}天
+AgencyHeritage/Time/UnderADay,Text,"How long an era lasted, when under one Kerbin day",< 1 day,< 1 Tag,< 1 jour,< 1 día,< 1 dia,< 1 дня,1日未満,不到1天
+AgencyHeritage/Time/Days.One,Text,How long an era lasted; {0} = 1,{0} day,{0} Tag,{0} jour,{0} día,{0} dia,{0} день,{0}日,{0}天
+AgencyHeritage/Time/Days.Many,Text,How long an era lasted; {0} = number of days (not 1),{0} days,{0} Tage,{0} jours,{0} días,{0} dias,дней: {0},{0}日,{0}天
+AgencyHeritage/Time/Years.One,Text,How long an era lasted; {0} = 1,{0} year,{0} Jahr,{0} an,{0} año,{0} ano,{0} год,{0}年,{0}年
+AgencyHeritage/Time/Years.Many,Text,"How long an era lasted; {0} = number of years, may have one decimal (not 1)",{0} years,{0} Jahre,{0} ans,{0} años,{0} anos,лет: {0},{0}年,{0}年
+AgencyHeritage/Empty/NoCampaign,Text,Shown when no save is loaded,Load a campaign first.,Lade zuerst eine Kampagne.,Chargez d'abord une campagne.,Carga primero una campaña.,Carregue uma campanha primeiro.,Сначала загрузите кампанию.,先にキャンペーンを読み込んでください。,请先加载战役。
+AgencyHeritage/Empty/Timeline,Text,Empty timeline,Nothing yet.,Noch nichts.,Rien pour l'instant.,Nada todavía.,Nada ainda.,Пока ничего.,まだ何もありません。,暂无记录。
+AgencyHeritage/Empty/Missions,Text,Empty missions section,No launches yet.,Noch keine Starts.,Aucun lancement pour l'instant.,Aún no hay lanzamientos.,Nenhum lançamento ainda.,Запусков пока нет.,まだ打ち上げはありません。,暂无发射。
+AgencyHeritage/Empty/Crew,Text,"Empty crew section: nobody joined, flew or was lost during the selected era","No crew joined, flew or was lost in this era.","In dieser Ära ist niemand eingetreten, geflogen oder verloren gegangen.","Aucun membre d'équipage recruté, envolé ou perdu durant cette ère.","En esta era nadie se unió, voló ni se perdió.","Nesta era ninguém entrou, voou ou foi perdido.","В эту эпоху никто не вступил в отряд, не летал и не погиб.",この時代に加入・飛行・殉職した乗組員はいません。,这个时代没有乘员加入、飞行或牺牲。
+AgencyHeritage/Empty/Collection,Text,Empty blueprint gallery,No blueprints.,Keine Baupläne.,Aucun plan.,No hay planos.,Nenhum projeto.,Чертежей нет.,設計図はありません。,暂无蓝图。
+AgencyHeritage/Sort/Label,Text,"Label before the sort chips, upper case, tiny",SORT,SORTIEREN,TRI,ORDEN,ORDEM,СОРТИРОВКА,並び順,排序
+AgencyHeritage/Filter/Label,Text,"Label before the filter chips, upper case, tiny",SHOW,ZEIGEN,AFFICHER,MOSTRAR,MOSTRAR,ПОКАЗАТЬ,表示,显示
+AgencyHeritage/Sort/Oldest,Text,Sort or filter chip above the missions or crew (short),Oldest,Älteste,Plus anciens,Más antiguas,Mais antigas,Сначала старые,古い順,最早
+AgencyHeritage/Sort/Newest,Text,Sort or filter chip above the missions or crew (short),Newest,Neueste,Plus récents,Más recientes,Mais recentes,Сначала новые,新しい順,最新
+AgencyHeritage/Sort/Longest,Text,Sort or filter chip above the missions or crew (short): by flight duration,Longest,Längste,Plus longs,Más largas,Mais longas,Самые долгие,長い順,最久
+AgencyHeritage/Sort/Furthest,Text,Sort or filter chip above the missions or crew (short): by how far the flight got,Furthest,Weiteste,Plus lointains,Más lejanas,Mais distantes,Самые дальние,遠い順,最远
+AgencyHeritage/Filter/All,Text,Sort or filter chip above the missions or crew (short),All,Alle,Tous,Todas,Todas,Все,すべて,全部
+AgencyHeritage/Filter/Crewed,Text,Sort or filter chip above the missions or crew (short),Crewed,Bemannt,Habités,Tripuladas,Tripuladas,Пилотируемые,有人,载人
+AgencyHeritage/Filter/Uncrewed,Text,Sort or filter chip above the missions or crew (short),Uncrewed,Unbemannt,Sans équipage,No tripuladas,Não tripuladas,Беспилотные,無人,无人
+AgencyHeritage/Filter/Lost,Text,Sort or filter chip above the missions or crew (short): lost craft or kerbals,Lost,Verloren,Perdus,Perdidas,Perdidas,Потери,喪失,损失
+AgencyHeritage/Filter/Flew,Text,Sort or filter chip above the missions or crew (short): kerbals who have flown,Flew,Geflogen,Ont volé,Volaron,Voaram,Летали,飛行経験あり,已飞行
+AgencyHeritage/Sort/Flights,Text,Sort or filter chip above the missions or crew (short): kerbals by number of flights,Most flights,Meiste Flüge,Plus de vols,Más vuelos,Mais voos,Больше полётов,飛行回数順,飞行次数
+AgencyHeritage/Sort/TimeAloft,Text,Sort or filter chip above the missions or crew (short): kerbals by time spent flying,Most time aloft,Längste Flugzeit,Plus de temps en vol,Más tiempo en vuelo,Mais tempo em voo,Больше времени в полёте,飛行時間順,飞行时长
+AgencyHeritage/Sort/Name,Text,Sort or filter chip above the missions or crew (short),Name,Name,Nom,Nombre,Nome,Имя,名前,姓名
+AgencyHeritage/Sort/Joined,Text,Sort or filter chip above the missions or crew (short): kerbals by when they joined,Joined,Beitritt,Arrivée,Ingreso,Ingresso,Дата найма,加入順,加入时间
+AgencyHeritage/Crew/Career,Text,"Caption over a kerbal's whole service record, across all eras; upper case",CAREER,LAUFBAHN,CARRIÈRE,TRAYECTORIA,CARREIRA,КАРЬЕРА,経歴,生涯
+AgencyHeritage/Crew/Joined,Text,Crew card; {0} = date the kerbal joined,Joined {0},Dabei seit {0},Arrivé·e le {0},Ingresó {0},Entrou em {0},В отряде с {0},{0}に加入,{0}加入
+AgencyHeritage/Crew/Flights.One,Text,Crew card: exactly one flight,1 flight,1 Flug,1 vol,1 vuelo,1 voo,1 полёт,1回飛行,1次飞行
+AgencyHeritage/Crew/Flights.Many,Text,Crew card; {0} = flights,{0} flights,{0} Flüge,{0} vols,{0} vuelos,{0} voos,Полётов: {0},{0}回飛行,{0}次飞行
+AgencyHeritage/Crew/Aloft,Text,"Crew card; {0} = total time spent flying, e.g. 4d 3h",{0} aloft,{0} in der Luft,{0} en vol,{0} en vuelo,{0} em voo,{0} в полёте,飛行 {0},飞行 {0}
+AgencyHeritage/Crew/Days,Text,"Time aloft; {0} = days, {1} = hours",{0}d {1}h,{0} T {1} h,{0} j {1} h,{0} d {1} h,{0} d {1} h,{0} д {1} ч,{0}日{1}時間,{0}天{1}小时
+AgencyHeritage/Crew/Hours,Text,"Time aloft; {0} = hours, {1} = minutes",{0}h {1}m,{0} h {1} min,{0} h {1} min,{0} h {1} min,{0} h {1} min,{0} ч {1} мин,{0}時間{1}分,{0}小时{1}分
+AgencyHeritage/Crew/Minutes,Text,Time aloft; {0} = minutes,{0}m,{0} min,{0} min,{0} min,{0} min,{0} мин,{0}分,{0}分
+AgencyHeritage/Empty/NoMatch,Text,When a filter leaves nothing to show,None match.,Keine Treffer.,Aucun résultat.,Sin resultados.,Nenhum resultado.,Ничего не найдено.,該当なし。,无匹配项。
+AgencyHeritage/Rebrand/Intro,Text,Top of the rebrand page,Starts a new era. Existing craft keep their colors.,Beginnt eine neue Ära. Vorhandene Raumfahrzeuge behalten ihre Farben.,Commence une nouvelle ère. Les vaisseaux existants gardent leurs couleurs.,Comienza una nueva era. Las naves existentes conservan sus colores.,Inicia uma nova era. As naves existentes mantêm suas cores.,Начинает новую эпоху. Существующие аппараты сохранят свои цвета.,新しい時代が始まります。既存の機体の色は変わりません。,开启新的时代。现有航天器保留原有颜色。
+AgencyHeritage/Caption/Name,Text,Rebrand field caption; upper case,NAME,NAME,NOM,NOMBRE,NOME,НАЗВАНИЕ,名称,名称
+AgencyHeritage/Caption/Flag,Text,Rebrand field caption; upper case,FLAG,FLAGGE,DRAPEAU,BANDERA,BANDEIRA,ФЛАГ,旗,旗帜
+AgencyHeritage/Caption/Livery,Text,Rebrand field caption for the agency colors; upper case,LIVERY,FARBEN,COULEURS,COLORES,CORES,ЦВЕТА,カラー,涂装
+AgencyHeritage/Caption/Motto,Text,Rebrand field caption; the motto is shown on the era's banner,MOTTO (OPTIONAL),MOTTO (OPTIONAL),DEVISE (FACULTATIF),LEMA (OPCIONAL),LEMA (OPCIONAL),ДЕВИЗ (НЕОБЯЗАТЕЛЬНО),モットー（任意）,口号（可选）
+AgencyHeritage/Placeholder/Motto,Text,"Example motto, shown greyed out in the empty field",Merged with Rockomax,Mit Rockomax fusioniert,Fusion avec Rockomax,Fusión con Rockomax,Fusão com a Rockomax,Слияние с Rockomax,Rockomaxと合併,与Rockomax合并
+AgencyHeritage/Swatch/Base,Text,"Color swatch label; upper case, short (as the game's own Base color)",BASE,BASIS,BASE,PRINCIPAL,BASE,ОСНОВНОЙ,ベース,基础色
+AgencyHeritage/Swatch/Accent,Text,"Color swatch label; upper case, short (as the game's own Accent color)",ACCENT,AKZENT,SECONDAIRE,SECUNDARIO,DESTAQUE,АКЦЕНТНЫЙ,アクセント,点缀色
+AgencyHeritage/Tooltip/ChangeColor,Text,Tooltip on a color swatch,Change color,Farbe ändern,Changer la couleur,Cambiar color,Mudar cor,Изменить цвет,色を変更,更改颜色
+AgencyHeritage/Tooltip/Swap,Text,Tooltip on the button between the swatches,Swap colors,Farben tauschen,Inverser les couleurs,Intercambiar colores,Trocar cores,Поменять цвета,色を入れ替え,交换颜色
+AgencyHeritage/Button/ChooseFlag,Text,Button; opens the flag picker,Choose flag…,Flagge wählen…,Choisir un drapeau…,Elegir bandera…,Escolher bandeira…,Выбрать флаг…,旗を選択…,选择旗帜…
+AgencyHeritage/Button/Cancel,Text,Button (about 16 characters),Cancel,Abbrechen,Annuler,Cancelar,Cancelar,Отмена,キャンセル,取消
+AgencyHeritage/Button/NewEra,Text,Button that confirms the rebrand (about 16 characters),New era,Neue Ära,Nouvelle ère,Nueva era,Nova era,Новая эпоха,新時代へ,开启新时代
+AgencyHeritage/Error/NoChange,Text,Rebrand error: nothing differs from the current agency,Nothing changed.,Nichts geändert.,Aucun changement.,No hay cambios.,Nada mudou.,Ничего не изменено.,変更がありません。,没有任何更改。
+AgencyHeritage/Error/NoName,Text,Rebrand error: the name is empty,Name required.,Name erforderlich.,Nom requis.,Falta el nombre.,Nome obrigatório.,Нужно название.,名称が必要です。,需要名称。
+AgencyHeritage/Error/NoCampaign,Text,Rebrand error,No campaign loaded.,Keine Kampagne geladen.,Aucune campagne chargée.,No hay ninguna campaña cargada.,Nenhuma campanha carregada.,Кампания не загружена.,キャンペーンが読み込まれていません。,未加载战役。

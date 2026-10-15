@@ -1,0 +1,25 @@
+{
+  "spec": "2.0",
+  "mod_id": "AgencyHeritage",
+  "name": "Agency Heritage",
+  "author": "Schneider",
+  "description": "Rebrand your agency as a recorded event, and look back over its brand eras and the blueprints saved in each.",
+  "source": "https://github.com/JustinSchneider/KSP2R-Mods/tree/main/Assets/AgencyHeritage",
+  "version": "1.0.0",
+  "version_check": "https://raw.githubusercontent.com/JustinSchneider/KSP2R-Mods/main/Assets/AgencyHeritage/swinfo.json",
+  "ksp2_version": {
+    "min": "*",
+    "max": "*"
+  },
+  "dependencies": [
+    {
+      "id": "SpaceWarp2",
+      "version": {
+        "min": "2.0.0",
+        "max": "*"
+      }
+    }
+  ],
+  "conflicts": [],
+  "main_assembly": "AgencyHeritage.dll"
+}

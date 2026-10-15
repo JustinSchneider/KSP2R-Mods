@@ -16,6 +16,8 @@ namespace AgencyHeritage
         public List<FlightRecord> Flights = new List<FlightRecord>();
         /// <summary>Kerbals lost in the line of duty. The game deletes them from the roster, so this is all that's left.</summary>
         public List<LossRecord> Losses = new List<LossRecord>();
+        /// <summary>Performance figures caught from the VAB each time a blueprint was saved; the files don't keep them.</summary>
+        public List<BlueprintStats> Blueprints = new List<BlueprintStats>();
 
         // Methods, not properties: when a save loads, Redux copies every public property onto this object, and a
         // read-only one makes that copy throw and abort the whole load.
@@ -59,12 +61,55 @@ namespace AgencyHeritage
         public bool ThumbnailsArchived;
     }
 
-    /// <summary>A launch, as recorded when it happened.</summary>
+    /// <summary>A launch, as recorded when it happened, and what became of it.</summary>
     public class FlightRecord
     {
         public double UT;
         public string VesselName;
         public List<string> Crew = new List<string>();
+        /// <summary>
+        /// The flight's vessels (Guid "N" strings): the one launched, plus any crewed or controllable vessel that
+        /// split or undocked from it. Empty for a launch recorded before flights were followed.
+        /// </summary>
+        public List<string> VesselIds = new List<string>();
+        /// <summary>The flight's vessels that still exist; the flight is over when this empties.</summary>
+        public List<string> ActiveIds = new List<string>();
+        public List<FlightEvent> Events = new List<FlightEvent>();
+        /// <summary>Part count at launch; 0 if unknown.</summary>
+        public int Parts;
+        /// <summary>Mass at launch in tonnes; 0 if unknown.</summary>
+        public double Mass;
+        /// <summary>Kerbals lost on this flight.</summary>
+        public List<string> LostCrew = new List<string>();
+
+        // Methods, not properties, for the same reason as HeritageSaveData's.
+        public bool IsFollowed() => VesselIds.Count > 0;
+        public bool Has(FlightEventKind kind) => Events.Exists(e => e.Kind == kind);
+    }
+
+    /// <summary>What can happen to a flight after launch. Saved by number: only ever add to the end.</summary>
+    public enum FlightEventKind { Landed, Splashed, Orbit, EnteredSoi, Docked, Recovered, Destroyed }
+
+    public class FlightEvent
+    {
+        public double UT;
+        public FlightEventKind Kind;
+        /// <summary>The celestial body it happened at (internal name, e.g. "Mun"); null if unknown.</summary>
+        public string Body;
+    }
+
+    /// <summary>A blueprint's performance as the VAB worked it out when it was saved.</summary>
+    public class BlueprintStats
+    {
+        /// <summary>The workspace's name, which is also its file name.</summary>
+        public string Workspace;
+        /// <summary>The .meta file's SaveTime, so a re-saved blueprint gets its new figures.</summary>
+        public long SaveTime;
+        /// <summary>Metres per second.</summary>
+        public double DeltaVVac, DeltaVAsl;
+        public float LaunchTwr;
+        /// <summary>Seconds.</summary>
+        public double BurnTime;
     }
 
     /// <summary>A kerbal who was lost, recorded just before the game removed them from the roster.</summary>
@@ -73,6 +118,8 @@ namespace AgencyHeritage
         public string Name;
         public double UT;
         public string VesselName;
+        /// <summary>When they joined the agency; the roster forgets it along with them. Null in older saves.</summary>
+        public double? Joined;
         /// <summary>File name of their portrait in the campaign's AgencyHeritage/portraits folder; null if none was saved.</summary>
         public string PortraitFile;
     }
