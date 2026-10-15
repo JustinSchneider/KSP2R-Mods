@@ -17,8 +17,7 @@ Until then, playing with SrmillaMP may record other players' flights in your his
 1.0 has a small read-only API: the agency's eras and events for rebrands and loaded saves. See *For mod authors* in the README. Next:
 
 - **Contributed timeline entries.** Other mods could add their own milestones to an era's timeline (title, date, world), saved with the history. Planned when another mod wants it, so the format fits a real use.
-- **Orbital Survey.** Fully mapping a world with [Orbital Survey](https://spacedock.info/mod/4501) would appear as a first in the era's timeline. Optional, like Wayfarer's Wings: nothing changes if it isn't installed.
-- **Wayfarer's Wings on Redux.** Ribbons are read from the original Wayfarer's Wings. The [Redux port](https://github.com/profesorabbott/WayfarersWingsRedux) hasn't published a build yet. Once it does, check that ribbons still show, and adapt if its internals moved.
+- **Orbital Survey.** Fully mapping a world with [Orbital Survey](https://spacedock.info/mod/4501) would appear as a first in the era's timeline. Optional, like Wayfarer's Wings Redux: nothing changes if it isn't installed.
 
 ## Collection
 

@@ -63,7 +63,6 @@ AgencyHeritage/Role/Returned,Text,"Crew card: a veteran the game brought back af
 AgencyHeritage/Role/Lost,Text,"Crew card, followed by the date; upper case, tiny",LOST,VERLOREN,PERDU,PERDIDO,PERDIDO,ПОГИБ,殉職,牺牲
 AgencyHeritage/Crew/LostOn,Text,Crew card tooltip; {0} = date,Lost {0},Verloren {0},Perdu {0},Perdido {0},Perdido {0},Погиб {0},{0} 殉職,{0} 牺牲
 AgencyHeritage/Crew/LostAboard,Text,"Crew card tooltip; {0} = vessel, {1} = date","Lost: {0}, {1}","Verloren: {0}, {1}","Perdu : {0}, {1}","Perdido: {0}, {1}","Perdido: {0}, {1}","Погиб: {0}, {1}",{1} {0}で殉職,{1} 于{0}牺牲
-AgencyHeritage/Ribbon/First,Text,"Badge on a first-ever ribbon; upper case, very short",FIRST,ERSTER,1ER,1.º,1º,ПЕРВЫЙ,初,首个
 AgencyHeritage/Placard/Parts.One,Text,Blueprint placard; {0} = 1,{0} part,{0} Teil,{0} pièce,{0} pieza,{0} peça,{0} деталь,{0}パーツ,{0}个部件
 AgencyHeritage/Placard/Parts.Many,Text,Blueprint placard; {0} = number of parts (not 1),{0} parts,{0} Teile,{0} pièces,{0} piezas,{0} peças,деталей: {0},{0}パーツ,{0}个部件
 AgencyHeritage/Spec/DeltaV,Text,"Blueprint spec sheet label, upper case, tiny (about 12 characters): total delta-v",ΔV,ΔV,ΔV,ΔV,ΔV,ΔV,ΔV,ΔV
@@ -164,3 +163,7 @@ AgencyHeritage/Button/NewEra,Text,Button that confirms the rebrand (about 16 cha
 AgencyHeritage/Error/NoChange,Text,Rebrand error: nothing differs from the current agency,Nothing changed.,Nichts geändert.,Aucun changement.,No hay cambios.,Nada mudou.,Ничего не изменено.,変更がありません。,没有任何更改。
 AgencyHeritage/Error/NoName,Text,Rebrand error: the name is empty,Name required.,Name erforderlich.,Nom requis.,Falta el nombre.,Nome obrigatório.,Нужно название.,名称が必要です。,需要名称。
 AgencyHeritage/Error/NoCampaign,Text,Rebrand error,No campaign loaded.,Keine Kampagne geladen.,Aucune campagne chargée.,No hay ninguna campaña cargada.,Nenhuma campanha carregada.,Кампания не загружена.,キャンペーンが読み込まれていません。,未加载战役。
+AgencyHeritage/Crew/OpenWings,Text,Button in a kerbal's record panel that opens their record in Wayfarer's Wings Redux; short,Ribbons,Bänder,Rubans,Cintas,Fitas,Ленты,リボン,勋带
+AgencyHeritage/Ribbon/More,Text,After a crew card's ribbons: how many more there are; {0} = number,+{0},+{0},+{0},+{0},+{0},+{0},+{0},+{0}
+AgencyHeritage/Ribbon/Awarded,Text,Ribbon hover tip; {0} = date awarded,Awarded {0},Verliehen am {0},Décerné le {0},Otorgada el {0},Concedida em {0},Вручена {0},{0}に授与,{0} 授予
+AgencyHeritage/Ribbon/Flight,Text,Ribbon hover tip; {0} = name of the flight the kerbal was on,On {0},Auf {0},À bord de {0},En {0},Em {0},На борту {0},{0}にて,于 {0}

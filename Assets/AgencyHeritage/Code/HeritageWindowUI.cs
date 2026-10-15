@@ -1564,6 +1564,8 @@ namespace AgencyHeritage
         private CrewFilter _crewFilter = CrewFilter.All;
         /// <summary>The kerbal whose record is open at the top of the roll, or null.</summary>
         private string _crewOpen;
+        /// <summary>Ribbons shown on a crew card; the rest are in the record panel.</summary>
+        private const int CardRibbons = 4;
 
         /// <summary>A kerbal's service from a set of flights: the shown era's, or their whole career.</summary>
         private class ServiceRecord
@@ -1723,12 +1725,7 @@ namespace AgencyHeritage
                 }
                 text.Add(strip);
             }
-            foreach (var ribbon in member.Ribbons.Take(2))
-            {
-                var element = Ribbon(ribbon);
-                element.style.marginTop = 4;
-                text.Add(element);
-            }
+            if (member.Ribbons.Count > 0) text.Add(RibbonRack(record, CardRibbons));
             card.Add(text);
             return card;
         }
@@ -1840,7 +1837,21 @@ namespace AgencyHeritage
             var heading = Row();
             heading.Add(Text(EraExhibit.ShortName(member.Name).ToUpper(Loc.Culture), 12, InkColor, true));
             heading.Add(Text("   " + _exhibit.Era.Name, 11, Ink3Color));
+            if (WingsBridge.CanOpenKerbal)
+            {
+                string name = member.Name;
+                var wings = new Button(() => WingsBridge.OpenKerbal(name));
+                Fixed(() => wings.text = Loc.T("Crew/OpenWings"));
+                wings.text = Loc.T("Crew/OpenWings");
+                wings.style.fontSize = 10;
+                wings.style.height = 20;
+                wings.style.marginLeft = 12;
+                wings.style.marginRight = 0;
+                SetPadding(wings, 0, 8);
+                heading.Add(wings);
+            }
             era.Add(heading);
+            if (member.Ribbons.Count > 0) era.Add(RibbonRack(record, int.MaxValue));
 
             var list = WrapRow();
             list.style.marginTop = 6;
@@ -1992,28 +2003,56 @@ namespace AgencyHeritage
             return frame;
         }
 
-        /// <summary>A Wayfarer's Wings ribbon, built from its image layers like that mod does.</summary>
-        private VisualElement Ribbon(WingAward award)
+        /// <summary>
+        /// A kerbal's Wayfarer's Wings ribbons for the era, at half size in the 1x pixel art, firsts first. Past
+        /// <paramref name="max"/>, a "+N" stands for the rest.
+        /// </summary>
+        private VisualElement RibbonRack(ServiceRecord record, int max)
         {
-            var ribbon = new VisualElement { tooltip = award.WingName };
-            ribbon.style.width = 90;
-            ribbon.style.height = 24;
-            foreach (var key in award.ImageLayers)
+            var ribbons = record.Member.Ribbons;
+            var rack = WrapRow();
+            rack.style.marginTop = 4;
+            foreach (var award in ribbons.Take(max)) rack.Add(Ribbon(award, record.Flights));
+            int rest = ribbons.Count - max;
+            if (rest > 0)
             {
-                var layer = new VisualElement();
+                var more = Text(Loc.F("Ribbon/More", rest.ToString(Loc.Culture)), 9, Ink2Color, true);
+                more.style.alignSelf = Align.Center;
+                more.style.marginLeft = 2;
+                var hidden = ribbons.Skip(max).ToList();
+                Tip(more, () => string.Join("\n", hidden.Select(r => r.WingName)));
+                rack.Add(more);
+            }
+            return rack;
+        }
+
+        /// <summary>A Wayfarer's Wings ribbon, built from its image layers like that mod does.</summary>
+        private VisualElement Ribbon(WingAward award, List<FlightRecord> flights)
+        {
+            var ribbon = new VisualElement();
+            ribbon.style.width = 60;
+            ribbon.style.height = 16;
+            ribbon.style.flexShrink = 0;
+            ribbon.style.marginRight = 2;
+            ribbon.style.marginBottom = 2;
+            foreach (var key in award.SmallLayers.Count > 0 ? award.SmallLayers : award.ImageLayers)
+            {
+                var layer = new VisualElement { pickingMode = PickingMode.Ignore };
                 Fill(layer);
                 ShowAsset(layer, key);
                 ribbon.Add(layer);
             }
-            if (award.IsFirst)
-            {
-                var first = Text(Loc.T("Ribbon/First"), 8, new Color(1f, 0.85f, 0.4f), true);
-                first.style.position = Position.Absolute;
-                first.style.right = -2;
-                first.style.top = -8;
-                ribbon.Add(first);
-            }
+            Tip(ribbon, () => RibbonTip(award, flights));
             return ribbon;
+        }
+
+        /// <summary>The ribbon's name, when it was awarded, and the flight the kerbal was on at the time.</summary>
+        private static string RibbonTip(WingAward award, List<FlightRecord> flights)
+        {
+            var lines = new List<string> { award.WingName, Loc.F("Ribbon/Awarded", FormatDate(award.UT)) };
+            var flight = flights.LastOrDefault(f => f.UT <= award.UT && award.UT <= (EraExhibit.EndOf(f) ?? double.MaxValue));
+            if (!string.IsNullOrEmpty(flight?.VesselName)) lines.Add(Loc.F("Ribbon/Flight", flight.VesselName));
+            return string.Join("\n", lines);
         }
 
         // ─── Collection: blueprints framed on a wall ───
