@@ -1,14 +1,14 @@
 # Changelog
 
-## 1.0.0 (2026-10-14)
+## 1.0.0 (2026-10-15)
 
 First release.
 
-- Rebrand your agency (name, flag and colors) as a recorded event. Each identity becomes a brand era, and the rebrand is cosmetic and free.
-- A museum-style history window: an era rail, and for each era a banner with its dates and colors, and Timeline, Missions, Crew and Collection tabs that show the era's firsts, launches, crew and blueprints at a glance.
+- A museum of your agency's history: an era rail, and for each era a banner with its dates and colors, and Timeline, Missions, Crew and Collection tabs that show the era's firsts, launches, crew and blueprints at a glance.
+- Rebrand your agency (name, flag and colors) to begin a new era. The rebrand is cosmetic and free.
 - Flights are followed after launch: landings and splashdowns, orbits, flybys, docking, recovery, and lost craft and crew. The timeline has a dated axis, zooms, joins each launch to its landings with a dashed arc, and opens a dated story of any flight you click.
 - Missions can be sorted and filtered. Mission patches are drawn from the flight: where it went and how far it got (a tour of several worlds shows them all), a probe or a crewed rocket sized by its part count, crew, gold stars for firsts, and how it ended.
-- The window steps aside while the pause or settings menu is open, so it no longer covers the game's dialogs.
+- The window steps aside while the pause or settings menu is open, so it never covers the game's dialogs.
 - The Collection shows the blueprints saved during each era in flight, as they looked at the time, with a spec sheet for each: Δv, TWR and burn time (from the VAB when the craft is saved), mass, size, crew seats, engines, propellant, power, systems and the flights launched from it. Blueprints can be copied for pasting into any VAB, copied as JSON specs, or exported.
 - Crew shows a service record for each kerbal: joined date, flights, time aloft, worlds reached and firsts for the era, with that era's flights and their whole career a click away. Kerbals stay on the crew of the eras they served in after they're lost. Lost and returned veterans are marked. Wayfarer's Wings Redux ribbons show when that mod is installed, with when and on which flight each was earned, and a button opens the kerbal in Wayfarer's Wings.
 - The stock agency flag setting and the VAB "agency colors" button open the Rebrand page instead of changing the agency directly.

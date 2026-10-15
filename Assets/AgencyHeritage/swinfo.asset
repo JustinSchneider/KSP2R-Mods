@@ -15,8 +15,7 @@ MonoBehaviour:
   id: AgencyHeritage
   name: Agency Heritage
   author: Schneider
-  description: Rebrand your agency as a recorded event, and look back over its brand
-    eras and the blueprints saved in each.
+  description: "A museum of your agency's history: flights, firsts, crew and craft, sorted into eras that begin each time you rebrand."
   version: 1.0.0
   versionCheck: https://raw.githubusercontent.com/JustinSchneider/KSP2R-Mods/main/Assets/AgencyHeritage/swinfo.json
   minKsp2Version: '*'
