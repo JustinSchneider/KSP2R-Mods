@@ -1,0 +1,200 @@
+{
+  "templates": [
+    {
+      "name": "gee_force",
+      "template": {
+        "name": "gee_force",
+        "displayName": "WayfarersWings/Ribbons/GeeForceName",
+        "description": "WayfarersWings/Ribbons/GeeForce",
+        "localizationParams": {},
+        "chain": "gee_force",
+        "points": 80,
+        "imageLayers": [
+          "Assets/Wings/Layers/gee_force.png"
+        ],
+        "conditions": []
+      },
+      "ranked": {
+        "partials": [
+          {
+            "localizationParams": {
+              "geeForce": "3"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 3
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "4"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 4
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "5"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 5
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "6"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 6
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "7"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 7
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "8"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 8
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "9"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 9
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "10"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 10
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "11"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 11
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "12"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 12
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "13"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 13
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "14"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 14
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "15"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 15
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "16"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 16
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "17"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 17
+              }
+            ]
+          },
+          {
+            "localizationParams": {
+              "geeForce": "18"
+            },
+            "conditions": [
+              {
+                "type": "Travel",
+                "minGeeForce": 18
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "wings": []
+}

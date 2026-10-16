@@ -109,3 +109,7 @@ ksp2.catalog
 /Assets/KSP2UTSettings.asset
 /Assets/KSP2UTSettings.asset.meta
 /project.info
+
+# Addressables content-update state, rewritten on every build
+/Assets/AddressableAssetsData/Windows/
+/Assets/AddressableAssetsData/Windows.meta

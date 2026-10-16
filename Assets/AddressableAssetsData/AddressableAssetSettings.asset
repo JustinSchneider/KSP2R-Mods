@@ -62,6 +62,7 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: df590942967f5824f8870e1a52eea270, type: 2}
   - {fileID: 11400000, guid: 23e3207e4a2acdd49934501efa19f116, type: 2}
   - {fileID: 11400000, guid: 6aca5c9b91324be4988c97af68161609, type: 2}
   - {fileID: 11400000, guid: cab71eaf841a5fa4ea3aeebad9fb41e2, type: 2}
@@ -73,8 +74,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3ffe1d0dd2e7acc43b50744df975577a, type: 2}
   - {fileID: 11400000, guid: c6f43173529a9084db93c6c2ab398158, type: 2}
   - {fileID: 11400000, guid: a4b00b5880d8a574a944a141c62f611c, type: 2}
+  - {fileID: 11400000, guid: 39e2b694a8e923a439e14f129f0f4bf3, type: 2}
   - {fileID: 11400000, guid: 2c0d48cee45944446a7263f0dcd4d087, type: 2}
+  - {fileID: 11400000, guid: 01b1211041f917c4580abdc1bfd59955, type: 2}
+  - {fileID: 11400000, guid: 8cb55814c29808743bb60cfe3dca0257, type: 2}
   - {fileID: 11400000, guid: 534ca32bb02476f4a82351d97710b6c3, type: 2}
+  - {fileID: 11400000, guid: d9a6415a6fbdc4e43a2cbcc64ebab024, type: 2}
+  - {fileID: 11400000, guid: 193beea9fc7bc014d9f782cc36ad5874, type: 2}
   m_BuildSettings:
     m_LogResourceManagerExceptions: 1
     m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
@@ -94,6 +100,20 @@ MonoBehaviour:
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
       - m_Id: 7c5fbf4c40c11be489200818b4d75be2
         m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+    - m_InheritedParent: 
+      m_Id: 74ae8d9d444ca7e43b45911c4162cff7
+      m_ProfileName: WayfarersWingsRedux
+      m_Values:
+      - m_Id: 0128440da6f2c5943897a40b820b2c9e
+        m_Value: '{SpaceWarpPaths.WayfarersWingsRedux}/addressables/StandaloneWindows64'
+      - m_Id: 64e7da74e52c1e44cb1aed8831e2ac0d
+        m_Value: 'ServerData/[BuildTarget]'
+      - m_Id: 70e182d391dc04f41893a7e38b218e69
+        m_Value: <undefined>
+      - m_Id: 79a86651986ff0e45a2362b3162bceea
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 7c5fbf4c40c11be489200818b4d75be2
+        m_Value: Library/com.unity.addressables/aa/Windows/StandaloneWindows64
     - m_InheritedParent: 
       m_Id: a5e9d02235cdfe0468c2092a3e3f26ec
       m_ProfileName: TransferWindowRedux
@@ -147,6 +167,9 @@ MonoBehaviour:
     - scienceExperiment
     - missions
     - techNodeData
+    - wayfarer_wings_data
+    - wayfarer_wings_images
+    - wayfarer_wings_planets
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 188a9a0751ce6154ca000378973e85c8, type: 2}
@@ -159,4 +182,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ae03ac4db023be4db906a503af7e6a4, type: 2}
   - {fileID: 11400000, guid: 2e0e4512bbea3f54b9901dbf6c2a699d, type: 2}
   - {fileID: 11400000, guid: e952a18b8d1a13e4ba5efdbd8e1b0baa, type: 2}
-  m_ActiveProfileId: a5e9d02235cdfe0468c2092a3e3f26ec
+  m_ActiveProfileId: 74ae8d9d444ca7e43b45911c4162cff7

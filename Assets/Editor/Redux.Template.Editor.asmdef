@@ -4,7 +4,9 @@
     "references": [
         "Unity.Burst",
         "ThunderKit.Core",
-        "ksp2community.ksp2unitytools.editor"
+        "ksp2community.ksp2unitytools.editor",
+        "Unity.Addressables",
+        "Unity.Addressables.Editor"
     ],
     "includePlatforms": [
         "Editor"

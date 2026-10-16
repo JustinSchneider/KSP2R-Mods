@@ -1,0 +1,120 @@
+{
+  "templates": [
+    {
+      "name": "fast_orbit",
+      "template": {
+        "name": "fast_orbit",
+        "displayName": "WayfarersWings/Ribbons/FastOrbitName",
+        "description": "WayfarersWings/Ribbons/FastOrbit",
+        "localizationParams": {},
+        "chain": "fast_orbit",
+        "points": 3100,
+        "imageLayers": [
+          "Assets/Wings/Layers/fast_orbit.png"
+        ],
+        "conditions": [
+          {
+            "type": "SphereOfInfluence",
+            "isHomeWorld": true
+          },
+          {
+            "type": "Orbit",
+            "isStable": true
+          }
+        ]
+      },
+      "ranked": {
+        "partials": [
+          {
+            "name": "fast_orbit_250s",
+            "localizationParams": {
+              "seconds": "250"
+            },
+            "conditions": [
+              {
+                "type": "Vessel",
+                "maxTimeFromLaunch": "250 seconds"
+              }
+            ]
+          },
+          {
+            "name": "fast_orbit_200s",
+            "localizationParams": {
+              "seconds": "200"
+            },
+            "conditions": [
+              {
+                "type": "Vessel",
+                "maxTimeFromLaunch": "200 seconds"
+              }
+            ]
+          },
+          {
+            "name": "fast_orbit_150s",
+            "localizationParams": {
+              "seconds": "150"
+            },
+            "conditions": [
+              {
+                "type": "Vessel",
+                "maxTimeFromLaunch": "150 seconds"
+              }
+            ]
+          },
+          {
+            "name": "fast_orbit_120s",
+            "localizationParams": {
+              "seconds": "120"
+            },
+            "conditions": [
+              {
+                "type": "Vessel",
+                "maxTimeFromLaunch": "120 seconds"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "wings": [
+    {
+      "name": "kerbal_in_space_first",
+      "isFirst": true,
+      "hasDisplayNameFirstAlready": true,
+      "displayName": "WayfarersWings/Ribbons/KerbalInSpaceFirstName",
+      "description": "WayfarersWings/Ribbons/KerbalInSpaceFirst",
+      "localizationParams": {},
+      "points": 10100,
+      "imageLayers": [
+        "Assets/Wings/Layers/kerbal_in_space_first.png"
+      ],
+      "conditions": [
+        {
+          "type": "Vessel",
+          "situation": "SubOrbital",
+          "previousSituation": "Flying"
+        }
+      ]
+    },
+    {
+      "name": "kerbal_eva_in_space_first",
+      "isFirst": true,
+      "hasDisplayNameFirstAlready": true,
+      "displayName": "WayfarersWings/Ribbons/KerbalEVAInSpaceFirstName",
+      "description": "WayfarersWings/Ribbons/KerbalEVAInSpaceFirst",
+      "localizationParams": {},
+      "points": 10090,
+      "imageLayers": [
+        "Assets/Wings/Layers/kerbal_eva_in_space_first.png"
+      ],
+      "conditions": [
+        {
+          "type": "KerbalEVA",
+          "isEva": true,
+          "isInAtmosphere": false
+        }
+      ]
+    }
+  ]
+}

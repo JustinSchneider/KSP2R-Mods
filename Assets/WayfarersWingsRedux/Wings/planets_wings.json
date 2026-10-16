@@ -1,0 +1,358 @@
+{
+  "templates": [
+    {
+      "name": "soi",
+      "celestialBody": {
+        "requires": []
+      },
+      "template": {
+        "name": "soi",
+        "displayName": "WayfarersWings/Ribbons/SphereOfInfluenceName",
+        "imageLayers": [],
+        "description": "WayfarersWings/Ribbons/SphereOfInfluence",
+        "triggers": [],
+        "points": 0,
+        "conditions": [
+          {
+            "type": "SphereOfInfluence",
+            "isRightAfterSOIChange": true,
+            "celestialBody": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "orbit",
+      "celestialBody": {
+        "requires": []
+      },
+      "hasFirst": {
+        "imageLayer": "Assets/Wings/Layers/first.png"
+      },
+      "template": {
+        "name": "orbit",
+        "displayName": "WayfarersWings/Ribbons/OrbitName",
+        "imageLayers": [
+          "Assets/Wings/Layers/vessel.png",
+          "Assets/Wings/Layers/orbit.png"
+        ],
+        "description": "WayfarersWings/Ribbons/Orbit",
+        "triggers": [],
+        "points": 10,
+        "conditions": [
+          {
+            "type": "SphereOfInfluence",
+            "celestialBody": null
+          },
+          {
+            "type": "Orbit",
+            "isStable": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "deep_atmosphere",
+      "celestialBody": {
+        "requires": [
+          "IsGasGiant"
+        ]
+      },
+      "hasFirst": {
+        "imageLayer": "Assets/Wings/Layers/first.png"
+      },
+      "template": {
+        "name": "orbit",
+        "displayName": "WayfarersWings/Ribbons/DeepAtmosphereName",
+        "imageLayers": [
+          "Assets/Wings/Layers/deep_atmo.png"
+        ],
+        "description": "WayfarersWings/Ribbons/DeepAtmosphere",
+        "triggers": [],
+        "points": 90,
+        "conditions": [
+          {
+            "type": "SphereOfInfluence",
+            "celestialBody": null
+          },
+          {
+            "type": "Vessel",
+            "situation": "Flying",
+            "minAltitudeSurface": 10
+          },
+          {
+            "type": "Atmosphere",
+            "minAtmDensity": 10
+          }
+        ]
+      }
+    },
+    {
+      "name": "eva_orbit",
+      "celestialBody": {
+        "requires": []
+      },
+      "hasFirst": {
+        "imageLayer": "Assets/Wings/Layers/first.png"
+      },
+      "template": {
+        "name": "eva_orbit",
+        "displayName": "WayfarersWings/Ribbons/EVAOrbitName",
+        "imageLayers": [
+          "Assets/Wings/Layers/vessel.png",
+          "Assets/Wings/Layers/eva.png"
+        ],
+        "description": "WayfarersWings/Ribbons/EVAOrbit",
+        "triggers": [],
+        "points": 40,
+        "conditions": [
+          {
+            "type": "SphereOfInfluence",
+            "celestialBody": null
+          },
+          {
+            "type": "Orbit",
+            "isStable": true
+          },
+          {
+            "type": "KerbalEVA",
+            "isEva": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "eva_space",
+      "celestialBody": {
+        "requires": []
+      },
+      "hasFirst": {
+        "imageLayer": "Assets/Wings/Layers/first.png"
+      },
+      "template": {
+        "name": "eva_space",
+        "displayName": "WayfarersWings/Ribbons/EVASpaceName",
+        "imageLayers": [
+          "Assets/Wings/Layers/eva.png"
+        ],
+        "description": "WayfarersWings/Ribbons/EVASpace",
+        "triggers": [],
+        "points": 20,
+        "conditions": [
+          {
+            "type": "SphereOfInfluence",
+            "celestialBody": null
+          },
+          {
+            "type": "KerbalEVA",
+            "isEva": true,
+            "isInAtmosphere": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "atmosphere",
+      "celestialBody": {
+        "requires": [
+          "HasAtmosphere"
+        ]
+      },
+      "hasFirst": {
+        "imageLayer": "Assets/Wings/Layers/first.png"
+      },
+      "template": {
+        "name": "atmosphere",
+        "displayName": "WayfarersWings/Ribbons/AtmosphereName",
+        "imageLayers": [
+          "Assets/Wings/Layers/atmosphere.png"
+        ],
+        "description": "WayfarersWings/Ribbons/Atmosphere",
+        "triggers": [],
+        "points": 15,
+        "conditions": [
+          {
+            "type": "SphereOfInfluence",
+            "celestialBody": null
+          },
+          {
+            "type": "Vessel",
+            "situation": "Flying",
+            "previousSituation": "SubOrbital"
+          }
+        ]
+      }
+    },
+    {
+      "name": "landed",
+      "celestialBody": {
+        "requires": [
+          "HasSurface"
+        ]
+      },
+      "hasFirst": {
+        "imageLayer": "Assets/Wings/Layers/first.png"
+      },
+      "template": {
+        "name": "landed",
+        "displayName": "WayfarersWings/Ribbons/LandedName",
+        "imageLayers": [
+          "Assets/Wings/Layers/landed.png"
+        ],
+        "description": "WayfarersWings/Ribbons/Landed",
+        "triggers": [],
+        "points": 50,
+        "conditions": [
+          {
+            "type": "SphereOfInfluence",
+            "celestialBody": null
+          },
+          {
+            "type": "Vessel",
+            // Both landed and splashed down are considered "landed"
+            "isRightAfterLandingAtRest": true,
+            "skipPreviousSituation": "PreLaunch"
+          }
+        ]
+      }
+    },
+    {
+      "name": "docked",
+      "celestialBody": {
+        "requires": []
+      },
+      "hasFirst": {
+        "imageLayer": "Assets/Wings/Layers/first.png"
+      },
+      "template": {
+        "name": "docked",
+        "displayName": "WayfarersWings/Ribbons/DockedName",
+        "imageLayers": [
+          "Assets/Wings/Layers/vessel.png",
+          "Assets/Wings/Layers/orbit.png",
+          "Assets/Wings/Layers/docking.png"
+        ],
+        "description": "WayfarersWings/Ribbons/Docked",
+        "triggers": [],
+        "points": 55,
+        "conditions": [
+          {
+            "type": "SphereOfInfluence",
+            "celestialBody": null
+          },
+          {
+            "type": "Orbit",
+            "isStable": true
+          },
+          {
+            "type": "Docking",
+            "isRightAfterDocking": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "eva_ground",
+      "celestialBody": {
+        "requires": [
+          "HasSurface"
+        ]
+      },
+      "hasFirst": {
+        "imageLayer": "Assets/Wings/Layers/first.png"
+      },
+      "template": {
+        "name": "eva_ground",
+        "displayName": "WayfarersWings/Ribbons/EVAGroundName",
+        "imageLayers": [
+          "Assets/Wings/Layers/eva.png",
+          "Assets/Wings/Layers/landed.png"
+        ],
+        "description": "WayfarersWings/Ribbons/EVAGround",
+        "triggers": [],
+        "points": 60,
+        "conditions": [
+          {
+            "type": "SphereOfInfluence",
+            "celestialBody": null
+          },
+          {
+            "type": "KerbalEVA",
+            "isEva": true
+          },
+          {
+            "type": "Vessel",
+            "isEva": true,
+            "situation": "Landed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "rover",
+      "celestialBody": {
+        "requires": [
+          "HasSurface"
+        ]
+      },
+      "hasFirst": {
+        "imageLayer": "Assets/Wings/Layers/first.png"
+      },
+      "template": {
+        "name": "rover",
+        "displayName": "WayfarersWings/Ribbons/RoverName",
+        "imageLayers": [
+          "Assets/Wings/Layers/rover.png"
+        ],
+        "description": "WayfarersWings/Ribbons/Rover",
+        "localizationParams": {
+          "distance": "3"
+        },
+        "triggers": [],
+        "points": 65,
+        "conditions": [
+          {
+            "type": "SphereOfInfluence",
+            "celestialBody": null
+          },
+          {
+            "type": "Travel",
+            "hasRoverMovedOnSurface": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "flag_planted",
+      "celestialBody": {
+        "requires": [
+          "HasSurface"
+        ]
+      },
+      "hasFirst": {
+        "imageLayer": "Assets/Wings/Layers/first.png"
+      },
+      "template": {
+        "name": "flag_planted",
+        "displayName": "WayfarersWings/Ribbons/FlagPlantedName",
+        "imageLayers": [
+          "Assets/Wings/Layers/eva.png",
+          "Assets/Wings/Layers/flag.png"
+        ],
+        "description": "WayfarersWings/Ribbons/FlagPlanted",
+        "triggers": [],
+        "points": 70,
+        "conditions": [
+          {
+            "type": "SphereOfInfluence",
+            "celestialBody": null
+          },
+          {
+            "type": "FlagPlanted"
+          }
+        ]
+      }
+    }
+  ],
+  "wings": []
+}

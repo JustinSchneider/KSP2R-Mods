@@ -1,0 +1,106 @@
+{
+  "celestialBodies": [
+    {
+      "name": "Kerbin",
+      "code": "kerbin",
+      "imageLayer": "Assets/Wings/Layers/kerbin.png",
+      "points": 1000
+    },
+    {
+      "name": "Mun",
+      "code": "mun",
+      "imageLayer": "Assets/Wings/Layers/mun.png",
+      "points": 1400
+    },
+    {
+      "name": "Minmus",
+      "code": "minmus",
+      "imageLayer": "Assets/Wings/Layers/minmus.png",
+      "points": 1800
+    },
+    {
+      "name": "Moho",
+      "code": "moho",
+      "imageLayer": "Assets/Wings/Layers/moho.png",
+      "points": 4000
+    },
+    {
+      "name": "Eve",
+      "code": "eve",
+      "imageLayer": "Assets/Wings/Layers/eve.png",
+      "points": 3000
+    },
+    {
+      "name": "Gilly",
+      "code": "gilly",
+      "imageLayer": "Assets/Wings/Layers/gilly.png",
+      "points": 2000
+    },
+    {
+      "name": "Dres",
+      "code": "dres",
+      "imageLayer": "Assets/Wings/Layers/dres.png",
+      "points": 5000
+    },
+    {
+      "name": "Duna",
+      "code": "duna",
+      "imageLayer": "Assets/Wings/Layers/duna.png",
+      "points": 2400
+    },
+    {
+      "name": "Ike",
+      "code": "ike",
+      "imageLayer": "Assets/Wings/Layers/ike.png",
+      "points": 2200
+    },
+    {
+      "name": "Jool",
+      "code": "jool",
+      "imageLayer": "Assets/Wings/Layers/jool.png",
+      "points": 6000
+    },
+    {
+      "name": "Laythe",
+      "code": "laythe",
+      "imageLayer": "Assets/Wings/Layers/laythe.png",
+      "points": 7000
+    },
+    {
+      "name": "Vall",
+      "code": "vall",
+      "imageLayer": "Assets/Wings/Layers/vall.png",
+      "points": 6200
+    },
+    {
+      "name": "Tylo",
+      "code": "tylo",
+      "imageLayer": "Assets/Wings/Layers/tylo.png",
+      "points": 6400
+    },
+    {
+      "name": "Bop",
+      "code": "bop",
+      "imageLayer": "Assets/Wings/Layers/bop.png",
+      "points": 6600
+    },
+    {
+      "name": "Pol",
+      "code": "pol",
+      "imageLayer": "Assets/Wings/Layers/pol.png",
+      "points": 6800
+    },
+    {
+      "name": "Eeloo",
+      "code": "eeloo",
+      "imageLayer": "Assets/Wings/Layers/eeloo.png",
+      "points": 8000
+    },
+    {
+      "name": "Kerbol",
+      "code": "kerbol",
+      "imageLayer": "Assets/Wings/Layers/kerbol.png",
+      "points": 9000
+    }
+  ]
+}
