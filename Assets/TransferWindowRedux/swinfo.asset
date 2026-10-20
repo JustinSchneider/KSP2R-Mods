@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9065a46703c44e8fabd263388eaeb6e7, type: 3}
-  m_Name: swinfo
+  m_Name: 'Transfer Window Redux [TransferWindowRedux]'
   m_EditorClassIdentifier: ksp2community.ksp2unitytools.editor::Ksp2UnityTools.Editor.Modding.Mod
   id: TransferWindowRedux
   name: Transfer Window Redux
   author: Schneider21 (original by ABritInSpace)
   description: In-game interplanetary transfer calculator, ported from Transfer Window.
-  version: 1.0.0
+  version: 1.1.0
   versionCheck: https://raw.githubusercontent.com/JustinSchneider/KSP2R-Mods/main/Assets/TransferWindowRedux/swinfo.json
   minKsp2Version: '*'
   maxKsp2Version: '*'
@@ -27,6 +27,7 @@ MonoBehaviour:
   celestialBodiesGroup: {fileID: 11400000, guid: c6f43173529a9084db93c6c2ab398158, type: 2}
   scienceExperimentGroup: {fileID: 11400000, guid: a42aca8f8d4dac049a69ec5fe79a3fd2, type: 2}
   techNodeDataGroup: {fileID: 11400000, guid: 2c0d48cee45944446a7263f0dcd4d087, type: 2}
+  resourcesGroup: {fileID: 11400000, guid: 419b29105b2ab82418462791a274ce5b, type: 2}
   addressablesProfileId: a5e9d02235cdfe0468c2092a3e3f26ec
   dependencies:
   - id: SpaceWarp2

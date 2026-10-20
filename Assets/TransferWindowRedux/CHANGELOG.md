@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0 (2026-10-20)
+
+- Requires KSP2 Redux 26w42c or later.
+- With [Flight Plan Redux](../FlightPlanRedux) installed, a Flight Plan button opens it on the same transfer.
+- The destination menu is as wide as its longest name, instead of cutting names off.
+- Stays idle in campaigns that don't include it (Redux campaign features).
+- Named and described in the Mods screen and the campaign feature editor.
+
 ## 1.0.0 (2026-10-14)
 
 First release: a port of ABritInSpace's [Transfer Window](https://github.com/ABritInSpace/TransferCalculator-KSP2) to KSP2 Redux.

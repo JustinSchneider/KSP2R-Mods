@@ -20,6 +20,8 @@ namespace TransferWindowRedux
         public event Action CloseClicked;
         public event Action WarpClicked;
         public event Action CreateNodeClicked;
+        /// <summary>Hand the transfer over to Flight Plan Redux (only offered when it's installed).</summary>
+        public event Action FlightPlanClicked;
         public event Action<string> TargetSelected;
         /// <summary>
         /// The player moved or resized the window: top-left corner in panel coordinates, and the size
@@ -49,7 +51,7 @@ namespace TransferWindowRedux
         private readonly Stat _phase, _windowIn, _windowAt, _nextWindow, _transferTime, _inclination;
         private readonly Stat _ejection, _ejectionAngle, _capture, _budget;
         private readonly VisualElement _budgetFill;
-        private readonly Button _nodeButton, _warpButton;
+        private readonly Button _nodeButton, _warpButton, _flightPlanButton;
         private readonly List<Stat> _allStats = new List<Stat>();
         private readonly List<(Label Label, string Key)> _sections = new List<(Label, string)>();
         private Stat _hovered;
@@ -72,6 +74,7 @@ namespace TransferWindowRedux
             if (savedLayout.height > 0) _root.style.height = Math.Max(MinHeight, savedLayout.height);
 
             _destination = new DropdownField { choices = new List<string>() };
+            WideDropdownMenu.Apply(_destination);
             _destination.style.flexGrow = 0;
             _destination.style.marginBottom = 8;
             _destination.RegisterValueChangedCallback(evt =>
@@ -150,7 +153,8 @@ namespace TransferWindowRedux
             _actions.style.flexShrink = 0;
             _nodeButton = new Button(() => CreateNodeClicked?.Invoke());
             _warpButton = new Button(() => WarpClicked?.Invoke());
-            foreach (var button in new[] { _nodeButton, _warpButton })
+            _flightPlanButton = new Button(() => FlightPlanClicked?.Invoke());
+            foreach (var button in new[] { _nodeButton, _warpButton, _flightPlanButton })
             {
                 button.AddToClassList("oab-window-action-button");
                 button.style.flexBasis = 0;
@@ -164,6 +168,8 @@ namespace TransferWindowRedux
                 _actions.Add(button);
             }
             _nodeButton.style.marginRight = 8;
+            _flightPlanButton.style.marginLeft = 8;
+            _flightPlanButton.style.display = DisplayStyle.None;
             _root.Add(_actions);
 
             var document = Window.Create(new WindowOptions
@@ -215,6 +221,7 @@ namespace TransferWindowRedux
             foreach (var stat in _allStats) stat.Name.text = Loc.T("Stat/" + stat.Key);
             _nodeButton.text = Loc.T("Button/CreateNode");
             _warpButton.text = Loc.T("Button/Warp");
+            _flightPlanButton.text = Loc.T("Button/FlightPlan");
             if (_hovered != null) _hint.text = Loc.T("Hint/" + _hovered.Key);
         }
 
@@ -279,7 +286,7 @@ namespace TransferWindowRedux
             _note.style.display = DisplayStyle.None;
         }
 
-        public void ShowTransfer(TransferInfo info, double ut, bool isWarping, string nodeButtonText)
+        public void ShowTransfer(TransferInfo info, double ut, bool isWarping, string nodeButtonText, bool flightPlanInstalled)
         {
             _message.style.display = DisplayStyle.None;
             _stats.style.display = DisplayStyle.Flex;
@@ -329,6 +336,7 @@ namespace TransferWindowRedux
             _nodeButton.SetEnabled(info.CanPlaceNode);
             _warpButton.text = Loc.T(isWarping ? "Button/StopWarp" : "Button/Warp");
             _warpButton.SetEnabled(isWarping || info.WindowKnown);
+            SetShown(_flightPlanButton, flightPlanInstalled);
         }
 
         private void ShowBudget(TransferInfo info)

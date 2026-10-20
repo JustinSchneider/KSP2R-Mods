@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using KSP.Sim;
 using KSP.Sim.impl;
 
 namespace TransferWindowRedux
@@ -147,8 +148,8 @@ namespace TransferWindowRedux
 
             info.OriginIsVessel = originBody == null;
             info.OriginName = info.OriginIsVessel ? vessel.Name : originBody.Name;
-            PatchedConicsOrbit originOrbit = info.OriginIsVessel ? vessel.Orbit : originBody.Orbit;
-            PatchedConicsOrbit targetOrbit = target.Orbit;
+            IKeplerPatch originOrbit = info.OriginIsVessel ? vessel.Orbit : originBody.Orbit;
+            IKeplerPatch targetOrbit = target.Orbit;
             double mu = parent.gravParameter;
 
             // Zup positions and velocities share one inertial frame, relative to each orbit's parent.
@@ -215,7 +216,7 @@ namespace TransferWindowRedux
                 double muOrigin = originBody.gravParameter;
                 double soi = originBody.sphereOfInfluence;
                 double r = inOrbit ? vessel.Orbit.radius : ParkingRadius(originBody, orbitMargin);
-                double speed = inOrbit ? vessel.Orbit.orbitalSpeed : Math.Sqrt(muOrigin / r);
+                double speed = inOrbit ? OrbitalSpeed(vessel.Orbit) : Math.Sqrt(muOrigin / r);
                 info.EjectionDeltaV = EscapeSpeed(vInfinity, muOrigin, r, soi) - speed;
 
                 // The hyperbola's asymptote is this far ahead of the burn point.
@@ -267,17 +268,17 @@ namespace TransferWindowRedux
             info.TargetHasAtmosphere = planet.hasAtmosphere;
 
             double mu = planet.gravParameter;
-            PatchedConicsOrbit moonOrbit = moon.Orbit;
+            IKeplerPatch moonOrbit = moon.Orbit;
             double rMoon = moonOrbit.radius;
             double transferA = (rMoon + rp) / 2;
             info.TransferTime = Math.PI * Math.Sqrt(transferA * transferA * transferA / mu);
 
             // Leaving the moon's SOI at the ellipse's apoapsis means shedding the difference from the moon's own speed.
-            double vInfinity = Math.Abs(moonOrbit.orbitalSpeed - Math.Sqrt(mu * (2 / rMoon - 1 / transferA)));
+            double vInfinity = Math.Abs(OrbitalSpeed(moonOrbit) - Math.Sqrt(mu * (2 / rMoon - 1 / transferA)));
             double muMoon = moon.gravParameter;
             double soi = moon.sphereOfInfluence;
             double r = inOrbit ? vessel.Orbit.radius : ParkingRadius(moon, orbitMargin);
-            double speed = inOrbit ? vessel.Orbit.orbitalSpeed : Math.Sqrt(muMoon / r);
+            double speed = inOrbit ? OrbitalSpeed(vessel.Orbit) : Math.Sqrt(muMoon / r);
             info.EjectionDeltaV = EscapeSpeed(vInfinity, muMoon, r, soi) - speed;
 
             double e = 1 + r * vInfinity * vInfinity / muMoon;
@@ -341,7 +342,7 @@ namespace TransferWindowRedux
         /// where the escape direction is <paramref name="asymptoteDeg"/> ahead of the vessel along its orbit.
         /// Starts half an orbit before the window so the burn lands as close to it as possible.
         /// </summary>
-        private static double FindEjectionBurn(PatchedConicsOrbit orbit, Vector3d escapeDir, double asymptoteDeg, double now, double windowUT)
+        private static double FindEjectionBurn(IKeplerPatch orbit, Vector3d escapeDir, double asymptoteDeg, double now, double windowUT)
         {
             double period = orbit.period;
             double rate = 360.0 / period;
@@ -360,6 +361,9 @@ namespace TransferWindowRedux
                 t += Wrap180(AngleAhead(t) - asymptoteDeg) / rate;
             return Math.Max(now, t);
         }
+
+        /// <summary>Current orbital speed. Redux's live orbits are IKeplerPatch, which has no orbitalSpeed.</summary>
+        private static double OrbitalSpeed(IKeplerPatch orbit) => orbit.GetOrbitalSpeedAtDistance(orbit.radius);
 
         /// <summary>Speed at radius r on a hyperbola that leaves the SOI at vInfinity.</summary>
         private static double EscapeSpeed(double vInfinity, double mu, double r, double soi) =>

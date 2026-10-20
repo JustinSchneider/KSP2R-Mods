@@ -10,18 +10,26 @@ using KSP.Sim.impl;
 using KSP.Sim.Maneuver;
 using KSP.UI.Binding;
 using Redux.ExtraModTypes;
-using ReduxLib.Configuration;
+using SpaceWarp2.API.Configuration;
 using SpaceWarp2.UI.API.Appbar;
 using UnityEngine;
 
 namespace TransferWindowRedux
 {
+    /// <summary>Static access to the mod's logger for classes that aren't the plugin.</summary>
+    internal static class SWLog
+    {
+        internal static SpaceWarp2.API.Logging.ILogger Logger;
+        internal static void Warning(string text) => Logger?.LogWarning(text);
+    }
+
     /// <summary>
     /// Transfer Window Redux: a KSP2 Redux port of ABritInSpace's Transfer Window
     /// (https://github.com/ABritInSpace/TransferCalculator-KSP2, MIT).
     /// </summary>
     public class TransferWindowReduxPlugin : KerbalMod
     {
+        public const string ModGuid = "TransferWindowRedux";
         internal const string AppbarButtonId = "BTN-TransferWindowRedux";
 
         // Recalculating every frame is wasteful; a few times a second keeps the numbers live.
@@ -45,6 +53,7 @@ namespace TransferWindowRedux
 
         public override void OnPreInitialized()
         {
+            SWLog.Logger = SWLogger;
             _icon = LoadIcon();
         }
 
@@ -56,6 +65,7 @@ namespace TransferWindowRedux
             _ui.CloseClicked += () => SetOpen(false);
             _ui.WarpClicked += OnWarpClicked;
             _ui.CreateNodeClicked += OnCreateNodeClicked;
+            _ui.FlightPlanClicked += () => FlightPlanBridge.OpenTransfer(_info?.TargetName);
             _ui.TargetSelected += OnTargetSelected;
             _ui.LayoutChanged += OnWindowLayoutChanged;
             _ui.Visible = false;
@@ -98,7 +108,7 @@ namespace TransferWindowRedux
                 double returnPeriapsis = _returnPeriapsisKm.Value < 0 ? -1 : _returnPeriapsisKm.Value * 1000;
                 _info = TransferMath.Calculate(vessel, ut, _orbitMarginKm.Value * 1000, returnPeriapsis);
                 if (_info.Problem == TransferProblem.None)
-                    _ui.ShowTransfer(_info, ut, Game.ViewController.TimeWarp.IsWarping, NodeButtonText(vessel));
+                    _ui.ShowTransfer(_info, ut, Game.ViewController.TimeWarp.IsWarping, NodeButtonText(vessel), FlightPlanBridge.IsAvailable);
                 else
                     _ui.ShowProblem(Loc.T("Problem/" + _info.Problem));
             }
@@ -232,7 +242,9 @@ namespace TransferWindowRedux
             {
                 // AddNode positions the node's transform, which the constructor doesn't create.
                 node.InitializeTransform();
-                node.SetManeuverState(patch);
+                // The live current patch is Redux's CurrentPatchedConicsOrbit, which SetManeuverState can't take;
+                // a node on it only needs the transform.
+                if (patch is PatchedConicsOrbit conics) node.SetManeuverState(conics);
                 // Node burn vectors are (radial, normal, prograde).
                 node.BurnVector = new Vector3d(0, 0, burnDeltaV);
                 maneuvers.AddNodeToVessel(node);
@@ -263,8 +275,10 @@ namespace TransferWindowRedux
             }
         }
 
+        /// <summary>In flight or map view, in a campaign that plays with the mod (each campaign picks its mods).</summary>
         private bool IsFlightScene()
         {
+            if (!Enabled) return false;
             var state = Game?.GlobalGameState?.GetGameState();
             if (state == null) return false;
             return state.GameState == GameState.FlightView || state.GameState == GameState.Map3DView;

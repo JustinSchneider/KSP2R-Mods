@@ -10,6 +10,10 @@ An in-game Hohmann transfer calculator for KSP2 Redux. Open it from the app bar 
 
 This is a port of [Transfer Window](https://github.com/ABritInSpace/TransferCalculator-KSP2) by ABritInSpace (MIT), with their blessing.
 
+## Installing
+
+Requires KSP2 Redux 26w42c or later. Unzip `TransferWindowRedux.zip` into the game's `mods` folder, so you end up with `mods\TransferWindowRedux\swinfo.json`.
+
 ## Changes from the original
 
 - Ported from BepInEx/SpaceWarp 1 to Redux's loader (`KerbalMod`), with the IMGUI window rebuilt in UI Toolkit on the stock window template (the same frame, header and resize handle as the game's own windows).
