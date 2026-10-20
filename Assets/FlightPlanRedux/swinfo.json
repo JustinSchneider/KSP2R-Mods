@@ -1,0 +1,27 @@
+{
+  "spec": "2.0",
+  "mod_id": "FlightPlanRedux",
+  "name": "Flight Plan Redux",
+  "author": "Schneider (original by schlosrat)",
+  "description": "Plan your flight, fly your plan. Maneuver node planning, ported from Flight Plan.",
+  "source": "https://github.com/JustinSchneider/KSP2R-Mods/tree/main/Assets/FlightPlanRedux",
+  "version": "1.0.0",
+  "version_check": "https://raw.githubusercontent.com/JustinSchneider/KSP2R-Mods/main/Assets/FlightPlanRedux/swinfo.json",
+  "addressable_script_label": "FlightPlanRedux_patches",
+  "addressable_prefab_patch_label": "FlightPlanRedux_prefab_patches",
+  "ksp2_version": {
+    "min": "*",
+    "max": "*"
+  },
+  "dependencies": [
+    {
+      "id": "SpaceWarp2",
+      "version": {
+        "min": "2.0.0",
+        "max": "*"
+      }
+    }
+  ],
+  "conflicts": [],
+  "main_assembly": "FlightPlanRedux.dll"
+}

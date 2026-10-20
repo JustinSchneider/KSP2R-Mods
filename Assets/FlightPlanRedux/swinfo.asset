@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9065a46703c44e8fabd263388eaeb6e7, type: 3}
+  m_Name: 'Flight Plan Redux [FlightPlanRedux]'
+  m_EditorClassIdentifier: ksp2community.ksp2unitytools.editor::Ksp2UnityTools.Editor.Modding.Mod
+  id: FlightPlanRedux
+  name: Flight Plan Redux
+  author: Schneider (original by schlosrat)
+  description: Plan your flight, fly your plan. Maneuver node planning, ported from Flight Plan.
+  version: 1.0.0
+  versionCheck: https://raw.githubusercontent.com/JustinSchneider/KSP2R-Mods/main/Assets/FlightPlanRedux/swinfo.json
+  minKsp2Version: '*'
+  maxKsp2Version: '*'
+  source: https://github.com/JustinSchneider/KSP2R-Mods/tree/main/Assets/FlightPlanRedux
+  allGroup: {fileID: 11400000, guid: 5ef773863e1ae0f4cafd60bb6cb8cd31, type: 2}
+  partsGroup: {fileID: 11400000, guid: d9460ed3d24df774db6188dbb09e0aad, type: 2}
+  missionsGroup: {fileID: 11400000, guid: 08a0225cf3e6b1e49b0f2169b11c00b3, type: 2}
+  celestialBodiesGroup: {fileID: 11400000, guid: f2c1016380d954344851a5a01e8e484e, type: 2}
+  scienceExperimentGroup: {fileID: 11400000, guid: 41ce89ccf054af5489c3315b524e812a, type: 2}
+  techNodeDataGroup: {fileID: 11400000, guid: d2bf3c167d9ecf847856bc8f26056553, type: 2}
+  resourcesGroup: {fileID: 11400000, guid: 3cd9c0b82f3dffd4c938dc411ac4790f, type: 2}
+  addressablesProfileId: acdd33b84b3a5a840a1b665a35c2dda8
+  dependencies:
+  - id: SpaceWarp2
+    min: 2.0.0
+    max: '*'
+  incompatibilities: []

@@ -1,0 +1,183 @@
+Key,Type,Desc,English,German,French,Spanish,Portuguese-Brazil [pt-BR],Russian,Japanese,Chinese-Simplified [zh-CN]
+FlightPlanRedux/Name,Text,App bar button,Flight Plan,Flugplan,Plan de vol,Plan de vuelo,Plano de voo,План полёта,フライトプラン,飞行计划
+FlightPlanRedux/Title,Text,Window title (shown uppercase),Flight Plan,Flugplan,Plan de vol,Plan de vuelo,Plano de voo,План полёта,フライトプラン,飞行计划
+FlightPlanRedux/TabTitle/Orbit,Text,Tab name (hover) and section heading,Orbit maneuvers,Orbitmanöver,Manœuvres d'orbite,Maniobras orbitales,Manobras de órbita,Орбитальные манёвры,自機の軌道マニューバ,轨道机动
+FlightPlanRedux/TabTitle/TargetVessel,Text,Tab name (hover) and section heading,Target maneuvers: vessel,Zielmanöver: Schiff,Manœuvres de cible : vaisseau,Maniobras con objetivo: nave,Manobras com alvo: nave,Манёвры к цели: аппарат,ターゲット相対：機体,目标机动：载具
+FlightPlanRedux/TabTitle/TargetCelestial,Text,Tab name (hover) and section heading,Target maneuvers: celestial,Zielmanöver: Himmelskörper,Manœuvres de cible : astre,Maniobras con objetivo: astro,Manobras com alvo: astro,Манёвры к цели: небесное тело,ターゲット相対：天体,目标机动：天体
+FlightPlanRedux/TabTitle/Moon,Text,Tab name (hover) and section heading,Moon transfer,Mondtransfer,Transfert lunaire,Transferencia lunar,Transferência lunar,Переход с луны,衛星からの遷移,卫星转移
+FlightPlanRedux/TabTitle/Planet,Text,Tab name (hover) and section heading,Planetary transfer,Planetentransfer,Transfert planétaire,Transferencia planetaria,Transferência planetária,Межпланетный переход,惑星間遷移,行星际转移
+FlightPlanRedux/TabTitle/Resonant,Text,Tab name (hover) and section heading,Resonant orbit,Resonanzorbit,Orbite de résonance,Órbita resonante,Órbita ressonante,Резонансная орбита,共鳴軌道,共振轨道
+FlightPlanRedux/TabTitle/Nodes,Text,Tab name (hover) and section heading,Maneuver nodes,Manöverknoten,Nœuds de manœuvre,Nodos de maniobra,Nós de manobra,Узлы манёвра,マニューバノード,机动节点
+FlightPlanRedux/Field/Situation,Text,Label left of the vessel's situation,Situation,Lage,Situation,Situación,Situação,Положение,状況,状态
+FlightPlanRedux/TargetKind/Celestial,Text,Button cycling what the target list shows,Celestial,Himmelskörper,Astre,Astro,Astro,Небесное тело,天体,天体
+FlightPlanRedux/TargetKind/Vessel,Text,Button cycling what the target list shows,Vessel,Schiff,Vaisseau,Nave,Nave,Аппарат,機体,载具
+FlightPlanRedux/TargetKind/Port,Text,Button cycling what the target list shows: docking ports,Port,Andockport,Port,Puerto,Porta,Порт,ポート,端口
+FlightPlanRedux/Situation/PreLaunch,Text,{0} is a body,Pre-launch on {0},Startbereit auf {0},Avant lancement sur {0},Prelanzamiento en {0},Pré-lançamento em {0},Перед стартом на {0},{0}で発射前,{0}发射前
+FlightPlanRedux/Situation/Landed,Text,{0} is a body,Landed on {0},Gelandet auf {0},Posé sur {0},Aterrizado en {0},Pousado em {0},На поверхности {0},{0}に着陸,已着陆{0}
+FlightPlanRedux/Situation/Splashed,Text,{0} is a body,Splashed down on {0},Gewassert auf {0},Amerri sur {0},Amerizado en {0},Amerissado em {0},Приводнён на {0},{0}に着水,已溅落{0}
+FlightPlanRedux/Situation/Flying,Text,{0} is a body,Flying at {0},Fliegt bei {0},En vol sur {0},Volando en {0},Voando em {0},Полёт у {0},{0}を飛行中,在{0}飞行
+FlightPlanRedux/Situation/SubOrbital,Text,{0} is a body,Sub-orbital at {0},Suborbital bei {0},Suborbital autour de {0},Suborbital en {0},Suborbital em {0},Суборбитально у {0},{0}で弾道飛行,{0}亚轨道
+FlightPlanRedux/Situation/Orbiting,Text,{0} is a body,Orbiting {0},Umkreist {0},En orbite de {0},Orbitando {0},Orbitando {0},На орбите {0},{0}を周回中,环绕{0}
+FlightPlanRedux/Situation/Escaping,Text,{0} is a body,Escaping {0},Verlässt {0},S'échappe de {0},Escapando de {0},Escapando de {0},Уход от {0},{0}から脱出中,正在逃离{0}
+FlightPlanRedux/Situation/Unknown,Text,{0} is a body,Near {0},Bei {0},Près de {0},Cerca de {0},Perto de {0},Около {0},{0}付近,{0}附近
+FlightPlanRedux/Stat/TargetOrbit,Text,Readout,Target orbit,Zielorbit,Orbite de la cible,Órbita del objetivo,Órbita do alvo,Орбита цели,ターゲット軌道,目标轨道
+FlightPlanRedux/Stat/CurrentOrbit,Text,Readout,Current orbit,Aktueller Orbit,Orbite actuelle,Órbita actual,Órbita atual,Текущая орбита,現在の軌道,当前轨道
+FlightPlanRedux/Stat/Before,Text,Preview: orbit the burn starts from,Orbit before,Orbit davor,Orbite avant,Órbita antes,Órbita antes,Орбита до,噴射前の軌道,点火前轨道
+FlightPlanRedux/Stat/Next,Text,Readout: suggested next maneuver for meeting a vessel,Next,Als Nächstes,Ensuite,Siguiente,Próximo,Далее,次の手順,下一步
+FlightPlanRedux/Stat/CurrentAp,Text,Readout,Current apoapsis,Aktuelle Apoapsis,Apoapside actuel,Apoapsis actual,Apoapse atual,Текущий апоцентр,現在の遠点,当前远拱点
+FlightPlanRedux/Stat/CurrentPe,Text,Readout,Current periapsis,Aktuelle Periapsis,Périapside actuel,Periapsis actual,Periapse atual,Текущий перицентр,現在の近点,当前近拱点
+FlightPlanRedux/Next/ReadyToDock,Text,Next step value,Ready to dock,Andockbereit,Prêt à l'amarrage,Listo para acoplar,Pronto para acoplar,Готов к стыковке,ドッキング可能,可以对接
+FlightPlanRedux/Next/GetCloser,Text,Next step value,Get closer,Näher heran,Se rapprocher,Acercarse,Aproximar,Подойти ближе,接近する,靠近
+FlightPlanRedux/Next/StopDrift,Text,"Next step value: moving away, match velocity after a set time",Stop drifting away,Abdriften stoppen,Stopper la dérive,Detener la deriva,Parar a deriva,Остановить уход,離脱を止める,停止漂离
+FlightPlanRedux/Next/MatchVelocity,Text,Next step value,Match velocity,Geschwindigkeit angleichen,Égaler la vitesse,Igualar velocidad,Igualar velocidade,Уравнять скорость,速度を合わせる,匹配速度
+FlightPlanRedux/Next/MatchPlanes,Text,Next step value,Match planes,Ebenen angleichen,Aligner les plans,Igualar planos,Igualar planos,Совместить плоскости,軌道面を合わせる,匹配轨道面
+FlightPlanRedux/Next/CourseCorrection,Text,Next step value,Course correction,Kurskorrektur,Correction de trajectoire,Corrección de rumbo,Correção de curso,Коррекция курса,軌道修正,航线修正
+FlightPlanRedux/Next/PhasingOrbit,Text,Next step value: window is many orbits away,Phasing orbit,Phasenorbit,Orbite de phasage,Órbita de fase,Órbita de fase,Фазирующая орбита,位相調整軌道,调相轨道
+FlightPlanRedux/Next/HohmannTransfer,Text,Next step value,Hohmann transfer,Hohmann-Transfer,Transfert de Hohmann,Transferencia de Hohmann,Transferência de Hohmann,Гомановский переход,ホーマン遷移,霍曼转移
+FlightPlanRedux/Value/RaiseTo,Text,Beside Set deployment Ap/Pe; {0} altitude,Raise to {0},Anheben auf {0},Monter à {0},Subir a {0},Elevar para {0},Поднять до {0},{0}へ上げる,升至{0}
+FlightPlanRedux/Value/LowerTo,Text,Beside Set deployment Ap/Pe; {0} altitude,Lower to {0},Senken auf {0},Descendre à {0},Bajar a {0},Baixar para {0},Опустить до {0},{0}へ下げる,降至{0}
+FlightPlanRedux/Field/OcclusionAtm,Text,Input: line-of-sight factor for bodies with an atmosphere,Atmosphere factor,Faktor mit Atmosphäre,Facteur avec atmosphère,Factor con atmósfera,Fator com atmosfera,Коэфф. с атмосферой,大気あり係数,有大气系数
+FlightPlanRedux/Field/OcclusionVac,Text,Input: line-of-sight factor for airless bodies,Vacuum factor,Faktor ohne Atmosphäre,Facteur sans atmosphère,Factor sin atmósfera,Fator sem atmosfera,Коэфф. без атмосферы,真空係数,真空系数
+FlightPlanRedux/Tip/UseAltitude,Text,Hover tip on the small orbit button,Use as constellation altitude,Als Konstellationshöhe verwenden,Utiliser comme altitude de constellation,Usar como altitud de la constelación,Usar como altitude da constelação,Взять как высоту группировки,コンステレーション高度に使う,用作星座高度
+FlightPlanRedux/Tip/K2D2Execute,Text,Hover tip on the K2-D2 button,K2-D2: fly the next node,K2-D2: nächsten Knoten fliegen,K2-D2 : exécuter le prochain nœud,K2-D2: ejecutar el próximo nodo,K2-D2: executar o próximo nó,K2-D2: выполнить следующий узел,K2-D2：次のノードを実行,K2-D2：执行下一个节点
+FlightPlanRedux/Tip/K2D2Stop,Text,Hover tip on the K2-D2 button while flying,K2-D2: stop,K2-D2: stoppen,K2-D2 : arrêter,K2-D2: detener,K2-D2: parar,K2-D2: стоп,K2-D2：停止,K2-D2：停止
+FlightPlanRedux/Section/Preview,Text,Section heading (shown uppercase),Preview,Vorschau,Aperçu,Vista previa,Prévia,Предпросмотр,プレビュー,预览
+FlightPlanRedux/Section/Nodes,Text,Section heading (shown uppercase),Maneuver nodes,Manöverknoten,Nœuds de manœuvre,Nodos de maniobra,Nós de manobra,Узлы манёвра,マニューバノード,机动节点
+FlightPlanRedux/Section/Adjust,Text,Section heading (shown uppercase): fine-tune the selected node,Adjust,Anpassen,Ajuster,Ajustar,Ajustar,Настройка,調整,微调
+FlightPlanRedux/Field/PickTarget,Text,Target dropdown before anything is picked,Choose a target…,Ziel wählen…,Choisir une cible…,Elige un objetivo…,Escolha um alvo…,Выберите цель…,ターゲットを選択…,选择目标…
+FlightPlanRedux/Field/BurnTime,Text,Label before the burn time dropdown,Burn,Zündung,Allumage,Encendido,Queima,Импульс,噴射,点火
+FlightPlanRedux/Field/NewPe,Text,Input label,New periapsis,Neue Periapsis,Nouveau périapside,Nuevo periapsis,Nova periapse,Новый перицентр,新しい近点,新近拱点
+FlightPlanRedux/Field/NewAp,Text,Input label,New apoapsis,Neue Apoapsis,Nouvel apoapside,Nuevo apoapsis,Nova apoapse,Новый апоцентр,新しい遠点,新远拱点
+FlightPlanRedux/Field/NewSma,Text,Input label: semi-major axis as an altitude,New semi-major axis,Neue große Halbachse,Nouveau demi-grand axe,Nuevo semieje mayor,Novo semieixo maior,Новая большая полуось,新しい軌道長半径,新半长轴
+FlightPlanRedux/Field/NewInc,Text,Input label,New inclination,Neue Inklination,Nouvelle inclinaison,Nueva inclinación,Nova inclinação,Новое наклонение,新しい軌道傾斜角,新轨道倾角
+FlightPlanRedux/Field/NewLan,Text,Input label: longitude of the ascending node,New LAN,Neue Knotenlänge,Nouvelle LNA,Nueva LNA,Nova LNA,Новая долгота узла,新しい昇交点経度,新升交点经度
+FlightPlanRedux/Field/MoonReturnPe,Text,Input label: periapsis at the planet after leaving the moon,Periapsis at planet,Periapsis am Planeten,Périapside à la planète,Periapsis en el planeta,Periapse no planeta,Перицентр у планеты,惑星での近点,行星处近拱点
+FlightPlanRedux/Field/InterceptDistanceVessel,Text,Input label: closest approach to a target vessel,Closest approach,Nächste Annäherung,Approche minimale,Máximo acercamiento,Aproximação máxima,Сближение,最接近距離,最近距离
+FlightPlanRedux/Field/InterceptDistanceCelestial,Text,Input label: periapsis at a target body,Periapsis at target,Periapsis am Ziel,Périapside à la cible,Periapsis en el objetivo,Periapse no alvo,Перицентр у цели,ターゲットでの近点,目标处近拱点
+FlightPlanRedux/Field/InterceptTime,Text,Input label: time until the intercept (seconds or h:m:s),Intercept in,Abfangen in,Interception dans,Intercepción en,Interceptação em,Перехват через,迎撃まで,拦截时间
+FlightPlanRedux/Field/FixedTime,Text,Input label: burn after this long (seconds or h:m:s),Burn in,Zündung in,Allumage dans,Encendido en,Queima em,Импульс через,噴射まで,点火倒计时
+FlightPlanRedux/Field/Altitude,Text,Input label: burn at this altitude,Burn altitude,Zündhöhe,Altitude d'allumage,Altitud de encendido,Altitude da queima,Высота импульса,噴射高度,点火高度
+FlightPlanRedux/Field/Satellites,Text,Input label: number of satellites in the constellation,Satellites,Satelliten,Satellites,Satélites,Satélites,Спутники,衛星数,卫星数量
+FlightPlanRedux/Field/OrbitsBetween,Text,Input label: deployment orbits between releases,Orbits between releases,Umläufe pro Aussetzung,Orbites entre largages,Órbitas entre liberaciones,Órbitas entre liberações,Витков между запусками,放出間の周回数,释放间隔圈数
+FlightPlanRedux/Field/SatelliteAltitude,Text,Input label: the constellation's altitude,Constellation altitude,Konstellationshöhe,Altitude de la constellation,Altitud de la constelación,Altitude da constelação,Высота группировки,コンステレーション高度,星座高度
+FlightPlanRedux/Field/Dive,Text,Toggle: deployment orbit dips below the constellation,Dive below,Darunter tauchen,Plonger dessous,Pasar por debajo,Mergulhar abaixo,Нырять ниже,下を通る,下潜释放
+FlightPlanRedux/Field/Occlusion,Text,Toggle: allow for the body blocking line of sight,Allow for occlusion,Verdeckung berücksichtigen,Tenir compte de l'occultation,Considerar ocultación,Considerar ocultação,Учитывать затенение,遮蔽を考慮,考虑遮挡
+FlightPlanRedux/Field/Prograde,Text,Nudge row,Prograde,Prograd,Prograde,Prógrado,Prógrado,По орбите,順行,顺行
+FlightPlanRedux/Field/Normal,Text,Nudge row,Normal,Normal,Normal,Normal,Normal,Нормаль,法線,法向
+FlightPlanRedux/Field/Radial,Text,Nudge row,Radial,Radial,Radial,Radial,Radial,Радиал,動径,径向
+FlightPlanRedux/Field/NodeTime,Text,Nudge row: move the node in time,Time,Zeit,Temps,Tiempo,Tempo,Время,時刻,时间
+FlightPlanRedux/Maneuver/Circularize,Text,Maneuver chip,Circularize,Zirkularisieren,Circulariser,Circularizar,Circularizar,Скруглить,円軌道化,圆化
+FlightPlanRedux/Maneuver/NewPe,Text,Maneuver chip,New Pe,Neue Pe,Nouveau Pe,Nuevo Pe,Nova Pe,Новый Pe,近点変更,新近拱点
+FlightPlanRedux/Maneuver/NewAp,Text,Maneuver chip,New Ap,Neue Ap,Nouvel Ap,Nuevo Ap,Nova Ap,Новый Ap,遠点変更,新远拱点
+FlightPlanRedux/Maneuver/NewPeAp,Text,Maneuver chip,New Pe & Ap,Neue Pe & Ap,Nouveaux Pe et Ap,Nuevos Pe y Ap,Novas Pe e Ap,Новые Pe и Ap,近点・遠点変更,新近/远拱点
+FlightPlanRedux/Maneuver/NewInc,Text,Maneuver chip,Inclination,Inklination,Inclinaison,Inclinación,Inclinação,Наклонение,軌道傾斜角,倾角
+FlightPlanRedux/Maneuver/NewLan,Text,Maneuver chip: longitude of the ascending node,LAN,Knotenlänge,LNA,LNA,LNA,Долгота узла,昇交点経度,升交点经度
+FlightPlanRedux/Maneuver/NewSma,Text,Maneuver chip: semi-major axis,Semi-major axis,Große Halbachse,Demi-grand axe,Semieje mayor,Semieixo maior,Большая полуось,軌道長半径,半长轴
+FlightPlanRedux/Maneuver/MatchPlanes,Text,Maneuver chip,Match planes,Ebenen angleichen,Aligner les plans,Igualar planos,Igualar planos,Совместить плоскости,軌道面を合わせる,匹配轨道面
+FlightPlanRedux/Maneuver/HohmannTransfer,Text,Maneuver chip,Hohmann transfer,Hohmann-Transfer,Transfert de Hohmann,Transferencia de Hohmann,Transferência de Hohmann,Гомановский переход,ホーマン遷移,霍曼转移
+FlightPlanRedux/Maneuver/CourseCorrection,Text,Maneuver chip,Course correction,Kurskorrektur,Correction de trajectoire,Corrección de rumbo,Correção de curso,Коррекция курса,軌道修正,航线修正
+FlightPlanRedux/Maneuver/InterceptTarget,Text,Maneuver chip (experimental),Intercept,Abfangen,Interception,Interceptar,Interceptar,Перехват,迎撃,拦截
+FlightPlanRedux/Maneuver/MatchVelocity,Text,Maneuver chip,Match velocity,Geschwindigkeit angleichen,Égaler la vitesse,Igualar velocidad,Igualar velocidade,Уравнять скорость,速度を合わせる,匹配速度
+FlightPlanRedux/Maneuver/MoonReturn,Text,Maneuver chip,Return to planet,Rückkehr zum Planeten,Retour à la planète,Volver al planeta,Voltar ao planeta,Возврат к планете,惑星へ帰還,返回行星
+FlightPlanRedux/Maneuver/PlanetaryTransfer,Text,Maneuver chip,Planetary transfer,Planetentransfer,Transfert planétaire,Transferencia planetaria,Transferência planetária,Межпланетный переход,惑星間遷移,行星际转移
+FlightPlanRedux/Maneuver/FixAp,Text,Maneuver chip: set Ap for the deployment orbit,Set deployment Ap,Aussetz-Ap setzen,Régler l'Ap de largage,Fijar Ap de despliegue,Definir Ap de liberação,Ap для запуска,放出軌道の遠点,设置部署远拱点
+FlightPlanRedux/Maneuver/FixPe,Text,Maneuver chip: set Pe for the deployment orbit,Set deployment Pe,Aussetz-Pe setzen,Régler le Pe de largage,Fijar Pe de despliegue,Definir Pe de liberação,Pe для запуска,放出軌道の近点,设置部署近拱点
+FlightPlanRedux/When/None,Text,Burn time choice,—,—,—,—,—,—,—,—
+FlightPlanRedux/When/Computed,Text,Burn time choice,At the best time,Zum besten Zeitpunkt,Au meilleur moment,En el mejor momento,No melhor momento,В лучший момент,最適な時刻,最佳时机
+FlightPlanRedux/When/Apoapsis,Text,Burn time choice,At next apoapsis,An der nächsten Apoapsis,Au prochain apoapside,En el próximo apoapsis,Na próxima apoapse,В следующем апоцентре,次の遠点,下一个远拱点
+FlightPlanRedux/When/Periapsis,Text,Burn time choice,At next periapsis,An der nächsten Periapsis,Au prochain périapside,En el próximo periapsis,Na próxima periapse,В следующем перицентре,次の近点,下一个近拱点
+FlightPlanRedux/When/ClosestApproach,Text,Burn time choice,At closest approach,Bei nächster Annäherung,À l'approche minimale,En el máximo acercamiento,Na aproximação máxima,При сближении,最接近時,最近点
+FlightPlanRedux/When/EqAscending,Text,Burn time choice,At equatorial AN,Am äquatorialen AK,Au NA équatorial,En el NA ecuatorial,No NA equatorial,В восходящем узле экватора,赤道昇交点,赤道升交点
+FlightPlanRedux/When/EqDescending,Text,Burn time choice,At equatorial DN,Am äquatorialen AbK,Au ND équatorial,En el ND ecuatorial,No ND equatorial,В нисходящем узле экватора,赤道降交点,赤道降交点
+FlightPlanRedux/When/RelAscending,Text,Burn time choice,At next AN with target,Am nächsten AK zum Ziel,Au prochain NA avec la cible,En el próximo NA con el objetivo,No próximo NA com o alvo,В восходящем узле с целью,ターゲットとの次の昇交点,与目标的下一个升交点
+FlightPlanRedux/When/RelDescending,Text,Burn time choice,At next DN with target,Am nächsten AbK zum Ziel,Au prochain ND avec la cible,En el próximo ND con el objetivo,No próximo ND com o alvo,В нисходящем узле с целью,ターゲットとの次の降交点,与目标的下一个降交点
+FlightPlanRedux/When/FixedTime,Text,Burn time choice,After a set time,Nach fester Zeit,Après un délai,Tras un tiempo fijo,Após um tempo fixo,Через заданное время,指定時間後,指定时间后
+FlightPlanRedux/When/Altitude,Text,Burn time choice,At an altitude,In einer Höhe,À une altitude,A una altitud,Em uma altitude,На высоте,指定高度,指定高度
+FlightPlanRedux/When/EqNearestNode,Text,Burn time choice,At nearest equatorial node,Am nächsten Äquatorknoten,Au nœud équatorial le plus proche,En el nodo ecuatorial más cercano,No nó equatorial mais próximo,В ближайшем узле экватора,最も近い赤道交点,最近的赤道交点
+FlightPlanRedux/When/EqCheapestNode,Text,Burn time choice,At cheapest equatorial node,Am günstigsten Äquatorknoten,Au nœud équatorial le moins cher,En el nodo ecuatorial más barato,No nó equatorial mais barato,В самом выгодном узле экватора,最も安い赤道交点,最省的赤道交点
+FlightPlanRedux/When/RelNearestNode,Text,Burn time choice,At nearest node with target,Am nächsten Knoten zum Ziel,Au nœud le plus proche avec la cible,En el nodo más cercano con el objetivo,No nó mais próximo com o alvo,В ближайшем узле с целью,ターゲットとの最も近い交点,与目标最近的交点
+FlightPlanRedux/When/RelCheapestNode,Text,Burn time choice,At cheapest node with target,Am günstigsten Knoten zum Ziel,Au nœud le moins cher avec la cible,En el nodo más barato con el objetivo,No nó mais barato com o alvo,В самом выгодном узле с целью,ターゲットとの最も安い交点,与目标最省的交点
+FlightPlanRedux/When/NextWindow,Text,Burn time choice,At the next transfer window,Im nächsten Transferfenster,À la prochaine fenêtre de transfert,En la próxima ventana de transferencia,Na próxima janela de transferência,В следующее окно перелёта,次の遷移ウィンドウ,下一个转移窗口
+FlightPlanRedux/When/Asap,Text,Burn time choice,As soon as possible,So bald wie möglich,Dès que possible,Lo antes posible,O quanto antes,Как можно скорее,できるだけ早く,尽快
+FlightPlanRedux/Stat/Apoapsis,Text,Readout,Apoapsis,Apoapsis,Apoapside,Apoapsis,Apoapse,Апоцентр,遠点,远拱点
+FlightPlanRedux/Stat/Periapsis,Text,Readout,Periapsis,Periapsis,Périapside,Periapsis,Periapse,Перицентр,近点,近拱点
+FlightPlanRedux/Stat/Inclination,Text,Readout,Inclination,Inklination,Inclinaison,Inclinación,Inclinação,Наклонение,軌道傾斜角,倾角
+FlightPlanRedux/Stat/Eccentricity,Text,Readout,Eccentricity,Exzentrizität,Excentricité,Excentricidad,Excentricidade,Эксцентриситет,離心率,离心率
+FlightPlanRedux/Stat/Lan,Text,Readout: longitude of the ascending node,LAN,Knotenlänge,LNA,LNA,LNA,Долгота узла,昇交点経度,升交点经度
+FlightPlanRedux/Stat/Period,Text,Readout: orbital period,Period,Umlaufzeit,Période,Período,Período,Период,周期,周期
+FlightPlanRedux/Stat/ReturnTo,Text,Readout: the planet a moon return goes to,Returns to,Rückkehr zu,Retour vers,Regresa a,Retorna a,Возврат к,帰還先,返回至
+FlightPlanRedux/Stat/TargetOrbits,Text,Readout: the target orbits a different body,Target orbits,Ziel umkreist,La cible orbite,El objetivo orbita,O alvo orbita,Цель обращается вокруг,ターゲットの公転先,目标环绕
+FlightPlanRedux/Stat/Distance,Text,Readout: distance to the target,Distance,Entfernung,Distance,Distancia,Distância,Расстояние,距離,距离
+FlightPlanRedux/Stat/ClosestApproach,Text,Readout,Closest approach,Nächste Annäherung,Approche minimale,Máximo acercamiento,Aproximação máxima,Сближение,最接近距離,最近距离
+FlightPlanRedux/Stat/ClosestApproachIn,Text,Readout: time until closest approach,Closest approach in,Annäherung in,Approche dans,Acercamiento en,Aproximação em,Сближение через,最接近まで,最近点倒计时
+FlightPlanRedux/Stat/RelativeSpeed,Text,Readout,Relative speed,Relativgeschwindigkeit,Vitesse relative,Velocidad relativa,Velocidade relativa,Относительная скорость,相対速度,相对速度
+FlightPlanRedux/Stat/RelativeInclination,Text,Readout,Relative inclination,Relative Inklination,Inclinaison relative,Inclinación relativa,Inclinação relativa,Относительное наклонение,相対傾斜角,相对倾角
+FlightPlanRedux/Stat/PhaseAngle,Text,Readout,Phase angle,Phasenwinkel,Angle de phase,Ángulo de fase,Ângulo de fase,Фазовый угол,位相角,相位角
+FlightPlanRedux/Stat/TransferAngle,Text,Readout: phase angle needed for a transfer,Transfer angle,Transferwinkel,Angle de transfert,Ángulo de transferencia,Ângulo de transferência,Угол перелёта,遷移角,转移角
+FlightPlanRedux/Stat/TransferTime,Text,Readout,Transfer time,Transferdauer,Durée du transfert,Tiempo de transferencia,Tempo de transferência,Время перелёта,遷移時間,转移时间
+FlightPlanRedux/Stat/SynodicPeriod,Text,Readout,Synodic period,Synodische Periode,Période synodique,Período sinódico,Período sinódico,Синодический период,会合周期,会合周期
+FlightPlanRedux/Stat/NextWindow,Text,Readout: time until the next transfer window,Next window in,Nächstes Fenster in,Prochaine fenêtre dans,Próxima ventana en,Próxima janela em,Следующее окно через,次のウィンドウまで,下个窗口倒计时
+FlightPlanRedux/Stat/EjectionDv,Text,Readout,Ejection Δv,Austritts-Δv,Δv d'éjection,Δv de eyección,Δv de ejeção,Δv отлёта,脱出Δv,逃逸Δv
+FlightPlanRedux/Stat/Resonance,Text,Readout: deployment orbit resonance,Resonance,Resonanz,Résonance,Resonancia,Ressonância,Резонанс,共鳴比,共振比
+FlightPlanRedux/Stat/DeploymentPeriod,Text,Readout,Deployment period,Aussetzperiode,Période de largage,Período de despliegue,Período de liberação,Период запуска,放出軌道周期,部署周期
+FlightPlanRedux/Stat/DeploymentAp,Text,Readout,Deployment Ap,Aussetz-Ap,Ap de largage,Ap de despliegue,Ap de liberação,Ap запуска,放出軌道の遠点,部署远拱点
+FlightPlanRedux/Stat/DeploymentPe,Text,Readout,Deployment Pe,Aussetz-Pe,Pe de largage,Pe de despliegue,Pe de liberação,Pe запуска,放出軌道の近点,部署近拱点
+FlightPlanRedux/Stat/InjectionDv,Text,Readout: Δv each satellite needs to circularize,Injection Δv,Einschuss-Δv,Δv d'injection,Δv de inyección,Δv de injeção,Δv выведения,投入Δv,入轨Δv
+FlightPlanRedux/Stat/SynchronousAlt,Text,Readout,Synchronous altitude,Synchrone Höhe,Altitude synchrone,Altitud síncrona,Altitude síncrona,Синхронная высота,同期軌道高度,同步轨道高度
+FlightPlanRedux/Stat/SemiSynchronousAlt,Text,Readout,Semi-synchronous altitude,Halbsynchrone Höhe,Altitude semi-synchrone,Altitud semisíncrona,Altitude semissíncrona,Полусинхронная высота,準同期軌道高度,半同步轨道高度
+FlightPlanRedux/Stat/SoiAlt,Text,Readout: altitude of the sphere of influence,SOI altitude,SOI-Höhe,Altitude de la SdI,Altitud de la esfera de influencia,Altitude da esfera de influência,Высота сферы влияния,影響圏高度,引力范围高度
+FlightPlanRedux/Stat/MinLosAlt,Text,Readout: lowest altitude where satellites see each other,Min. line-of-sight altitude,Min. Sichtlinienhöhe,Altitude min. de visibilité,Altitud mín. de visibilidad,Altitude mín. de visada,Мин. высота видимости,最低見通し高度,最低视线高度
+FlightPlanRedux/Stat/BurnIn,Text,Preview: time until the burn,Burn in,Zündung in,Allumage dans,Encendido en,Queima em,Импульс через,噴射まで,点火倒计时
+FlightPlanRedux/Stat/DeltaV,Text,Preview,Δv,Δv,Δv,Δv,Δv,Δv,Δv,Δv
+FlightPlanRedux/Stat/Components,Text,Preview: prograde / normal / radial parts,Burn,Zündung,Allumage,Encendido,Queima,Импульс,噴射,点火
+FlightPlanRedux/Stat/After,Text,Preview: orbit after the burn,Orbit after,Orbit danach,Orbite après,Órbita después,Órbita depois,Орбита после,噴射後の軌道,点火后轨道
+FlightPlanRedux/Stat/AfterInclination,Text,Preview,Inclination after,Inklination danach,Inclinaison après,Inclinación después,Inclinação depois,Наклонение после,噴射後の傾斜角,点火后倾角
+FlightPlanRedux/Value/Components,Text,"{0} prograde, {1} normal, {2} radial (m/s)",P {0} · N {1} · R {2},P {0} · N {1} · R {2},P {0} · N {1} · R {2},P {0} · N {1} · R {2},P {0} · N {1} · R {2},P {0} · N {1} · R {2},P {0} · N {1} · R {2},P {0} · N {1} · R {2}
+FlightPlanRedux/Value/PeAp,Text,"{0} periapsis, {1} apoapsis",{0} × {1},{0} × {1},{0} × {1},{0} × {1},{0} × {1},{0} × {1},{0} × {1},{0} × {1}
+FlightPlanRedux/Value/Escape,Text,Orbit after is an escape; {0} periapsis,"Escape, Pe {0}","Flucht, Pe {0}","Évasion, Pe {0}","Escape, Pe {0}","Escape, Pe {0}","Уход, Pe {0}",脱出、近点 {0},逃逸，近拱点 {0}
+FlightPlanRedux/Value/TMinus,Text,Time until a node; {0} duration,T−{0},T−{0},T−{0},T−{0},T−{0},T−{0},T−{0},T−{0}
+FlightPlanRedux/Value/OutsideSoi,Text,Readout when an orbit would leave the sphere of influence,Outside SOI,Außerhalb SOI,Hors SdI,Fuera de la EI,Fora da EI,Вне сферы влияния,影響圏外,超出引力范围
+FlightPlanRedux/Button/MakeNode,Text,Action button,Make node,Knoten erstellen,Créer le nœud,Crear nodo,Criar nó,Создать узел,ノード作成,创建节点
+FlightPlanRedux/Button/AddNode,Text,Action button when nodes already exist,Add node,Knoten hinzufügen,Ajouter un nœud,Añadir nodo,Adicionar nó,Добавить узел,ノード追加,添加节点
+FlightPlanRedux/Button/Replace,Text,Action button: replace existing nodes,Replace nodes,Knoten ersetzen,Remplacer les nœuds,Reemplazar nodos,Substituir nós,Заменить узлы,ノード置換,替换节点
+FlightPlanRedux/Button/ConfirmReplace,Text,Second click confirms replacing,Click to confirm,Zum Bestätigen klicken,Cliquer pour confirmer,Clic para confirmar,Clique para confirmar,Нажмите для подтверждения,クリックで確定,点击确认
+FlightPlanRedux/Button/WarpTo,Text,Action button,Warp to,Warp zu,Distorsion vers,Warp a,Warp até,Ускорить до,ワープ,加速至
+FlightPlanRedux/Button/Delete,Text,Action button,Delete,Löschen,Supprimer,Borrar,Excluir,Удалить,削除,删除
+FlightPlanRedux/Button/DeleteAll,Text,Small button above the node list,Delete all,Alle löschen,Tout supprimer,Borrar todos,Excluir todos,Удалить все,すべて削除,全部删除
+FlightPlanRedux/Button/Execute,Text,Action button: have K2-D2 fly the first node,Execute,Ausführen,Exécuter,Ejecutar,Executar,Выполнить,実行,执行
+FlightPlanRedux/Button/Stop,Text,Action button: stop K2-D2,Stop,Stopp,Arrêter,Detener,Parar,Стоп,停止,停止
+FlightPlanRedux/Nodes/None,Text,Node list when empty,No maneuver nodes.,Keine Manöverknoten.,Aucun nœud de manœuvre.,No hay nodos de maniobra.,Nenhum nó de manobra.,Узлов манёвра нет.,マニューバノードなし,没有机动节点。
+FlightPlanRedux/Nodes/K2D2,Text,K2-D2's status; {0} is K2-D2's own text,K2-D2: {0},K2-D2: {0},K2-D2 : {0},K2-D2: {0},K2-D2: {0},K2-D2: {0},K2-D2: {0},K2-D2：{0}
+FlightPlanRedux/Step/Orbit,Text,Time step chip: one orbit,1 orbit,1 Umlauf,1 orbite,1 órbita,1 órbita,1 виток,1周回,1圈
+FlightPlanRedux/Time/YearsDaysHours,Text,Duration,{0}y {1}d {2}h,{0}J {1}T {2}h,{0}a {1}j {2}h,{0}a {1}d {2}h,{0}a {1}d {2}h,{0}г {1}д {2}ч,{0}年{1}日{2}時間,{0}年{1}天{2}小时
+FlightPlanRedux/Time/DaysHoursMinutes,Text,Duration,{0}d {1}h {2}m,{0}T {1}h {2}m,{0}j {1}h {2}m,{0}d {1}h {2}m,{0}d {1}h {2}m,{0}д {1}ч {2}м,{0}日{1}時間{2}分,{0}天{1}小时{2}分
+FlightPlanRedux/Time/HoursMinutes,Text,Duration,{0}h {1}m,{0}h {1}m,{0}h {1}m,{0}h {1}m,{0}h {1}m,{0}ч {1}м,{0}時間{1}分,{0}小时{1}分
+FlightPlanRedux/Time/MinutesSeconds,Text,Duration,{0}m {1}s,{0}m {1}s,{0}m {1}s,{0}m {1}s,{0}m {1}s,{0}м {1}с,{0}分{1}秒,{0}分{1}秒
+FlightPlanRedux/Status/Ready,Text,Status line,Ready.,Bereit.,Prêt.,Listo.,Pronto.,Готово.,準備完了,就绪。
+FlightPlanRedux/Status/NoVessel,Text,Status line,No active vessel.,Kein aktives Schiff.,Aucun vaisseau actif.,No hay nave activa.,Nenhuma nave ativa.,Нет активного аппарата.,アクティブな機体なし,没有当前载具。
+FlightPlanRedux/Status/OnSurface,Text,Status line: vessel is landed or on the pad,Get off the ground first.,Erst abheben.,Décollez d'abord.,Despega primero.,Decole primeiro.,Сначала взлетите.,まず離陸してください,请先起飞。
+FlightPlanRedux/Status/NoTarget,Text,Status line,No target.,Kein Ziel.,Aucune cible.,Sin objetivo.,Sem alvo.,Нет цели.,ターゲットなし,没有目标。
+FlightPlanRedux/Status/NoSolution,Text,Status line,No solution found.,Keine Lösung gefunden.,Aucune solution trouvée.,No se encontró solución.,Nenhuma solução encontrada.,Решение не найдено.,解が見つかりません,未找到解。
+FlightPlanRedux/Status/InPast,Text,Status line,Burn time has passed.,Zündzeit ist vorbei.,L'heure d'allumage est passée.,La hora de encendido ya pasó.,O horário da queima já passou.,Время импульса прошло.,噴射時刻を過ぎています,点火时间已过。
+FlightPlanRedux/Status/PeAboveAp,Text,Status line,Periapsis can't be above apoapsis.,Periapsis kann nicht über der Apoapsis liegen.,Le périapside ne peut pas dépasser l'apoapside.,El periapsis no puede superar el apoapsis.,A periapse não pode ficar acima da apoapse.,Перицентр не может быть выше апоцентра.,近点は遠点より高くできません,近拱点不能高于远拱点。
+FlightPlanRedux/Status/ApBelowPe,Text,Status line,Apoapsis can't be below periapsis.,Apoapsis kann nicht unter der Periapsis liegen.,L'apoapside ne peut pas être sous le périapside.,El apoapsis no puede estar bajo el periapsis.,A apoapse não pode ficar abaixo da periapse.,Апоцентр не может быть ниже перицентра.,遠点は近点より低くできません,远拱点不能低于近拱点。
+FlightPlanRedux/Status/PeAboveApSwapped,Text,Status line (warning),Pe was above Ap; swapped.,Pe lag über Ap; getauscht.,Pe au-dessus d'Ap ; inversés.,Pe estaba sobre Ap; intercambiados.,Pe estava acima de Ap; trocados.,Pe был выше Ap; переставлены.,近点が遠点より高いため入れ替えました,近拱点高于远拱点，已交换。
+FlightPlanRedux/Status/LowInclination,Text,Status line (warning); {0} degrees,Inclination {0}° is low; LAN change may be inaccurate.,Inklination {0}° ist gering; Knotenänderung evtl. ungenau.,Inclinaison de {0}° faible ; changement de LNA imprécis.,Inclinación de {0}° baja; el cambio de LNA puede ser impreciso.,Inclinação de {0}° baixa; a mudança de LNA pode ser imprecisa.,Наклонение {0}° мало; смена узла может быть неточной.,傾斜角 {0}° が小さく、昇交点経度の変更は不正確かもしれません,倾角 {0}° 较低，升交点经度变更可能不准确。
+FlightPlanRedux/Status/Experimental,Text,Status line (warning),Experimental; check the node.,Experimentell; Knoten prüfen.,Expérimental ; vérifiez le nœud.,Experimental; revisa el nodo.,Experimental; confira o nó.,Экспериментально; проверьте узел.,実験的機能です。ノードを確認してください,实验功能，请检查节点。
+FlightPlanRedux/Status/MatchPlanesFirst,Text,Status line (warning),Planes differ; match planes first.,Ebenen weichen ab; erst angleichen.,Plans différents ; alignez-les d'abord.,Planos distintos; iguálalos primero.,Planos diferentes; iguale-os primeiro.,Плоскости различаются; сначала совместите их.,軌道面が異なります。先に合わせてください,轨道面不同，请先匹配轨道面。
+FlightPlanRedux/Status/TooEccentric,Text,Status line; {0} eccentricity,Orbit too eccentric ({0}); needs 0.2 or less.,"Orbit zu exzentrisch ({0}); höchstens 0,2.","Orbite trop excentrique ({0}) ; 0,2 max.","Órbita demasiado excéntrica ({0}); máx. 0,2.","Órbita excêntrica demais ({0}); máx. 0,2.","Орбита слишком вытянута ({0}); нужно ≤ 0,2.",軌道の離心率が高すぎます（{0}）。0.2以下が必要です,轨道离心率过高（{0}），需不超过0.2。
+FlightPlanRedux/Status/NotAtMoon,Text,Status line,Not orbiting a moon.,Kein Mond im Orbit.,Pas en orbite d'une lune.,No orbitas una luna.,Não está orbitando uma lua.,Аппарат не на орбите луны.,衛星を周回していません,未环绕卫星。
+FlightPlanRedux/Status/NotAtPlanet,Text,Status line,Not orbiting a planet.,Kein Planet im Orbit.,Pas en orbite d'une planète.,No orbitas un planeta.,Não está orbitando um planeta.,Аппарат не на орбите планеты.,惑星を周回していません,未环绕行星。
+FlightPlanRedux/Status/TargetInclined,Text,Status line (warning); {0} degrees,Target's orbit is inclined {0}°; may miss.,Zielorbit um {0}° geneigt; evtl. Verfehlung.,Orbite cible inclinée de {0}° ; risque de manquer.,La órbita del objetivo está inclinada {0}°; puede fallar.,Órbita do alvo inclinada {0}°; pode errar.,Орбита цели наклонена на {0}°; возможен промах.,ターゲット軌道が {0}° 傾いています。外れる可能性があります,目标轨道倾斜 {0}°，可能错过。
+FlightPlanRedux/Status/ParkingInclined,Text,Status line (warning); {0} degrees,Parking orbit inclined {0}° to the planet's orbit.,Parkorbit um {0}° zum Planetenorbit geneigt.,Orbite d'attente inclinée de {0}° par rapport à la planète.,Órbita de espera inclinada {0}° respecto al planeta.,Órbita de espera inclinada {0}° em relação ao planeta.,Опорная орбита наклонена на {0}° к орбите планеты.,待機軌道が惑星の軌道に対し {0}° 傾いています,停泊轨道相对行星轨道倾斜 {0}°。
+FlightPlanRedux/Status/ParkingEccentric,Text,Status line (warning); {0} eccentricity,Parking orbit eccentric ({0}); may miss.,Parkorbit exzentrisch ({0}); evtl. Verfehlung.,Orbite d'attente excentrique ({0}) ; risque de manquer.,Órbita de espera excéntrica ({0}); puede fallar.,Órbita de espera excêntrica ({0}); pode errar.,Опорная орбита вытянута ({0}); возможен промах.,待機軌道の離心率が高い（{0}）。外れる可能性があります,停泊轨道离心率高（{0}），可能错过。
+FlightPlanRedux/Status/CourseCorrectionLikely,Text,Status line (warning),Expect a course correction later.,Spätere Kurskorrektur einplanen.,Prévoir une correction plus tard.,Prevé una corrección de rumbo.,Preveja uma correção de curso.,Позже понадобится коррекция.,後で軌道修正が必要になります,之后预计需要航线修正。
+FlightPlanRedux/Status/NodeMade,Text,Status line after making a node,Node made.,Knoten erstellt.,Nœud créé.,Nodo creado.,Nó criado.,Узел создан.,ノードを作成しました,节点已创建。
+FlightPlanRedux/Status/NodeOff,Text,Status line; {0} percent,"Node made, but off by {0}%.","Knoten erstellt, weicht aber {0} % ab.","Nœud créé, mais écart de {0} %.","Nodo creado, con un error del {0} %.","Nó criado, mas com desvio de {0}%.","Узел создан, но отклонение {0}%.",ノードを作成しましたが {0}% ずれています,节点已创建，但偏差 {0}%。
+FlightPlanRedux/Status/NodeFailed,Text,Status line,Couldn't make the node.,Knoten konnte nicht erstellt werden.,Impossible de créer le nœud.,No se pudo crear el nodo.,Não foi possível criar o nó.,Не удалось создать узел.,ノードを作成できませんでした,无法创建节点。
+FlightPlanRedux/Status/TooManyNodes,Text,Status line,Nine nodes is the most the game allows.,Mehr als neun Knoten erlaubt das Spiel nicht.,Le jeu limite à neuf nœuds.,El juego permite nueve nodos como máximo.,O jogo permite no máximo nove nós.,Игра допускает не более девяти узлов.,ノードは最大9個までです,游戏最多允许九个节点。
+FlightPlanRedux/Status/NodeTooClose,Text,Status line,Another node is within 30 s.,Ein anderer Knoten liegt innerhalb von 30 s.,Un autre nœud est à moins de 30 s.,Hay otro nodo a menos de 30 s.,Outro nó está a menos de 30 s.,Другой узел ближе 30 с.,30秒以内に別のノードがあります,30秒内已有其他节点。
+FlightPlanRedux/Status/BeforeLastNode,Text,Status line,Burn comes before the last node; replace nodes instead.,Zündung liegt vor dem letzten Knoten; stattdessen ersetzen.,L'allumage précède le dernier nœud ; remplacez plutôt.,El encendido es antes del último nodo; reemplaza los nodos.,A queima vem antes do último nó; substitua os nós.,Импульс раньше последнего узла; замените узлы.,噴射が最後のノードより前です。置換してください,点火早于最后一个节点，请改为替换节点。
+FlightPlanRedux/Status/BurnPastPath,Text,Status line,Burn time is beyond the predicted path.,Zündzeit liegt hinter der Bahnvorhersage.,L'allumage dépasse la trajectoire prévue.,El encendido está más allá de la trayectoria prevista.,A queima está além da trajetória prevista.,Импульс за пределами прогноза траектории.,噴射時刻が予測軌道の範囲外です,点火时间超出预测轨迹。
+Feature/FlightPlanRedux/FlightPlanRedux/Name,Text,"Mod name in Redux's campaign feature lists (Mods screen, feature editor); kept as the brand name",Flight Plan Redux,Flight Plan Redux,Flight Plan Redux,Flight Plan Redux,Flight Plan Redux,Flight Plan Redux,Flight Plan Redux,Flight Plan Redux
+Feature/FlightPlanRedux/FlightPlanRedux/Description,Text,Mod description in Redux's campaign feature editor,"Plan your flight, fly your plan. Maneuver node planning, ported from Flight Plan.","Plane deinen Flug, fliege deinen Plan. Planung von Manöverknoten, portiert von Flight Plan.","Planifiez votre vol, volez selon votre plan. Planification de nœuds de manœuvre, portée depuis Flight Plan.","Planifica tu vuelo, vuela tu plan. Planificación de nodos de maniobra, adaptada de Flight Plan.","Planeje seu voo, voe seu plano. Planejamento de nós de manobra, adaptado do Flight Plan.","Спланируйте полёт и летите по плану. Планирование узлов манёвра, порт мода Flight Plan.",飛行を計画し、計画どおりに飛ぶ。マニューバノードの計画ツール。Flight Plan からの移植です。,规划你的飞行，按计划飞行。机动节点规划，移植自 Flight Plan。
