@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0 (2026-10-20)
+
+- Requires KSP2 Redux 26w42c or later.
+- Stays idle in campaigns that don't include it (Redux campaign features): no flights are recorded, and `HeritageApi.IsReady` is false. The history already in the save is kept as it is.
+- Wayfarer's Wings Redux ribbons show only when the loaded campaign includes Wayfarer's Wings Redux too.
+- Named and described in the Mods screen and the campaign feature editor.
+
 ## 1.0.0 (2026-10-15)
 
 First release.

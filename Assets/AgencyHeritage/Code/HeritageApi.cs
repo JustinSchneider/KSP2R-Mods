@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using SpaceWarp2.API.Features;
 
 namespace AgencyHeritage
 {
@@ -42,8 +43,8 @@ namespace AgencyHeritage
 
         internal static AgencyHeritagePlugin Plugin;
 
-        /// <summary>True while a campaign is loaded and its history is ready to read.</summary>
-        public static bool IsReady => Plugin?.Data != null && Plugin.Data.Eras.Count > 0;
+        /// <summary>True while a campaign that plays with the mod is loaded and its history is ready to read.</summary>
+        public static bool IsReady => ActiveFeatures.IsModEnabled(AgencyHeritagePlugin.ModGuid) && Plugin?.Data != null && Plugin.Data.Eras.Count > 0;
 
         /// <summary>The era the agency is in now; null when <see cref="IsReady"/> is false.</summary>
         public static EraInfo CurrentEra => IsReady ? Snapshot(Plugin.Data.CurrentEra()) : null;

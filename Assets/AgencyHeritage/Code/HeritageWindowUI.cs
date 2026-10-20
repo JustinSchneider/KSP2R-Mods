@@ -653,7 +653,7 @@ namespace AgencyHeritage
             if (exhibit.CrewFlownCount > 0) crew.Add($"{N(exhibit.CrewFlownCount)} {Loc.T("Role/Flew")}");
             if (exhibit.RecruitCount > 0) crew.Add($"{N(exhibit.RecruitCount)} {Loc.T("Stat/Recruits")}");
             if (exhibit.Losses.Count > 0) crew.Add($"{N(exhibit.Losses.Count)} {Loc.T("Stat/Lost")}");
-            if (WingsBridge.IsInstalled && exhibit.Ribbons.Count > 0) crew.Add($"{N(exhibit.Ribbons.Count)} {Loc.T("Stat/Ribbons")}");
+            if (WingsBridge.IsAvailable && exhibit.Ribbons.Count > 0) crew.Add($"{N(exhibit.Ribbons.Count)} {Loc.T("Stat/Ribbons")}");
 
             AddSectionTile(Section.Timeline, HeritageGraphics.Glyph.Star, exhibit.Milestones.Count, Loc.T("Stat/Firsts"), accent);
             AddSectionTile(Section.Missions, HeritageGraphics.Glyph.Rocket, exhibit.Launches, Loc.T("Stat/Launches"), accent);
@@ -2532,7 +2532,7 @@ namespace AgencyHeritage
                 {
                     var type = typeof(StickerColorPickerWindow);
                     var picker = type.GetField("_instance", BindingFlags.Static | BindingFlags.NonPublic)?.GetValue(null);
-                    var document = type.GetField("_window", BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(picker) as UIDocument;
+                    var document = type.GetField("_window", BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(picker) as PanelRenderer;
                     if (document == null || document.panelSettings == null) return;
                     OrderManager.Register(document.panelSettings);   // no-op if it's already known
                     OrderManager.BringToFront(document.panelSettings);

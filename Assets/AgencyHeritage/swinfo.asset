@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9065a46703c44e8fabd263388eaeb6e7, type: 3}
-  m_Name: swinfo
+  m_Name: 'Agency Heritage [AgencyHeritage]'
   m_EditorClassIdentifier: ksp2community.ksp2unitytools.editor::Ksp2UnityTools.Editor.Modding.Mod
   id: AgencyHeritage
   name: Agency Heritage
   author: Schneider
-  description: "A museum of your agency's history: flights, firsts, crew and craft, sorted into eras that begin each time you rebrand."
-  version: 1.0.0
+  description: 'A museum of your agency''s history: flights, firsts, crew and craft, sorted into eras that begin each time you rebrand.'
+  version: 1.1.0
   versionCheck: https://raw.githubusercontent.com/JustinSchneider/KSP2R-Mods/main/Assets/AgencyHeritage/swinfo.json
   minKsp2Version: '*'
   maxKsp2Version: '*'
@@ -27,6 +27,7 @@ MonoBehaviour:
   celestialBodiesGroup: {fileID: 11400000, guid: 534ca32bb02476f4a82351d97710b6c3, type: 2}
   scienceExperimentGroup: {fileID: 11400000, guid: 3ffe1d0dd2e7acc43b50744df975577a, type: 2}
   techNodeDataGroup: {fileID: 11400000, guid: 23e3207e4a2acdd49934501efa19f116, type: 2}
+  resourcesGroup: {fileID: 11400000, guid: 0f6a6469869113c42b8e703706ebc30c, type: 2}
   addressablesProfileId: ef01e0c6f0f882347a591dbd9a605e3b
   dependencies:
   - id: SpaceWarp2

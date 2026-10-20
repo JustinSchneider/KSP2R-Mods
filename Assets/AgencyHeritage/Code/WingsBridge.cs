@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using SpaceWarp2.API.Features;
 
 namespace AgencyHeritage
 {
@@ -27,6 +28,7 @@ namespace AgencyHeritage
     /// </summary>
     public static class WingsBridge
     {
+        private const string ModId = "WayfarersWingsRedux";
         private const string ApiType = "WayfarersWingsRedux.WingsApi";
         /// <summary>The <c>WingsApi.ApiVersion</c> this bridge was written against.</summary>
         private const int SupportedApiVersion = 1;
@@ -36,7 +38,10 @@ namespace AgencyHeritage
         private static MethodInfo _allAwards, _layerAddress, _openKerbal;
         private static bool _loggedFailure;
 
-        public static bool IsInstalled
+        /// <summary>Wayfarer's Wings is installed and the loaded campaign plays with it.</summary>
+        public static bool IsAvailable => IsInstalled && ActiveFeatures.IsModEnabled(ModId);
+
+        private static bool IsInstalled
         {
             get
             {
@@ -62,11 +67,11 @@ namespace AgencyHeritage
             }
         }
 
-        /// <summary>Every ribbon earned in the loaded campaign, oldest first. Empty if Wayfarer's Wings isn't installed.</summary>
+        /// <summary>Every ribbon earned in the loaded campaign, oldest first. Empty if Wayfarer's Wings isn't available.</summary>
         public static List<WingAward> AllAwards()
         {
             var awards = new List<WingAward>();
-            if (!IsInstalled) return awards;
+            if (!IsAvailable) return awards;
             try
             {
                 if (!(_allAwards.Invoke(null, null) is IEnumerable list)) return awards;
@@ -100,7 +105,7 @@ namespace AgencyHeritage
         }
 
         /// <summary>True if Wayfarer's Wings can open its window on a kerbal.</summary>
-        public static bool CanOpenKerbal => IsInstalled && _openKerbal != null;
+        public static bool CanOpenKerbal => IsAvailable && _openKerbal != null;
 
         /// <summary>Opens Wayfarer's Wings on a kerbal's record; false if it can't.</summary>
         public static bool OpenKerbal(string kerbalName)

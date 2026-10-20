@@ -11,7 +11,7 @@ using KSP.Sim.impl;
 using KSP.UI.Binding;
 using Redux.ExtraModTypes;
 using Redux.UI.Settings;
-using ReduxLib.Configuration;
+using SpaceWarp2.API.Configuration;
 using SpaceWarp2.API.Backend.SaveGameManager;
 using SpaceWarp2.API.SaveGameManager;
 using SpaceWarp2.UI.API.Appbar;
@@ -22,7 +22,7 @@ namespace AgencyHeritage
     /// <summary>Static access to the mod's logger for classes that aren't the plugin.</summary>
     internal static class SWLog
     {
-        internal static ReduxLib.Logging.ILogger Logger;
+        internal static SpaceWarp2.API.Logging.ILogger Logger;
         internal static void Info(string text) => Logger?.LogInfo(text);
         internal static void Warning(string text) => Logger?.LogWarning(text);
         internal static void Error(string text) => Logger?.LogError(text);
@@ -35,6 +35,7 @@ namespace AgencyHeritage
     public class AgencyHeritagePlugin : KerbalMod
     {
         public const string ModGuid = "AgencyHeritage";
+
         internal const string AppbarButtonId = "BTN-AgencyHeritage";
         internal const string OabAppbarButtonId = "BTN-AgencyHeritageOAB";
 
@@ -105,18 +106,18 @@ namespace AgencyHeritage
             Appbar.RegisterOABAppButton(name, OabAppbarButtonId, _icon, SetOpen);
             Appbar.RegisterKSCAppButton(name, AppbarButtonId + "KSC", _icon, () => SetOpen(!_open));
 
-            Game.Messages.PersistentSubscribe<VesselLaunchedMessage>(OnVesselLaunched);
-            Game.Messages.PersistentSubscribe<VesselSituationChangedMessage>(OnSituationChanged);
-            Game.Messages.PersistentSubscribe<SOIEnteredMessage>(OnSoiEntered);
-            Game.Messages.PersistentSubscribe<VesselSplitMessage>(OnVesselSplit);
-            Game.Messages.PersistentSubscribe<VesselUndockedMessage>(OnVesselUndocked);
-            Game.Messages.PersistentSubscribe<VesselDockedMessage>(OnVesselDocked);
-            Game.Messages.PersistentSubscribe<VesselRecoveredMessage>(OnVesselRecovered);
-            Game.Messages.PersistentSubscribe<VesselDestroyedMessage>(OnVesselDestroyed);
-            Game.Messages.PersistentSubscribe<KerbalRemovingFromRoster>(OnKerbalRemoving);
-            Game.Messages.PersistentSubscribe<VesselSavedMessage>(OnBlueprintSaved);
-            Game.Messages.PersistentSubscribe<GameStateChangedMessage>(OnGameStateChanged);
-            Game.Messages.PersistentSubscribe<GameLoadFinishedMessage>(_ => _travelLogReady = true);
+            Subscribe<VesselLaunchedMessage>(OnVesselLaunched);
+            Subscribe<VesselSituationChangedMessage>(OnSituationChanged);
+            Subscribe<SOIEnteredMessage>(OnSoiEntered);
+            Subscribe<VesselSplitMessage>(OnVesselSplit);
+            Subscribe<VesselUndockedMessage>(OnVesselUndocked);
+            Subscribe<VesselDockedMessage>(OnVesselDocked);
+            Subscribe<VesselRecoveredMessage>(OnVesselRecovered);
+            Subscribe<VesselDestroyedMessage>(OnVesselDestroyed);
+            Subscribe<KerbalRemovingFromRoster>(OnKerbalRemoving);
+            Subscribe<VesselSavedMessage>(OnBlueprintSaved);
+            Subscribe<GameStateChangedMessage>(OnGameStateChanged);
+            Subscribe<GameLoadFinishedMessage>(_ => _travelLogReady = true);
 
             BlueprintArchive.PartCrewCapacity = name =>
             {
@@ -136,6 +137,13 @@ namespace AgencyHeritage
                 SWLogger.LogError($"Couldn't patch the stock agency controls: {e}");
             }
         }
+
+        /// <summary>Listens for a game message, but only in campaigns that play with the mod.</summary>
+        private void Subscribe<T>(Action<MessageCenterMessage> handler) where T : MessageCenterMessage =>
+            Game.Messages.PersistentSubscribe<T>(message =>
+            {
+                if (Enabled) handler(message);
+            });
 
         private void OnGameStateChanged(MessageCenterMessage message)
         {
@@ -212,8 +220,8 @@ namespace AgencyHeritage
                 _pendingBlueprint = new BlueprintStats
                 {
                     DeltaVVac = deltaV.TotalDeltaVVac,
-                    DeltaVAsl = deltaV.TotalDeltaVASL,
-                    BurnTime = deltaV.TotalBurnTime,
+                    DeltaVAsl = deltaV.StageInfo?.Sum(st => st.DeltaVatASL) ?? 0,
+                    BurnTime = deltaV.StageInfo?.Sum(st => st.StageBurnTime) ?? 0,
                     LaunchTwr = first?.TWRASL ?? 0,
                 };
                 // The file may still be being written; match the figures to it a moment later.
@@ -792,9 +800,10 @@ namespace AgencyHeritage
 
         internal SessionManager Session => Game?.SessionManager;
 
+        /// <summary>A campaign that plays with the mod is loaded.</summary>
         private bool InCampaign()
         {
-            if (Game?.SessionManager == null || Game.GlobalGameState == null) return false;
+            if (!Enabled || Game?.SessionManager == null || Game.GlobalGameState == null) return false;
             var state = Game.GlobalGameState.GetGameState().GameState;
             return state != GameState.Invalid && state != GameState.WarmUpLoading && state != GameState.MainMenu
                 && state != GameState.Loading;
