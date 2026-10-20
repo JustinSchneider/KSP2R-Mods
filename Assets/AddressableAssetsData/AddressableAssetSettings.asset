@@ -16,6 +16,8 @@ MonoBehaviour:
   m_currentHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
+  m_ExtractTypeTreeData: 0
+  m_DisableWriteTypeTree: 0
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -62,22 +64,32 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: 0f6a6469869113c42b8e703706ebc30c, type: 2}
+  - {fileID: 11400000, guid: d9460ed3d24df774db6188dbb09e0aad, type: 2}
   - {fileID: 11400000, guid: df590942967f5824f8870e1a52eea270, type: 2}
   - {fileID: 11400000, guid: 23e3207e4a2acdd49934501efa19f116, type: 2}
+  - {fileID: 11400000, guid: d2bf3c167d9ecf847856bc8f26056553, type: 2}
   - {fileID: 11400000, guid: 6aca5c9b91324be4988c97af68161609, type: 2}
   - {fileID: 11400000, guid: cab71eaf841a5fa4ea3aeebad9fb41e2, type: 2}
+  - {fileID: 11400000, guid: 41ce89ccf054af5489c3315b524e812a, type: 2}
   - {fileID: 11400000, guid: a593dc23d1365db41b636fd6c574dfce, type: 2}
   - {fileID: 11400000, guid: 041bbb63781b5a24090c898999c47269, type: 2}
+  - {fileID: 11400000, guid: 08a0225cf3e6b1e49b0f2169b11c00b3, type: 2}
   - {fileID: 11400000, guid: a42aca8f8d4dac049a69ec5fe79a3fd2, type: 2}
   - {fileID: 11400000, guid: 8603ab2c27fc27048a708f3dd0d17798, type: 2}
+  - {fileID: 11400000, guid: 5ef773863e1ae0f4cafd60bb6cb8cd31, type: 2}
   - {fileID: 11400000, guid: f7a44dda40878184bbda8e7a3668613e, type: 2}
   - {fileID: 11400000, guid: 3ffe1d0dd2e7acc43b50744df975577a, type: 2}
   - {fileID: 11400000, guid: c6f43173529a9084db93c6c2ab398158, type: 2}
   - {fileID: 11400000, guid: a4b00b5880d8a574a944a141c62f611c, type: 2}
   - {fileID: 11400000, guid: 39e2b694a8e923a439e14f129f0f4bf3, type: 2}
+  - {fileID: 11400000, guid: 3cd9c0b82f3dffd4c938dc411ac4790f, type: 2}
   - {fileID: 11400000, guid: 2c0d48cee45944446a7263f0dcd4d087, type: 2}
+  - {fileID: 11400000, guid: 419b29105b2ab82418462791a274ce5b, type: 2}
   - {fileID: 11400000, guid: 01b1211041f917c4580abdc1bfd59955, type: 2}
   - {fileID: 11400000, guid: 8cb55814c29808743bb60cfe3dca0257, type: 2}
+  - {fileID: 11400000, guid: 393f4110b0f017d4bb516f73829e6591, type: 2}
+  - {fileID: 11400000, guid: f2c1016380d954344851a5a01e8e484e, type: 2}
   - {fileID: 11400000, guid: 534ca32bb02476f4a82351d97710b6c3, type: 2}
   - {fileID: 11400000, guid: d9a6415a6fbdc4e43a2cbcc64ebab024, type: 2}
   - {fileID: 11400000, guid: 193beea9fc7bc014d9f782cc36ad5874, type: 2}
@@ -129,6 +141,20 @@ MonoBehaviour:
       - m_Id: 7c5fbf4c40c11be489200818b4d75be2
         m_Value: Library/com.unity.addressables/aa/Windows/StandaloneWindows64
     - m_InheritedParent: 
+      m_Id: acdd33b84b3a5a840a1b665a35c2dda8
+      m_ProfileName: FlightPlanRedux
+      m_Values:
+      - m_Id: 0128440da6f2c5943897a40b820b2c9e
+        m_Value: '{SpaceWarpPaths.FlightPlanRedux}/addressables/StandaloneWindows64'
+      - m_Id: 64e7da74e52c1e44cb1aed8831e2ac0d
+        m_Value: 'ServerData/[BuildTarget]'
+      - m_Id: 70e182d391dc04f41893a7e38b218e69
+        m_Value: <undefined>
+      - m_Id: 79a86651986ff0e45a2362b3162bceea
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 7c5fbf4c40c11be489200818b4d75be2
+        m_Value: Library/com.unity.addressables/aa/Windows/StandaloneWindows64
+    - m_InheritedParent: 
       m_Id: ef01e0c6f0f882347a591dbd9a605e3b
       m_ProfileName: AgencyHeritage
       m_Values:
@@ -170,6 +196,15 @@ MonoBehaviour:
     - wayfarer_wings_data
     - wayfarer_wings_images
     - wayfarer_wings_planets
+    - resources
+    - TransferWindowRedux_patches
+    - TransferWindowRedux_prefab_patches
+    - WayfarersWingsRedux_patches
+    - WayfarersWingsRedux_prefab_patches
+    - FlightPlanRedux_patches
+    - FlightPlanRedux_prefab_patches
+    - AgencyHeritage_patches
+    - AgencyHeritage_prefab_patches
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 188a9a0751ce6154ca000378973e85c8, type: 2}
