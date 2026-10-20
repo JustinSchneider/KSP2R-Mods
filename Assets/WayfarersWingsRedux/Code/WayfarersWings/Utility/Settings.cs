@@ -1,7 +1,7 @@
 #nullable enable
 using System;
 using System.ComponentModel;
-using ReduxLib.Configuration;
+using SpaceWarp2.API.Configuration;
 
 namespace WayfarersWings.Utility
 {

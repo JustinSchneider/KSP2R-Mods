@@ -5,7 +5,8 @@ using Redux.ExtraModTypes;
 using KSP.Game;
 using KSP.UI.Binding;
 using Redux.UI.Settings;
-using ReduxLib.Configuration;
+using SpaceWarp2.API.Configuration;
+using SpaceWarp2.API.Loading;
 using SpaceWarp2.UI.API.Appbar;
 using UnityEngine;
 using WayfarersWings.Models.Session;
@@ -20,7 +21,7 @@ namespace WayfarersWingsRedux
     /// <summary>Static access to the mod's logger for classes that aren't the plugin.</summary>
     internal static class SWLog
     {
-        internal static ReduxLib.Logging.ILogger Logger;
+        internal static SpaceWarp2.API.Logging.ILogger Logger;
         internal static void Info(string text) => Logger?.LogInfo(text);
         internal static void Warning(string text) => Logger?.LogWarning(text);
         internal static void Error(string text) => Logger?.LogError(text);
@@ -60,15 +61,17 @@ namespace WayfarersWingsRedux
             SWLog.Logger = SWLogger;
             Instance = this;
             _icon = LoadIcon();
+
+            // The ribbon definitions are campaign content: Redux loads them in each feature set that enables the mod
+            // (not at the main menu, which enables only core features), after resetting the previous set's.
+            Loading.AddSetLoadingAction<TextAsset>(ModGuid, "Wayfarer's Wings planets",
+                Constants.WingsPlanetsAddressableLabel, Core.Instance.ImportPlanetsConfig, Core.Instance.PlanetsPool.Clear);
+            Loading.AddSetLoadingAction<TextAsset>(ModGuid, "Wayfarer's Wings ribbons",
+                Constants.WingsDataAddressableLabel, Core.Instance.ImportWingsConfig, Core.Instance.WingsPool.ClearConfigs);
         }
 
         public override void OnInitialized()
         {
-            // Redux snapshots the loading-action list before any OnPreInitialized runs, so loading actions added
-            // there never run. The mod's addressables catalog is loaded by now, so load the definitions directly.
-            LoadDefinitions(Constants.WingsPlanetsAddressableLabel, Core.Instance.ImportPlanetsConfig);
-            LoadDefinitions(Constants.WingsDataAddressableLabel, Core.Instance.ImportWingsConfig);
-
             Settings.SetupConfig(SWConfiguration);
             DebugLogging = new ConfigValue<bool>(SWConfiguration.Bind("Debug", "Detailed logging", false,
                 "Log every wing check", null)).Value;
@@ -80,7 +83,10 @@ namespace WayfarersWingsRedux
             observers.transform.parent = transform;
             observers.AddComponent<VesselsStateObserver>();
 
-            MessageListener.SessionLoaded += WingsApi.RaiseLoaded;
+            MessageListener.SessionLoaded += () =>
+            {
+                if (Enabled) WingsApi.RaiseLoaded();
+            };
             Game.Messages.PersistentSubscribe<WingAwardedMessage>(message =>
             {
                 if (message is WingAwardedMessage awarded) WingsApi.RaiseAwarded(awarded);
@@ -188,9 +194,10 @@ namespace WayfarersWingsRedux
             SWConfiguration.Save();
         }
 
+        /// <summary>A campaign that plays with the mod is loaded.</summary>
         private bool InCampaign()
         {
-            if (Game?.SessionManager == null || Game.GlobalGameState == null) return false;
+            if (!Enabled || Game?.SessionManager == null || Game.GlobalGameState == null) return false;
             var state = Game.GlobalGameState.GetGameState().GameState;
             return state != GameState.Invalid && state != GameState.WarmUpLoading && state != GameState.MainMenu
                 && state != GameState.Loading && state != GameState.Flag;
@@ -216,20 +223,6 @@ namespace WayfarersWingsRedux
         }
 
         internal Texture2D Icon => _icon;
-
-        private void LoadDefinitions(string label, Action<TextAsset> import)
-        {
-            int count = 0;
-            GameManager.Instance.Assets.LoadByLabel<TextAsset>(label, asset =>
-            {
-                count++;
-                try { import(asset); }
-                catch (Exception e) { SWLogger.LogError($"Couldn't import {asset?.name}: {e}"); }
-            }, _ =>
-            {
-                if (count == 0) SWLogger.LogError($"No ribbon definitions found under the addressables label {label}");
-            }, true);
-        }
 
         private Texture2D LoadIcon()
         {

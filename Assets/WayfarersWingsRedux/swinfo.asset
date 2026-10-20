@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9065a46703c44e8fabd263388eaeb6e7, type: 3}
-  m_Name: swinfo
+  m_Name: 'Wayfarer''s Wings Redux [WayfarersWingsRedux]'
   m_EditorClassIdentifier: ksp2community.ksp2unitytools.editor::Ksp2UnityTools.Editor.Modding.Mod
   id: WayfarersWingsRedux
   name: Wayfarer's Wings Redux
   author: Schneider (original by leonardfactory)
-  description: Kerbals earn ribbons for their achievements, and the first to do something
-    gets a special one. A port of leonardfactory's Wayfarer's Wings.
-  version: 0.5.0
+  description: Kerbals earn ribbons for their achievements, and the first to do something gets a special one. A port of leonardfactory's Wayfarer's Wings.
+  version: 0.6.0
   versionCheck: https://raw.githubusercontent.com/JustinSchneider/KSP2R-Mods/main/Assets/WayfarersWingsRedux/swinfo.json
   minKsp2Version: '*'
   maxKsp2Version: '*'
@@ -28,6 +27,7 @@ MonoBehaviour:
   celestialBodiesGroup: {fileID: 11400000, guid: 01b1211041f917c4580abdc1bfd59955, type: 2}
   scienceExperimentGroup: {fileID: 11400000, guid: 8cb55814c29808743bb60cfe3dca0257, type: 2}
   techNodeDataGroup: {fileID: 11400000, guid: df590942967f5824f8870e1a52eea270, type: 2}
+  resourcesGroup: {fileID: 11400000, guid: 393f4110b0f017d4bb516f73829e6591, type: 2}
   addressablesProfileId: 74ae8d9d444ca7e43b45911c4162cff7
   dependencies:
   - id: SpaceWarp2

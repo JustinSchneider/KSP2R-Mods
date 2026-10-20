@@ -5,8 +5,10 @@
   "author": "Schneider (original by leonardfactory)",
   "description": "Kerbals earn ribbons for their achievements, and the first to do something gets a special one. A port of leonardfactory's Wayfarer's Wings.",
   "source": "https://github.com/JustinSchneider/KSP2R-Mods/tree/main/Assets/WayfarersWingsRedux",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "version_check": "https://raw.githubusercontent.com/JustinSchneider/KSP2R-Mods/main/Assets/WayfarersWingsRedux/swinfo.json",
+  "addressable_script_label": "WayfarersWingsRedux_patches",
+  "addressable_prefab_patch_label": "WayfarersWingsRedux_prefab_patches",
   "ksp2_version": {
     "min": "*",
     "max": "*"

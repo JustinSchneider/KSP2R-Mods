@@ -25,7 +25,9 @@ namespace WayfarersWings.Models.Conditions.Events
                 throw new InvalidCastException("Event name must be specified");
 
             var eventFullName = eventName.StartsWith("KSP.Messages.") ? eventName : $"KSP.Messages.{eventName}";
-            eventType = Type.GetType(eventFullName + ", " + Constants.GameMainAssemblyName) ??
+            // Resolve through the assembly that actually defines the messages; since 26w42c that's Ksp2Redux,
+            // with Assembly-CSharp only forwarding to it.
+            eventType = typeof(MessageCenterMessage).Assembly.GetType(eventFullName) ??
                         throw new InvalidCastException($"Could not find event type '{eventFullName}'");
         }
     }

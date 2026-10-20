@@ -111,7 +111,7 @@ namespace WayfarersWings.Models.Conditions
                 if (transaction.Message is not VesselLaunchedMessage launchedMessage) return false;
 
                 // Furthermore we want to skip dockings & teleportations
-                if (!transaction.Vessel.HasLaunched || transaction.Vessel.HasTeleported) return false;
+                if (!transaction.Vessel.HasLaunchedOrTeleported || transaction.Vessel.HasTeleported) return false;
             }
 
             if (isRightAfterLandingAtRest.HasValue && transaction.Message is not VesselLandedGroundAtRestMessage &&

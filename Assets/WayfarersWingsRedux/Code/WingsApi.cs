@@ -6,6 +6,7 @@ using WayfarersWings.Managers;
 using WayfarersWings.Managers.Messages;
 using WayfarersWings.Models.Session;
 using WayfarersWings.Models.Wings;
+using SpaceWarp2.API.Features;
 
 namespace WayfarersWingsRedux
 {
@@ -49,8 +50,11 @@ namespace WayfarersWingsRedux
         /// <summary>Goes up whenever a member here changes or is removed. Additions don't change it.</summary>
         public const int ApiVersion = 1;
 
-        /// <summary>True once the ribbon definitions are loaded and a campaign's ribbons are in the session.</summary>
-        public static bool IsReady => Core.Instance.WingsPool.IsInitialized;
+        /// <summary>
+        /// True once the ribbon definitions are loaded and the ribbons of a campaign that plays with the mod are in
+        /// the session.
+        /// </summary>
+        public static bool IsReady => ActiveFeatures.IsModEnabled(WayfarersWingsReduxPlugin.ModGuid) && Core.Instance.WingsPool.IsInitialized;
 
         /// <summary>Every ribbon held by every kerbal of the loaded campaign, oldest first.</summary>
         public static List<WingAwardInfo> AllAwards()

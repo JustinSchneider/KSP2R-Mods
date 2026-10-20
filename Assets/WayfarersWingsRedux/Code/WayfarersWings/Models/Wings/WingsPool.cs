@@ -79,6 +79,12 @@ namespace WayfarersWings.Models.Wings
             _wingsConfigs.Add(wingsConfig);
         }
 
+        /// <summary>Forgets the registered configs, before a feature set's are loaded.</summary>
+        public void ClearConfigs()
+        {
+            _wingsConfigs.Clear();
+        }
+
         /// <summary>
         /// Second step. Load all the registered configs in the pool
         /// </summary>

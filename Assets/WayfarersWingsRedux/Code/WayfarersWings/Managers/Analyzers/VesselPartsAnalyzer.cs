@@ -45,6 +45,9 @@ namespace WayfarersWings.Managers.Analyzers
             var totalMass = vessel.totalMass;
 
             var parts = vessel.SimulationObject.PartOwner.Parts;
+            var solidFuelId = SolidFuelDefinitionId;
+            var solidFuelMassPerUnit = GameManager.Instance.Game.ResourceDefinitionDatabase
+                .GetDefinitionData(solidFuelId).resourceProperties.massPerUnit;
             var totalSolidFuel = 0d;
             foreach (var part in parts)
             {
@@ -54,10 +57,9 @@ namespace WayfarersWings.Managers.Analyzers
                 if (dataEngine.currentEngineModeData.nonThrustMotor ||
                     dataEngine.currentEngineModeData.engineType != EngineType.SolidBooster) continue;
 
-                foreach (var resourceContainer in dataEngine.CurrentPropellantState.PartResourceContainer)
-                {
-                    totalSolidFuel += resourceContainer.GetResourceStoredMass(SolidFuelDefinitionId);
-                }
+                var container = dataEngine.CurrentPropellantState.PartResourceContainer;
+                if (container != null)
+                    totalSolidFuel += container.GetResourceStoredUnits(solidFuelId) * solidFuelMassPerUnit;
             }
 
             var solidFuelPercentage = totalSolidFuel / totalMass;

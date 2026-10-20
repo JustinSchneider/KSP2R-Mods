@@ -10,7 +10,7 @@ Ribbons are stored in each save. The windows use the stock window template, like
 
 ## Installing
 
-Requires KSP2 Redux. Unzip `WayfarersWingsRedux.zip` into the game's `mods` folder, so you end up with `mods\WayfarersWingsRedux\swinfo.json`.
+Requires KSP2 Redux 26w42c or later. Unzip `WayfarersWingsRedux.zip` into the game's `mods` folder, so you end up with `mods\WayfarersWingsRedux\swinfo.json`.
 
 ## Settings
 

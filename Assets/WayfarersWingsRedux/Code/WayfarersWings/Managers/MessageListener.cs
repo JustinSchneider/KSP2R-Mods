@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using KSP.Game;
 using KSP.Messages;
 using WayfarersWings.Models.Session;
+using SpaceWarp2.API.Features;
 
 namespace WayfarersWings.Managers
 {
@@ -34,10 +35,17 @@ namespace WayfarersWings.Managers
             Core.Instance.EventsRegistry.SetupListeners();
         }
 
+        /// <summary>
+        /// Listens for a game message, but only in campaigns that play with the mod. The save's wings are still
+        /// loaded into the session regardless (see <see cref="OnGameLoadFinishedMessage"/>), so they save back intact.
+        /// </summary>
         public static SubscriptionHandle Subscribe<TMessage>(Action<MessageCenterMessage> callback)
             where TMessage : MessageCenterMessage
         {
-            return MessageCenter.PersistentSubscribe<TMessage>(callback);
+            return MessageCenter.PersistentSubscribe<TMessage>(message =>
+            {
+                if (ActiveFeatures.IsModEnabled(WayfarersWingsRedux.WayfarersWingsReduxPlugin.ModGuid)) callback(message);
+            });
         }
 
         /// <summary>Raised once a save's wings are loaded into the session.</summary>

@@ -29,33 +29,33 @@ namespace WayfarersWings.Models.Conditions.Events
         public void SetupListeners()
         {
             // Orbit
-            Messages.PersistentSubscribe<SOIEnteredMessage>(OnSOIEnteredMessage);
-            Messages.PersistentSubscribe<StableOrbitCreatedMessage>(OnStableOrbitCreatedMessage);
+            MessageListener.Subscribe<SOIEnteredMessage>(OnSOIEnteredMessage);
+            MessageListener.Subscribe<StableOrbitCreatedMessage>(OnStableOrbitCreatedMessage);
 
             // Vessel
-            Messages.PersistentSubscribe<LaunchFromVABMessage>(OnLaunchFromVABMessage);
-            Messages.PersistentSubscribe<VesselLaunchedMessage>(OnVesselLaunched);
-            Messages.PersistentSubscribe<VesselSituationChangedMessage>(OnVesselSituationChangedMessage);
-            Messages.PersistentSubscribe<VesselLandedGroundAtRestMessage>(OnVesselLandedGroundAtRestMessage);
-            Messages.PersistentSubscribe<VesselLandedWaterAtRestMessage>(OnVesselLandedWaterAtRestMessage);
-            Messages.PersistentSubscribe<VesselRecoveredMessage>(OnVesselRecovered);
-            Messages.PersistentSubscribe<VesselDockedMessage>(OnVesselDocked);
+            MessageListener.Subscribe<LaunchFromVABMessage>(OnLaunchFromVABMessage);
+            MessageListener.Subscribe<VesselLaunchedMessage>(OnVesselLaunched);
+            MessageListener.Subscribe<VesselSituationChangedMessage>(OnVesselSituationChangedMessage);
+            MessageListener.Subscribe<VesselLandedGroundAtRestMessage>(OnVesselLandedGroundAtRestMessage);
+            MessageListener.Subscribe<VesselLandedWaterAtRestMessage>(OnVesselLandedWaterAtRestMessage);
+            MessageListener.Subscribe<VesselRecoveredMessage>(OnVesselRecovered);
+            MessageListener.Subscribe<VesselDockedMessage>(OnVesselDocked);
 
             // Vessel Observer
-            Messages.PersistentSubscribe<WingVesselGeeForceUpdatedMessage>(OnWingVesselUpdatedMessage);
-            Messages.PersistentSubscribe<WingVesselHasMovedOnSurfaceUpdatedMessage>(OnWingVesselUpdatedMessage);
-            Messages.PersistentSubscribe<WingVesselAtmDensityUpdatedMessage>(OnWingVesselUpdatedMessage);
+            MessageListener.Subscribe<WingVesselGeeForceUpdatedMessage>(OnWingVesselUpdatedMessage);
+            MessageListener.Subscribe<WingVesselHasMovedOnSurfaceUpdatedMessage>(OnWingVesselUpdatedMessage);
+            MessageListener.Subscribe<WingVesselAtmDensityUpdatedMessage>(OnWingVesselUpdatedMessage);
 
             // EVA
-            Messages.PersistentSubscribe<EVAEnteredMessage>(OnEVAEnteredMessage);
-            Messages.PersistentSubscribe<EVALeftMessage>(OnEVALeftMessage);
-            Messages.PersistentSubscribe<FlagPlantedMessage>(OnFlagPlantedMessage);
+            MessageListener.Subscribe<EVAEnteredMessage>(OnEVAEnteredMessage);
+            MessageListener.Subscribe<EVALeftMessage>(OnEVALeftMessage);
+            MessageListener.Subscribe<FlagPlantedMessage>(OnFlagPlantedMessage);
 
             // Kerbal Profile
-            Messages.PersistentSubscribe<WingKerbalRegionsUpdatedMessage>(OnWingKerbalRegionsUpdatedMessage);
+            MessageListener.Subscribe<WingKerbalRegionsUpdatedMessage>(OnWingKerbalRegionsUpdatedMessage);
 
             // Science
-            Messages.PersistentSubscribe<VesselScienceSituationChangedMessage>(OnVesselScienceSituationChanged);
+            MessageListener.Subscribe<VesselScienceSituationChangedMessage>(OnVesselScienceSituationChanged);
             // TODO implement this
             // Messages.PersistentSubscribe<ResearchReportScoredMessage>(OnResearchReportScoredMessage);
         }

@@ -23,7 +23,7 @@ namespace WayfarersWingsRedux.UI
 
         private readonly AppShell _root;
         private readonly Tips _tips;
-        private readonly UIDocument _document;
+        private readonly PanelRenderer _document;
         private readonly ScrollView _list;
 
         public MissionSummaryWindow(Texture2D icon)

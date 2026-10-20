@@ -1,6 +1,6 @@
 using System;
 using System.Globalization;
-using ReduxLib.GameInterfaces;
+using UitkForKsp2.API;
 
 namespace WayfarersWingsRedux.UI
 {

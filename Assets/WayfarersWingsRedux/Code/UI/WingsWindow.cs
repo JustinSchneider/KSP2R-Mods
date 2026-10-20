@@ -41,7 +41,7 @@ namespace WayfarersWingsRedux.UI
 
         private readonly AppShell _root;
         private readonly Tips _tips;
-        private readonly UIDocument _document;
+        private readonly PanelRenderer _document;
         private readonly Button _kerbalsTab, _ribbonsTab;
         private readonly VisualElement _kerbalsPage, _ribbonsPage;
         private readonly ScrollView _kerbalList, _detail, _ribbonGrid;
@@ -108,6 +108,7 @@ namespace WayfarersWingsRedux.UI
             queryRow.style.marginTop = 6;
             toolbar.Add(queryRow);
             _filter = new DropdownField();
+            WideDropdownMenu.Apply(_filter);
             _filter.style.flexGrow = 1;
             _filter.style.marginLeft = 0;
             _filter.RegisterValueChangedCallback(e =>
@@ -117,6 +118,7 @@ namespace WayfarersWingsRedux.UI
             });
             queryRow.Add(_filter);
             _sort = new DropdownField();
+            WideDropdownMenu.Apply(_sort);
             _sort.style.flexGrow = 1;
             _sort.RegisterValueChangedCallback(e =>
             {

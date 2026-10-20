@@ -12,6 +12,7 @@ using KSP.Messages;
 using KSP.Sim.impl;
 using UnityEngine;
 using WayfarersWings.Managers.Observer.Properties.Types;
+using SpaceWarp2.API.Features;
 
 namespace WayfarersWings.Managers.Observer
 {
@@ -91,7 +92,9 @@ namespace WayfarersWings.Managers.Observer
         {
             Instance = this;
 
-            MessageListener.Subscribe<GameStateChangedMessage>(OnGameStateChangedMessage);
+            // Not gated like the others: leaving a campaign must still stop the observer, and by then the main menu's
+            // features (which leave the mod out) may already be active.
+            MessageListener.MessageCenter.PersistentSubscribe<GameStateChangedMessage>(OnGameStateChangedMessage);
             MessageListener.Subscribe<VesselChangingMessage>(OnVesselChangingMessage);
             MessageListener.Subscribe<VesselChangedMessage>(OnVesselChangedMessage);
         }
@@ -99,7 +102,8 @@ namespace WayfarersWings.Managers.Observer
         private void OnGameStateChangedMessage(MessageCenterMessage message)
         {
             var gameStateMessage = message as GameStateChangedMessage;
-            var isValid = gameStateMessage!.CurrentState is GameState.FlightView or GameState.Map3DView;
+            var isValid = gameStateMessage!.CurrentState is GameState.FlightView or GameState.Map3DView
+                          && ActiveFeatures.IsModEnabled(WayfarersWingsRedux.WayfarersWingsReduxPlugin.ModGuid);
 
             switch (isValid)
             {
