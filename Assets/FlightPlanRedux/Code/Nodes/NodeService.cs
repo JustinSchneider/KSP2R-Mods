@@ -80,6 +80,28 @@ namespace FlightPlanRedux.Nodes
         }
 
         /// <summary>
+        /// Roughly how long the vessel needs for a burn, stage by stage from the game's Δv data, as the game's own
+        /// solver does once a node exists. NaN when the vessel has no thrust or not enough Δv.
+        /// </summary>
+        public static double EstimateBurnDuration(VesselComponent vessel, double deltaV)
+        {
+            var stages = vessel?.VesselDeltaV?.StageInfo;
+            if (stages == null || deltaV <= 0) return double.NaN;
+            double left = deltaV, seconds = 0;
+            foreach (var stage in stages)
+            {
+                if (stage.DeltaVActual <= 0 || stage.ThrustActual <= 0 || stage.IspActual <= 0) continue;
+                double dv = Math.Min(left, stage.DeltaVActual);
+                double ve = stage.IspActual * 9.80665;
+                // Tonnes and kilonewtons, so mass / thrust is in seconds per (m/s).
+                seconds += stage.StartMass * ve / stage.ThrustActual * (1 - Math.Exp(-dv / ve));
+                left -= dv;
+                if (left <= 1e-6) return seconds;
+            }
+            return double.NaN;
+        }
+
+        /// <summary>
         /// Makes a node for a burn given as a world-frame Δv (as the MechJeb calculator returns it), planned on
         /// <paramref name="planningOrbit"/>. With <paramref name="replaceExisting"/> the vessel's nodes go first.
         /// </summary>
@@ -97,8 +119,13 @@ namespace FlightPlanRedux.Nodes
             var maneuvers = game?.SpaceSimulation?.Maneuvers;
             if (vessel == null || maneuvers == null) { Fail(result, "NodeFailed", done); yield break; }
 
+            // With its node gone, SAS drops from Maneuver to Stability Assist and would hold the old node's attitude;
+            // put it back on the new node once there is one.
+            var autopilot = vessel.AutopilotStatus;
+            bool restoreManeuverSas = false;
             if (replaceExisting && Nodes(vessel).Count > 0)
             {
+                restoreManeuverSas = autopilot.IsEnabled && autopilot.Mode == AutopilotMode.Maneuver;
                 Delete(vessel, Nodes(vessel));
                 // Removing nodes reshapes the predicted trajectory; let the solver catch up first.
                 yield return new WaitForFixedUpdate();
@@ -177,6 +204,9 @@ namespace FlightPlanRedux.Nodes
                 }
                 yield return new WaitForFixedUpdate();
             }
+
+            if (restoreManeuverSas && vessel.AutopilotStatus.Mode != AutopilotMode.Maneuver)
+                vessel.SetAutopilotMode(AutopilotMode.Maneuver);
 
             RefreshMapGizmo(node);
             result.After = PatchAfter(vessel, node.Time + 1);
@@ -264,7 +294,8 @@ namespace FlightPlanRedux.Nodes
             try
             {
                 MapCore mapCore = null;
-                if (Game.Map.TryGetMapCore(out mapCore) && mapCore != null)
+                // The map view is built the first time it opens; until then there's no marker to refresh.
+                if (Game.Map.TryGetMapCore(out mapCore) && mapCore?.map3D?.ManeuverManager != null)
                 {
                     mapCore.map3D.ManeuverManager.GetNodeDataForVessels();
                     mapCore.map3D.ManeuverManager.UpdatePositionForGizmo(node.NodeID);

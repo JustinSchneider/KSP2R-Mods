@@ -46,6 +46,9 @@ namespace FlightPlanRedux.UI
         private const float ConfirmSeconds = 4, ResultSeconds = 10;
         private const float FieldWidth = 96;
 
+        /// <summary>Share of the burn duration a node starts before its planned time, centring the burn on it.</summary>
+        private const double BurnOffsetFactor = -0.5;
+
         private enum TargetKind { Celestial, Vessel, Port }
 
         private static readonly Dictionary<Tab, string> TabIcons = new Dictionary<Tab, string>
@@ -1018,7 +1021,7 @@ namespace FlightPlanRedux.UI
                 _plan = PlanNow(vessel, ut, orbit, earliest);
             }
 
-            ShowPreview(_plan, ut, orbit);
+            ShowPreview(_plan, vessel, ut, orbit);
             int nodeCount = NodeService.Nodes(vessel).Count;
             bool confirming = Time.unscaledTime < _confirmReplaceUntil;
             _makeButton.text = Loc.T(nodeCount > 0 ? "Button/AddNode" : "Button/MakeNode");
@@ -1045,12 +1048,15 @@ namespace FlightPlanRedux.UI
             return Planner.Plan(_maneuver, _timeRef, ctx, inputs, resonant);
         }
 
-        private void ShowPreview(BurnPlan plan, double ut, PatchedConicsOrbit orbit)
+        private void ShowPreview(BurnPlan plan, VesselComponent vessel, double ut, PatchedConicsOrbit orbit)
         {
             _preview.Begin();
             if (plan != null && plan.Valid)
             {
-                _preview.Set("BurnIn", Ui.Duration(plan.UT - ut));
+                // Time to ignition, as the stock burn timer counts it: the node starts ahead of the planned time.
+                double duration = NodeService.EstimateBurnDuration(vessel, plan.DeltaV.magnitude);
+                double start = double.IsNaN(duration) ? plan.UT : plan.UT + duration * BurnOffsetFactor;
+                _preview.Set("BurnIn", Ui.Duration(Math.Max(0, start - ut)));
                 _preview.Set("DeltaV", Ui.Speed(plan.DeltaV.magnitude));
                 var b = plan.BurnVector;
                 _preview.Set("Components", Loc.F("Value/Components", Ui.Number(b.z, 1), Ui.Number(b.y, 1), Ui.Number(b.x, 1)));
@@ -1117,7 +1123,7 @@ namespace FlightPlanRedux.UI
             }
 
             _creating = true;
-            _host.Nodes.Create(vessel, plan.DeltaV, plan.UT, orbit, -0.5, replace, result =>
+            _host.Nodes.Create(vessel, plan.DeltaV, plan.UT, orbit, BurnOffsetFactor, replace, result =>
             {
                 _creating = false;
                 _planDirty = true;
